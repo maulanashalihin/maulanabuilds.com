@@ -1,11 +1,376 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import LucideIcons from '../components/LucideIcons.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const projects = [
+	{
+		title: 'Laju.dev',
+		description: 'AI-native full-stack TypeScript framework. Ship products 10x faster with zero config. 258k req/sec (11x faster than Express). Built-in auth, SQLite, Svelte 5, and AI workflows.',
+		url: 'https://laju.dev',
+		tags: ['TypeScript', 'Svelte 5', 'AI-Native', 'SQLite'],
+		logo: '/laju.png',
+		days: 'v1.0.9'
+	},
+	{
+		title: 'Velist.dev',
+		description: 'AI-native fullstack framework for multi-agent collaboration. Zero-to-production in minutes with mandatory human review points. Bun + Elysia + Svelte 5.',
+		url: 'https://velist.dev',
+		tags: ['Bun', 'Elysia', 'Svelte 5', 'AI Workflows'],
+		logo: '/velist.png',
+		days: 'Latest'
+	},
+	{
+		title: 'SlugPost',
+		description: 'A free online publishing platform that converts Markdown and HTML into shareable web pages with custom URLs. No registration required.',
+		url: 'https://slugpost.com',
+		tags: ['Markdown', 'Publishing', 'Web Platform'],
+		logo: '/slugpost.png',
+		days: 'Live'
+	},
+	{
+		title: 'Antre.in',
+		description: 'Cloud-based queue management SaaS for healthcare and service businesses. Digital waiting room with booking, notifications, and cashier integration.',
+		url: 'https://antre.in',
+		tags: ['SaaS', 'Queue Management', 'Healthcare'],
+		logo: '/antrein.png',
+		days: 'Live'
+	}
+];
 ---
 
 <Layout>
-	<Welcome />
+	<LucideIcons>
+		<!-- Hero Section -->
+		<section class="max-w-7xl mx-auto px-6 pt-32 pb-24 md:pt-40 md:pb-32">
+			<div class="grid md:grid-cols-12 gap-12 items-center">
+				<div class="md:col-span-8">
+					<div class="inline-flex items-center gap-2 border border-[#2A2F3A] bg-[#14181F] text-cyan-400 px-4 py-1.5 rounded-full text-sm mb-8">
+						<i data-lucide="shield-check" class="w-4 h-4"></i>
+						Veteran Engineering | 100% IP Handover
+					</div>
+					<h1 class="text-4xl md:text-6xl font-bold tracking-tighter leading-[1.1] mb-8">
+						High-Fidelity MVP Development. <br>
+						<span class="text-gray-500">Shipped in 4 Weeks.</span>
+					</h1>
+					<p class="text-xl text-gray-400 mb-12 max-w-2xl leading-relaxed">
+						Stop gambling with agencies and generic freelancers. I am a senior technical founder who builds core product logic that scales. Fixed $2,500 scope. Zero friction.
+					</p>
+					<div class="flex flex-col sm:flex-row gap-6 items-center">
+						<a href="https://calendly.com/maulana-drip/30min" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center inline-flex items-center justify-center gap-2.5 bg-cyan-500 text-[#0A0D12] font-bold text-lg px-8 py-4 rounded-xl shadow-lg shadow-cyan-900/40 hover:bg-cyan-400 transition duration-300">
+							Discuss Your Architecture
+							<i data-lucide="arrow-right" class="w-5 h-5"></i>
+						</a>
+						<span class="inline-flex items-center gap-1.5 text-emerald-400 text-sm font-medium">
+							<span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+							Available Immediately
+						</span>
+					</div>
+				</div>
+				<div class="md:col-span-4 hidden md:block border border-[#2A2F3A] bg-[#0F131A] p-6 rounded-2xl shadow-inner">
+					<div class="flex items-center gap-3 border-b border-[#2A2F3A] pb-4 mb-4">
+						<i data-lucide="code" class="w-7 h-7 text-cyan-400"></i>
+						<h3 class="text-lg font-bold text-gray-300">maulana.dev</h3>
+					</div>
+					<div class="space-y-4 text-sm text-gray-500">
+						<p>// Initialize_MVP_Sprint()</p>
+						<p><span class="text-cyan-400">const</span> timeline = "4_weeks";</p>
+						<p><span class="text-cyan-400">const</span> cost = "$2,500";</p>
+						<p><span class="text-cyan-400">const</span> output = "Production_Ready";</p>
+						<p class="text-gray-400 pt-3">await Maulana.ship_product();</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Value Proposition Section -->
+		<section class="bg-[#0F131A] py-24 border-t border-[#2A2F3A]">
+			<div class="max-w-7xl mx-auto px-6">
+				<div class="grid md:grid-cols-12 gap-12">
+					<div class="md:col-span-5">
+						<div class="sticky top-12">
+							<i data-lucide="zap" class="w-10 h-10 text-cyan-400 mb-6"></i>
+							<h2 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-100 mb-6 leading-snug">
+								Efficient Validation for Non-Technical Founders.
+							</h2>
+							<p class="text-gray-400 text-lg max-w-md">Your biggest risk is not wrong code, but the wrong time to market. I optimize for velocity and feedback loops.</p>
+						</div>
+					</div>
+
+					<div class="md:col-span-7 space-y-10">
+						<div class="border border-[#2A2F3A] bg-[#0A0D12] p-8 rounded-2xl hover:border-cyan-800 transition">
+							<i data-lucide="banknote" class="w-8 h-8 text-gray-500 mb-4"></i>
+							<h3 class="text-xl font-bold mb-3">Skip Agency Bureaucracy</h3>
+							<p class="text-gray-400 leading-relaxed">Don't pay for account managers, redundant sales reps, and overhead. At Maulana Builds, you have direct access to the senior engineer writing every line of code.</p>
+						</div>
+						<div class="border border-[#2A2F3A] bg-[#0A0D12] p-8 rounded-2xl hover:border-cyan-800 transition">
+							<i data-lucide="gauge" class="w-8 h-8 text-gray-500 mb-4"></i>
+							<h3 class="text-xl font-bold mb-3">High-Velocity Shipping</h3>
+							<p class="text-gray-400 leading-relaxed">I leverage 11+ years of boilerplate code to launch your MVP in weeks, not months. While competitors are designing tech specs, we are gathering user feedback.</p>
+						</div>
+						<div class="border border-[#2A2F3A] bg-[#0A0D12] p-8 rounded-2xl hover:border-cyan-800 transition">
+							<i data-lucide="orbit" class="w-8 h-8 text-gray-500 mb-4"></i>
+							<h3 class="text-xl font-bold mb-3">Scalable Architecture</h3>
+							<p class="text-gray-400 leading-relaxed">I don't just write code; I design systems. Your MVP will have a solid data foundation that can be expanded later by a larger engineering team.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Tech Stack Section -->
+		<section class="bg-[#0A0D12] py-12 border-t border-[#2A2F3A]">
+			<div class="max-w-7xl mx-auto px-6 text-center">
+				<p class="text-xs font-bold tracking-widest text-gray-500 uppercase mb-6">
+					Engineered with High-Performance Technologies
+				</p>
+				<div class="flex flex-wrap justify-center items-center gap-4 md:gap-8">
+					<div class="flex items-center gap-2 border border-[#2A2F3A] bg-[#0F131A] px-4 py-2 rounded-lg text-gray-400 text-sm font-mono hover:border-cyan-800 transition cursor-default">
+						<i data-lucide="layers" class="w-4 h-4 text-cyan-500"></i> Svelte / React
+					</div>
+					<div class="flex items-center gap-2 border border-[#2A2F3A] bg-[#0F131A] px-4 py-2 rounded-lg text-gray-400 text-sm font-mono hover:border-cyan-800 transition cursor-default">
+						<i data-lucide="zap" class="w-4 h-4 text-cyan-500"></i> Go / Bun
+					</div>
+					<div class="flex items-center gap-2 border border-[#2A2F3A] bg-[#0F131A] px-4 py-2 rounded-lg text-gray-400 text-sm font-mono hover:border-cyan-800 transition cursor-default">
+						<i data-lucide="database" class="w-4 h-4 text-cyan-500"></i> PostgreSQL / SQLite
+					</div>
+					<div class="flex items-center gap-2 border border-[#2A2F3A] bg-[#0F131A] px-4 py-2 rounded-lg text-gray-400 text-sm font-mono hover:border-cyan-800 transition cursor-default">
+						<i data-lucide="server" class="w-4 h-4 text-cyan-500"></i> VPS / Vercel / Cloudflare
+					</div>
+					<div class="flex items-center gap-2 border border-[#2A2F3A] bg-[#0F131A] px-4 py-2 rounded-lg text-gray-400 text-sm font-mono hover:border-cyan-800 transition cursor-default">
+						<i data-lucide="credit-card" class="w-4 h-4 text-cyan-500"></i> Stripe Integration
+					</div>
+				</div>
+				<p class="text-xs text-gray-600 mt-6">
+					*Architecture is tailored for speed, scalability, and zero bloated server costs.
+				</p>
+			</div>
+		</section>
+
+		<!-- 4-Week Blueprint Section -->
+		<section class="max-w-7xl mx-auto px-6 py-24 md:py-32">
+			<div class="mb-20 text-center md:text-left">
+				<div class="text-cyan-400 text-sm font-bold tracking-widest uppercase mb-3">// The Specification</div>
+				<h2 class="text-3xl md:text-5xl font-bold tracking-tighter text-gray-100 mb-6">
+					The 4-Week Validation Blueprint
+				</h2>
+				<p class="text-gray-400 text-lg max-w-2xl mx-auto md:mx-0">Every core component necessary to acquire, retain, and charge your early adopters.</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+				<div class="border-t-2 border-cyan-800 bg-[#0F131A] p-8 rounded-b-xl space-y-4">
+					<div class="flex items-center gap-3">
+						<i data-lucide="layout-dashboard" class="w-6 h-6 text-cyan-400"></i>
+						<h3 class="text-lg font-bold text-gray-200">Core Feature App</h3>
+					</div>
+					<p class="text-sm text-gray-500 leading-relaxed">Fully working Web or Mobile application focused on the ONE main value proposition that solves your users' pain.</p>
+				</div>
+				<div class="border-t-2 border-cyan-800 bg-[#0F131A] p-8 rounded-b-xl space-y-4">
+					<div class="flex items-center gap-3">
+						<i data-lucide="key-round" class="w-6 h-6 text-cyan-400"></i>
+						<h3 class="text-lg font-bold text-gray-200">Secure Admin Panel</h3>
+					</div>
+					<p class="text-sm text-gray-500 leading-relaxed">Complete backend control dashboard to manage users, data flows, and view critical business KPIs.</p>
+				</div>
+				<div class="border-t-2 border-cyan-800 bg-[#0F131A] p-8 rounded-b-xl space-y-4">
+					<div class="flex items-center gap-3">
+						<i data-lucide="credit-card" class="w-6 h-6 text-cyan-400"></i>
+						<h3 class="text-lg font-bold text-gray-200">Payments Integration</h3>
+					</div>
+					<p class="text-sm text-gray-500 leading-relaxed">Stripe or PayPal setup. Your users can complete transactions on Day 1 of launch.</p>
+				</div>
+				<div class="border-t-2 border-cyan-800 bg-[#0F131A] p-8 rounded-b-xl space-y-4">
+					<div class="flex items-center gap-3">
+						<i data-lucide="hard-drive-download" class="w-6 h-6 text-cyan-400"></i>
+						<h3 class="text-lg font-bold text-gray-200">Production Deploy</h3>
+					</div>
+					<p class="text-sm text-gray-500 leading-relaxed">Full deployment on live servers (AWS/Google Cloud/Vercel) with secured database and SSL.</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Portfolio Section -->
+		<section class="max-w-7xl mx-auto px-6 py-24 border-t border-[#2A2F3A]">
+			<div class="mb-16">
+				<div class="text-cyan-400 text-sm font-bold tracking-widest uppercase mb-3">// Proof of Work</div>
+				<h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-gray-100">
+					Recent Shipments.
+				</h2>
+				<p class="text-gray-400 mt-2">I build complex logic, not just pretty buttons.</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+				{projects.map((project) => (
+					<a href={project.url} target="_blank" rel="noopener noreferrer" class="group border border-[#2A2F3A] bg-[#0A0D12] rounded-2xl overflow-hidden hover:border-cyan-800 transition block">
+						<div class="h-48 bg-[#14181F] border-b border-[#2A2F3A] flex items-center justify-center p-6 relative overflow-hidden">
+							<div class="w-20 h-20 bg-[#0A0D12] rounded-xl flex items-center justify-center p-3 border border-[#2A2F3A]">
+								<img src={project.logo} alt={project.title} class="w-full h-full object-contain" />
+							</div>
+							<div class="absolute inset-0 bg-gradient-to-t from-[#0A0D12] to-transparent opacity-80"></div>
+						</div>
+						<div class="p-8">
+							<div class="flex justify-between items-start mb-4">
+								<h3 class="text-xl font-bold text-gray-200">{project.title}</h3>
+								<span class="text-xs font-mono bg-[#14181F] text-cyan-500 border border-[#2A2F3A] px-2 py-1 rounded">{project.days}</span>
+							</div>
+							<p class="text-sm text-gray-500 mb-6">{project.description}</p>
+							<div class="flex flex-wrap gap-2">
+								{project.tags.map((tag) => (
+									<span class="text-xs text-gray-400 bg-[#1A1F26] px-2 py-1 rounded">{tag}</span>
+								))}
+							</div>
+						</div>
+					</a>
+				))}
+			</div>
+
+			<p class="text-sm text-gray-500 text-center mt-8 italic">
+				*Other projects hidden under strict NDA. Live architecture walkthroughs available during our call.
+			</p>
+		</section>
+
+		<!-- 4-Week Sprint Section -->
+		<section class="bg-[#0F131A] py-24 border-t border-[#2A2F3A]">
+			<div class="max-w-7xl mx-auto px-6">
+				<div class="mb-16 md:flex md:justify-between md:items-end">
+					<div>
+						<div class="text-cyan-400 text-sm font-bold tracking-widest uppercase mb-3">// Execution Protocol</div>
+						<h2 class="text-3xl md:text-5xl font-bold tracking-tighter text-gray-100">
+							The 4-Week Sprint.
+						</h2>
+					</div>
+					<p class="text-gray-400 text-lg max-w-md mt-4 md:mt-0">
+						No endless Jira boards. No weekly 2-hour meetings. Just pure, asynchronous execution.
+					</p>
+				</div>
+
+				<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+					<div class="bg-[#0A0D12] border border-[#2A2F3A] p-8 rounded-2xl relative overflow-hidden group hover:border-cyan-800 transition">
+						<div class="text-9xl font-black text-[#14181F] absolute -top-4 -right-4 z-0 group-hover:text-[#1A1F26] transition">1</div>
+						<div class="relative z-10">
+							<i data-lucide="git-branch" class="w-8 h-8 text-cyan-400 mb-6"></i>
+							<h3 class="text-xl font-bold text-gray-200 mb-2">Architecture & Scope</h3>
+							<p class="text-sm text-gray-500 leading-relaxed">We ruthlessly cut useless features. I design the database schema and lock the technical scope.</p>
+						</div>
+					</div>
+					<div class="bg-[#0A0D12] border border-[#2A2F3A] p-8 rounded-2xl relative overflow-hidden group hover:border-cyan-800 transition">
+						<div class="text-9xl font-black text-[#14181F] absolute -top-4 -right-4 z-0 group-hover:text-[#1A1F26] transition">2</div>
+						<div class="relative z-10">
+							<i data-lucide="server-cog" class="w-8 h-8 text-cyan-400 mb-6"></i>
+							<h3 class="text-xl font-bold text-gray-200 mb-2">Backend & Logic</h3>
+							<p class="text-sm text-gray-500 leading-relaxed">Building the engine. API routes, database integrations, authentication, and core business logic.</p>
+						</div>
+					</div>
+					<div class="bg-[#0A0D12] border border-[#2A2F3A] p-8 rounded-2xl relative overflow-hidden group hover:border-cyan-800 transition">
+						<div class="text-9xl font-black text-[#14181F] absolute -top-4 -right-4 z-0 group-hover:text-[#1A1F26] transition">3</div>
+						<div class="relative z-10">
+							<i data-lucide="blocks" class="w-8 h-8 text-cyan-400 mb-6"></i>
+							<h3 class="text-xl font-bold text-gray-200 mb-2">Frontend & UI</h3>
+							<p class="text-sm text-gray-500 leading-relaxed">Connecting the engine to the steering wheel. Implementing a clean, responsive user interface.</p>
+						</div>
+					</div>
+					<div class="bg-[#0A0D12] border border-[#2A2F3A] p-8 rounded-2xl relative overflow-hidden group hover:border-cyan-800 transition">
+						<div class="text-9xl font-black text-[#14181F] absolute -top-4 -right-4 z-0 group-hover:text-[#1A1F26] transition">4</div>
+						<div class="relative z-10">
+							<i data-lucide="rocket" class="w-8 h-8 text-cyan-400 mb-6"></i>
+							<h3 class="text-xl font-bold text-gray-200 mb-2">Testing & Launch</h3>
+							<p class="text-sm text-gray-500 leading-relaxed">Bug squashing, payment gateway live testing, and deploying to your production environment.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- About Section -->
+		<section class="max-w-7xl mx-auto px-6 py-24 border-b border-[#2A2F3A]">
+			<div class="grid md:grid-cols-2 gap-16 items-center">
+				<div class="order-2 md:order-1 space-y-6 text-gray-400 text-lg leading-relaxed">
+					<h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-gray-100 mb-6">
+						Who is writing your code?
+					</h2>
+					<p>
+						Hi, I'm Maulana. I've been engineering software professionally since 2015.
+					</p>
+					<p>
+						I operate as a <strong class="text-cyan-400 font-normal">one-man army</strong>. When you hire an agency, your $20k pays for their fancy office, the CEO's Tesla, and an account manager who doesn't know what an API is. The actual coding is often outsourced to a junior dev.
+					</p>
+					<p>
+						When you work with me, you speak directly to the senior architect building your product. My low overhead is why I can deliver premium, production-ready code at a fraction of the traditional cost.
+					</p>
+					<div class="flex items-center gap-6 pt-4">
+						<div class="text-center">
+							<div class="text-3xl font-bold text-gray-100">11+</div>
+							<div class="text-sm text-gray-500 uppercase tracking-wider">Years Exp</div>
+						</div>
+						<div class="w-px h-10 bg-[#2A2F3A]"></div>
+						<div class="text-center">
+							<div class="text-3xl font-bold text-gray-100">100%</div>
+							<div class="text-sm text-gray-500 uppercase tracking-wider">Code Ownership</div>
+						</div>
+					</div>
+				</div>
+				<div class="order-1 md:order-2 bg-[#0F131A] border border-[#2A2F3A] p-8 rounded-3xl flex items-center justify-center min-h-[400px]">
+					<div class="text-center space-y-4">
+						<img src="/maulana.webp" alt="Maulana" class="w-48 h-48 object-cover rounded-full mx-auto border-2 border-cyan-800 shadow-[0_0_30px_rgba(34,211,238,0.1)]" />
+						<div class="text-xl font-bold text-gray-200">Maulana.</div>
+						<div class="text-sm text-cyan-500 font-mono bg-cyan-950/30 px-3 py-1 rounded-full inline-block border border-cyan-900/50">
+							Senior Full-Stack Engineer
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Rules Section -->
+		<section class="bg-[#050608] py-24">
+			<div class="max-w-4xl mx-auto px-6 text-center">
+				<h2 class="text-3xl font-bold tracking-tighter text-gray-100 mb-12">
+					The Rules of Engagement.
+				</h2>
+				<div class="space-y-4 text-left">
+					<div class="flex items-start gap-4 p-6 bg-[#0A0D12] border border-red-900/30 rounded-xl">
+						<i data-lucide="lock" class="w-6 h-6 text-red-500 shrink-0 mt-1"></i>
+						<div>
+							<h4 class="text-lg font-bold text-gray-200 mb-1">Strict Scope Lock</h4>
+							<p class="text-gray-500 text-sm">Once we agree on the MVP features in Week 1, the scope is locked. No "sudden feature requests" mid-development. This ensures we launch on time.</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-4 p-6 bg-[#0A0D12] border border-cyan-900/30 rounded-xl">
+						<i data-lucide="message-square-dashed" class="w-6 h-6 text-cyan-500 shrink-0 mt-1"></i>
+						<div>
+							<h4 class="text-lg font-bold text-gray-200 mb-1">Asynchronous Communication</h4>
+							<p class="text-gray-500 text-sm">We will have one kickoff call. After that, updates are handled via Slack, Email, or Notion. I spend my time writing scalable code, not sitting in useless Zoom meetings.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA Section -->
+		<section class="max-w-5xl mx-auto px-6 py-32 text-center">
+			<div class="bg-gradient-to-b from-[#0F131A] to-[#0A0D12] border border-[#2A2F3A] p-12 md:p-20 rounded-3xl shadow-2xl relative overflow-hidden">
+				<div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-cyan-500/5 blur-[100px] rounded-full pointer-events-none"></div>
+
+				<div class="relative z-10">
+					<h2 class="text-4xl md:text-5xl font-bold tracking-tighter text-gray-100 mb-6">
+						Ready to ship your product?
+					</h2>
+					<p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+						Let's hop on a 15-minute call. No sales pitch. We just discuss your idea, architecture, and see if we are a technical fit.
+					</p>
+					<a href="https://calendly.com/maulana-drip/30min" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-cyan-500 text-[#0A0D12] font-bold text-xl px-10 py-5 rounded-xl shadow-[0_0_40px_rgba(34,211,238,0.3)] hover:bg-cyan-400 transition duration-300 hover:scale-105 transform">
+						<i data-lucide="calendar-check" class="w-6 h-6"></i>
+						Book Your 15-Min Fit Call
+					</a>
+					<p class="text-sm text-gray-600 mt-6">
+						I only take 1 new project per month to ensure code quality.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="border-t border-[#2A2F3A] py-8 text-center text-sm text-gray-600">
+			<p>&copy; 2026 Maulana Builds. Operating globally from Indonesia.</p>
+		</footer>
+	</LucideIcons>
 </Layout>
