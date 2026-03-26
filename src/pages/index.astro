@@ -386,10 +386,17 @@ import LucideIcons from '../components/LucideIcons.astro';
 					<p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
 						Let's hop on a 15-minute call. No sales pitch. We just discuss your idea, architecture, and see if we are a technical fit.
 					</p>
-					<a href="https://calendly.com/maulana-drip/30min" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-cyan-500 text-[#0A0D12] font-bold text-xl px-10 py-5 rounded-xl shadow-[0_0_40px_rgba(34,211,238,0.3)] hover:bg-cyan-400 transition duration-300 hover:scale-105 transform">
-						<i data-lucide="calendar-check" class="w-6 h-6"></i>
-						Book Your 15-Min Fit Call
-					</a>
+					<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+						<a href="https://calendly.com/maulana-drip/30min" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-cyan-500 text-[#0A0D12] font-bold text-xl px-10 py-5 rounded-xl shadow-[0_0_40px_rgba(34,211,238,0.3)] hover:bg-cyan-400 transition duration-300 hover:scale-105 transform">
+							<i data-lucide="calendar-check" class="w-6 h-6"></i>
+							Book Your 15-Min Fit Call
+						</a>
+						<span class="text-gray-600">or</span>
+						<a href="mailto:maulana@drip.id" class="inline-flex items-center justify-center gap-2 text-gray-400 hover:text-cyan-400 transition">
+							<i data-lucide="mail" class="w-5 h-5"></i>
+							maulana@drip.id
+						</a>
+					</div>
 					<p class="text-sm text-gray-600 mt-6">
 						I only take 1 new project per month to ensure code quality.
 					</p>
@@ -399,6 +406,17 @@ import LucideIcons from '../components/LucideIcons.astro';
 
 		<!-- Footer -->
 		<footer class="border-t border-[#2A2F3A] py-8 text-center text-sm text-gray-600">
+			<div class="flex flex-col md:flex-row gap-4 justify-center items-center mb-4">
+				<a href="mailto:maulana@drip.id" class="hover:text-cyan-400 transition">
+					<i data-lucide="mail" class="w-4 h-4 inline mr-1"></i>
+					maulana@drip.id
+				</a>
+				<span class="hidden md:inline text-gray-700">•</span>
+				<a href="https://calendly.com/maulana-drip/30min" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition">
+					<i data-lucide="calendar" class="w-4 h-4 inline mr-1"></i>
+					Schedule a Call
+				</a>
+			</div>
 			<p>&copy; 2026 Maulana Builds. Operating globally from Indonesia.</p>
 		</footer>
 	</LucideIcons>
