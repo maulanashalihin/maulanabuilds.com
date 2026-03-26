@@ -1,0 +1,186 @@
+---
+// FAQ Section Component
+---
+
+<section id="faq" class="max-w-4xl mx-auto px-6 py-24 border-t border-[#2A2F3A]">
+	<div class="text-center mb-16">
+		<div class="text-cyan-400 text-sm font-bold tracking-widest uppercase mb-3">Common Questions</div>
+		<h2 class="text-3xl md:text-5xl font-bold tracking-tighter text-gray-100">
+			Frequently Asked Questions.
+		</h2>
+	</div>
+
+	<div class="space-y-4">
+		<!-- FAQ Item 1 -->
+		<div class="border border-[#2A2F3A] bg-[#0A0D12] rounded-xl overflow-hidden">
+			<button
+				class="faq-btn w-full flex items-center justify-between p-6 text-left hover:bg-[#0F131A] transition"
+				aria-expanded="false"
+			>
+				<span class="font-bold text-gray-200 pr-8">What do I get for $5,000?</span>
+				<i data-lucide="chevron-down" class="w-5 h-5 text-cyan-400 shrink-0 transition-transform"></i>
+			</button>
+			<div class="faq-content hidden px-6 pb-6 text-gray-400 leading-relaxed">
+				<p class="mb-3">You get a fully functional, production-ready MVP with:</p>
+				<ul class="list-disc list-inside space-y-1 mb-3 text-gray-400">
+					<li>1-2 Core features (fully polished)</li>
+					<li>Secure authentication (JWT/OAuth)</li>
+					<li>Database design with proper indexing</li>
+					<li>API documentation (OpenAPI/Swagger)</li>
+					<li>Security: SQL injection prevention, XSS protection</li>
+					<li>Deployment with CI/CD pipeline</li>
+					<li>14-day bug fix warranty</li>
+				</ul>
+				<p>Everything needed to start acquiring paying customers, built with 11+ years of engineering expertise.</p>
+			</div>
+		</div>
+
+		<!-- FAQ Item 2 -->
+		<div class="border border-[#2A2F3A] bg-[#0A0D12] rounded-xl overflow-hidden">
+			<button
+				class="faq-btn w-full flex items-center justify-between p-6 text-left hover:bg-[#0F131A] transition"
+				aria-expanded="false"
+			>
+				<span class="font-bold text-gray-200 pr-8">Do I own the code and IP?</span>
+				<i data-lucide="chevron-down" class="w-5 h-5 text-cyan-400 shrink-0 transition-transform"></i>
+			</button>
+			<div class="faq-content hidden px-6 pb-6 text-gray-400 leading-relaxed">
+				<p><strong class="text-cyan-400">Yes, 100%.</strong> Unlike agencies that retain partial ownership or charge licensing fees, you receive complete IP handover. All code, designs, and documentation belong to you. You can hire another developer tomorrow without any legal complications.</p>
+			</div>
+		</div>
+
+		<!-- FAQ Item 3 -->
+		<div class="border border-[#2A2F3A] bg-[#0A0D12] rounded-xl overflow-hidden">
+			<button
+				class="faq-btn w-full flex items-center justify-between p-6 text-left hover:bg-[#0F131A] transition"
+				aria-expanded="false"
+			>
+				<span class="font-bold text-gray-200 pr-8">What about ongoing support after launch?</span>
+				<i data-lucide="chevron-down" class="w-5 h-5 text-cyan-400 shrink-0 transition-transform"></i>
+			</button>
+			<div class="faq-content hidden px-6 pb-6 text-gray-400 leading-relaxed">
+				<p>I offer optional ongoing support retainers at <strong class="text-gray-300">$4,000/month</strong> for bug fixes, feature additions, and maintenance. This includes:</p>
+				<ul class="list-disc list-inside space-y-1 mt-2 text-gray-400">
+					<li>Priority bug fixes (24-48h response)</li>
+					<li>Up to 15 hours feature development</li>
+					<li>Server monitoring & uptime alerts</li>
+					<li>Dependency updates & security patches</li>
+					<li>Dedicated Slack/Email channel</li>
+				</ul>
+				<p class="mt-3">You're never locked in—you can hire anyone else since you own the code.</p>
+			</div>
+		</div>
+
+		<!-- FAQ Item 4 -->
+		<div class="border border-[#2A2F3A] bg-[#0A0D12] rounded-xl overflow-hidden">
+			<button
+				class="faq-btn w-full flex items-center justify-between p-6 text-left hover:bg-[#0F131A] transition"
+				aria-expanded="false"
+			>
+				<span class="font-bold text-gray-200 pr-8">What technologies do you use?</span>
+				<i data-lucide="chevron-down" class="w-5 h-5 text-cyan-400 shrink-0 transition-transform"></i>
+			</button>
+			<div class="faq-content hidden px-6 pb-6 text-gray-400 leading-relaxed">
+				<p>I tailor the stack to your needs, but typically use:</p>
+				<ul class="list-disc list-inside space-y-1 mb-3 text-gray-400">
+					<li><strong class="text-gray-300">Frontend:</strong> Svelte/React</li>
+					<li><strong class="text-gray-300">Backend:</strong> Go/Bun</li>
+					<li><strong class="text-gray-300">Database:</strong> PostgreSQL/SQLite</li>
+					<li><strong class="text-gray-300">Deploy:</strong> VPS/Vercel/Cloudflare</li>
+				</ul>
+				<p>Stripe for payments and authentication included from day one. All code is production-grade with proper security, testing, and documentation.</p>
+			</div>
+		</div>
+
+		<!-- FAQ Item 5 -->
+		<div class="border border-[#2A2F3A] bg-[#0A0D12] rounded-xl overflow-hidden">
+			<button
+				class="faq-btn w-full flex items-center justify-between p-6 text-left hover:bg-[#0F131A] transition"
+				aria-expanded="false"
+			>
+				<span class="font-bold text-gray-200 pr-8">How do we communicate during the project?</span>
+				<i data-lucide="chevron-down" class="w-5 h-5 text-cyan-400 shrink-0 transition-transform"></i>
+			</button>
+			<div class="faq-content hidden px-6 pb-6 text-gray-400 leading-relaxed">
+				<p>We start with <strong class="text-gray-300">one kickoff call</strong> to align on scope and architecture. After that, communication is asynchronous via Slack, Email, or Notion. This allows me to focus on writing code instead of sitting in meetings. You'll receive regular progress updates without the friction of scheduled calls.</p>
+			</div>
+		</div>
+
+		<!-- FAQ Item 6 -->
+		<div class="border border-[#2A2F3A] bg-[#0A0D12] rounded-xl overflow-hidden">
+			<button
+				class="faq-btn w-full flex items-center justify-between p-6 text-left hover:bg-[#0F131A] transition"
+				aria-expanded="false"
+			>
+				<span class="font-bold text-gray-200 pr-8">How long does it take?</span>
+				<i data-lucide="chevron-down" class="w-5 h-5 text-cyan-400 shrink-0 transition-transform"></i>
+			</button>
+			<div class="faq-content hidden px-6 pb-6 text-gray-400 leading-relaxed">
+				<p>Timeline depends on the tier:</p>
+				<ul class="list-disc list-inside space-y-1 mt-2 text-gray-400">
+					<li><strong class="text-gray-300">Starter ($5,000):</strong> 1-2 weeks</li>
+					<li><strong class="text-gray-300">Growth ($8,000):</strong> 2-3 weeks</li>
+					<li><strong class="text-gray-300">Scale ($12,000):</strong> 3-4 weeks</li>
+				</ul>
+				<p class="mt-3">During our kickoff call, we'll <strong class="text-gray-300">ruthlessly prioritize features</strong> to ensure on-time delivery. Non-essential features can be added post-launch.</p>
+			</div>
+		</div>
+
+		<!-- FAQ Item 7 -->
+		<div class="border border-[#2A2F3A] bg-[#0A0D12] rounded-xl overflow-hidden">
+			<button
+				class="faq-btn w-full flex items-center justify-between p-6 text-left hover:bg-[#0F131A] transition"
+				aria-expanded="false"
+			>
+				<span class="font-bold text-gray-200 pr-8">Do you use AI for coding?</span>
+				<i data-lucide="chevron-down" class="w-5 h-5 text-cyan-400 shrink-0 transition-transform"></i>
+			</button>
+			<div class="faq-content hidden px-6 pb-6 text-gray-400 leading-relaxed">
+				<p>Yes, I use modern AI tools to accelerate development—but with <strong class="text-gray-300">11+ years of engineering expertise</strong> guiding every decision. The difference:</p>
+				<ul class="list-disc list-inside space-y-1 mt-2 text-gray-400">
+					<li>Security-first architecture (not copy-paste code)</li>
+					<li>Proper testing and error handling</li>
+					<li>Scalable design patterns</li>
+					<li>Production-ready documentation</li>
+				</ul>
+				<p class="mt-3">AI gives me velocity. Experience gives you reliability.</p>
+			</div>
+		</div>
+
+		<!-- FAQ Item 8 -->
+		<div class="border border-[#2A2F3A] bg-[#0A0D12] rounded-xl overflow-hidden">
+			<button
+				class="faq-btn w-full flex items-center justify-between p-6 text-left hover:bg-[#0F131A] transition"
+				aria-expanded="false"
+			>
+				<span class="font-bold text-gray-200 pr-8">What's the payment structure?</span>
+				<i data-lucide="chevron-down" class="w-5 h-5 text-cyan-400 shrink-0 transition-transform"></i>
+			</button>
+			<div class="faq-content hidden px-6 pb-6 text-gray-400 leading-relaxed">
+				<p><strong class="text-gray-300">50% upfront, 50% on delivery.</strong> Your payment is protected:</p>
+				<ul class="list-disc list-inside space-y-1 mt-2 text-gray-400">
+					<li>50% upfront to start the project</li>
+					<li>50% only when you're satisfied with the delivered MVP</li>
+					<li>Full code handover upon final payment</li>
+					<li>Weekly progress demos to ensure you're always in the loop</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	// FAQ accordion functionality
+	document.querySelectorAll('.faq-btn').forEach(button => {
+		button.addEventListener('click', () => {
+			const content = button.nextElementSibling as HTMLElement;
+			const icon = button.querySelector('i');
+			const isExpanded = button.getAttribute('aria-expanded') === 'true';
+			
+			// Toggle current item
+			button.setAttribute('aria-expanded', String(!isExpanded));
+			content.classList.toggle('hidden');
+			icon?.classList.toggle('rotate-180', !isExpanded);
+		});
+	});
+</script>

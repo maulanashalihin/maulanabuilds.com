@@ -1,0 +1,29 @@
+---
+// Back to Top Button Component
+---
+
+<button 
+	id="back-to-top"
+	class="fixed bottom-8 right-8 z-50 bg-cyan-500 text-[#0A0D12] p-3 rounded-full shadow-lg shadow-cyan-900/40 hover:bg-cyan-400 transition opacity-0 pointer-events-none"
+	aria-label="Back to top"
+>
+	<i data-lucide="arrow-up" class="w-5 h-5"></i>
+</button>
+
+<script>
+	const backToTop = document.getElementById('back-to-top');
+	
+	// Show/hide based on scroll position
+	window.addEventListener('scroll', () => {
+		if (window.scrollY > 500) {
+			backToTop?.classList.remove('opacity-0', 'pointer-events-none');
+		} else {
+			backToTop?.classList.add('opacity-0', 'pointer-events-none');
+		}
+	});
+	
+	// Scroll to top on click
+	backToTop?.addEventListener('click', () => {
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	});
+</script>

@@ -1,10 +1,20 @@
 ---
 import '../styles/global.css';
+import Analytics from '../components/Analytics.astro';
+
 interface Props {
 	title?: string;
+	description?: string;
+	image?: string;
 }
 
-const { title = 'Maulana Builds | High-Fidelity Startup MVPs in 4 Weeks' } = Astro.props;
+const { 
+	title = 'Maulana Builds | High-Fidelity Startup MVPs in 4 Weeks',
+	description = 'Stop gambling with agencies. Get a production-ready MVP built by a senior engineer in 4 weeks. Fixed $2,500 scope. 100% IP handover. Available immediately.',
+	image = '/og-image.png'
+} = Astro.props;
+
+const siteUrl = 'https://maulanabuilds.com';
 ---
 
 <!doctype html>
@@ -14,10 +24,36 @@ const { title = 'Maulana Builds | High-Fidelity Startup MVPs in 4 Weeks' } = Ast
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
+		
+		<!-- Preconnect for performance -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		
+		<!-- SEO Meta Tags -->
+		<meta name="description" content={description} />
+		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href={siteUrl + Astro.url.pathname} />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={siteUrl + Astro.url.pathname} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={siteUrl + image} />
+		<meta property="og:site_name" content="Maulana Builds" />
+		
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={siteUrl + Astro.url.pathname} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={siteUrl + image} />
 	</head>
 	<body class="bg-[#0A0D12] text-gray-100 antialiased grid-bg">
+		<Analytics />
 		<slot />
 	</body>
 </html>

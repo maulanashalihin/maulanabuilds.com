@@ -1,0 +1,81 @@
+---
+// Header Component - Navigation with anchor links
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#0A0D12]/80 backdrop-blur-md border-b border-[#2A2F3A]">
+	<div class="max-w-7xl mx-auto px-6">
+		<div class="flex items-center justify-between h-16">
+			<!-- Logo -->
+			<a href="/" class="flex items-center gap-2 text-gray-100 font-bold text-lg hover:text-cyan-400 transition">
+				<i data-lucide="code" class="w-6 h-6 text-cyan-400"></i>
+				<span>Maulana Builds</span>
+			</a>
+
+			<!-- Navigation -->
+			<nav class="hidden md:flex items-center gap-8">
+				<a href="/services" class="text-sm text-gray-400 hover:text-cyan-400 transition">Services</a>
+				<a href="/#portfolio" class="text-sm text-gray-400 hover:text-cyan-400 transition">Portfolio</a>
+				<a href="/#process" class="text-sm text-gray-400 hover:text-cyan-400 transition">Process</a>
+				<a href="/#about" class="text-sm text-gray-400 hover:text-cyan-400 transition">About</a>
+				<a href="/#faq" class="text-sm text-gray-400 hover:text-cyan-400 transition">FAQ</a>
+			</nav>
+
+			<!-- CTA Button -->
+			<a
+				href="https://calendly.com/maulana-drip/30min"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="hidden sm:inline-flex items-center gap-2 bg-cyan-500 text-[#0A0D12] font-bold text-sm px-5 py-2.5 rounded-lg hover:bg-cyan-400 transition"
+			>
+				Book a Call
+				<i data-lucide="arrow-right" class="w-4 h-4"></i>
+			</a>
+
+			<!-- Mobile Menu Button -->
+			<button
+				id="mobile-menu-btn"
+				class="md:hidden p-2 text-gray-400 hover:text-gray-100 transition"
+				aria-label="Toggle menu"
+			>
+				<i data-lucide="menu" class="w-6 h-6"></i>
+			</button>
+		</div>
+	</div>
+
+	<!-- Mobile Menu -->
+	<div id="mobile-menu" class="hidden md:hidden border-t border-[#2A2F3A] bg-[#0A0D12]">
+		<nav class="flex flex-col px-6 py-4 space-y-4">
+			<a href="/services" class="text-sm text-gray-400 hover:text-cyan-400 transition">Services</a>
+			<a href="#portfolio" class="text-sm text-gray-400 hover:text-cyan-400 transition">Portfolio</a>
+			<a href="#process" class="text-sm text-gray-400 hover:text-cyan-400 transition">Process</a>
+			<a href="#about" class="text-sm text-gray-400 hover:text-cyan-400 transition">About</a>
+			<a href="#faq" class="text-sm text-gray-400 hover:text-cyan-400 transition">FAQ</a>
+			<a
+				href="https://calendly.com/maulana-drip/30min"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="inline-flex items-center justify-center gap-2 bg-cyan-500 text-[#0A0D12] font-bold text-sm px-5 py-2.5 rounded-lg hover:bg-cyan-400 transition"
+			>
+				Book a Call
+				<i data-lucide="arrow-right" class="w-4 h-4"></i>
+			</a>
+		</nav>
+	</div>
+</header>
+
+<script>
+	// Mobile menu toggle
+	const menuBtn = document.getElementById('mobile-menu-btn');
+	const mobileMenu = document.getElementById('mobile-menu');
+
+	menuBtn?.addEventListener('click', () => {
+		mobileMenu?.classList.toggle('hidden');
+	});
+
+	// Close mobile menu when clicking a link
+	mobileMenu?.querySelectorAll('a').forEach(link => {
+		link.addEventListener('click', () => {
+			mobileMenu.classList.add('hidden');
+		});
+	});
+</script>

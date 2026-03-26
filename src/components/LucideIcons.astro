@@ -1,13 +1,31 @@
 ---
 // Lucide Icons Component - renders icons client-side
+// Optimized to load once and apply to all icons in the page
 ---
 
-<slot />
+<div class="lucide-icons-container">
+	<slot />
+</div>
 
 <script>
 	import { createIcons, icons } from 'lucide';
-	
-	createIcons({
-		icons,
+
+	// Initialize icons after page load
+	document.addEventListener('DOMContentLoaded', () => {
+		createIcons({
+			icons,
+			attrs: {
+				'aria-hidden': 'true',
+				'focusable': 'false',
+			},
+		});
 	});
 </script>
+
+<style>
+	/* Ensure icons inherit color from parent */
+	.lucide-icons-container svg {
+		display: inline-block;
+		vertical-align: middle;
+	}
+</style>
