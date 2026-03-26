@@ -1,7 +1,7 @@
 # 🚀 Go-to-Market Strategy: First International Client
 
-**Goal:** Land first international client at $5,000-12,000 price point  
-**Timeline:** 30-60 days  
+**Goal:** Land first international client at $5,000-12,000 price point
+**Timeline:** 30-60 days
 **Target:** Bootstrapped founders (US/Europe/Australia)
 
 ---
@@ -10,8 +10,9 @@
 
 **Current Position:**
 - ✅ Website live with premium pricing ($5k-12k)
-- ✅ Strong portfolio (Laju.dev, Velist.dev, Antre.in)
+- ✅ Strong portfolio (Laju.dev 258k req/sec, Velist.dev, Antre.in, SlugPost)
 - ✅ 11+ years experience
+- ✅ Enterprise-grade code, 100% IP handover, production-grade systems
 - ❌ No international testimonials yet
 - ❌ No existing international network
 
@@ -70,36 +71,49 @@
 2/ Start with database schema. Not UI.
    Bad schema = rewrite everything later.
    I spend 2-3 days here alone.
-   
+
    [Show ERD diagram]
 
 3/ Use what you know. Don't experiment.
    Client needed payments → Stripe.
-   Auth → NextAuth.
-   DB → PostgreSQL.
+   Auth → JWT/OAuth.
+   DB → PostgreSQL/SQLite.
+   Frontend → Svelte/React.
    Boring = reliable.
 
 4/ AI for velocity, not decisions.
-   I use Cursor daily. But:
+   I use AI daily. But:
    - I review every line
    - I write tests manually
    - I architect the system
-   
+
    AI = junior dev. You = senior.
 
-5/ Result: 
+5/ Tech stack I use:
+   - Frontend: Svelte, React, TypeScript
+   - Backend: Go, Bun, Node.js
+   - Database: PostgreSQL, SQLite
+   - Deployment: VPS, Vercel, Cloudflare
+
+6/ Result:
    - 10 days from brief to deploy
    - 80% test coverage
    - Zero critical bugs in 3 months
    - Client raised pre-seed with working demo
 
-6/ This is what $8,000 gets you:
+7/ This is what $8,000 gets you:
    - 11 years of patterns
-   - Production-grade code
-   - No technical debt
+   - Enterprise-grade code
+   - 100% IP handover
    - Fast, but not reckless
 
-DMs open if you need an MVP. 
+8/ My portfolio:
+   - Laju.dev: AI-native framework (258k req/sec)
+   - Velist.dev: Multi-agent AI (Bun + Elysia)
+   - Antre.in: B2B healthcare SaaS (live)
+
+DMs open if you need an MVP.
+1 slot left this month.
 ```
 
 ---
@@ -123,19 +137,34 @@ Title: "I'm a senior engineer offering MVP development at $5k-12k. AMA."
 Body:
 Hey IH! I'm Maulana, 11+ years experience, based in Indonesia.
 
-I just launched a service building production-ready MVPs for bootstrapped founders:
+I just launched a service building enterprise-grade MVPs for bootstrapped founders:
 - $5k-12k depending on scope
 - 2-4 weeks delivery
 - 50% upfront, 50% on delivery
-- Full code ownership
+- 100% code ownership
 
-Why so "cheap"? I'm building my international portfolio. 
+Why so "cheap"? I'm building my international portfolio.
 Normal rate would be $15k-25k.
 
 Portfolio:
-- Laju.dev (AI-native framework, 258k req/sec)
-- Velist.dev (Multi-agent AI collaboration)
-- Antre.in (B2B healthcare SaaS, live)
+- Laju.dev (AI-native framework, 258k req/sec, 11x faster than Express)
+- Velist.dev (Multi-agent AI collaboration, Bun + Elysia + Svelte 5)
+- Antre.in (B2B healthcare SaaS, live with paying customers)
+- SlugPost (Publishing platform)
+
+Tech stack:
+- Frontend: Svelte, React, TypeScript
+- Backend: Go, Bun, Node.js
+- Database: PostgreSQL, SQLite
+- Deployment: VPS, Vercel, Cloudflare
+
+What you get:
+✅ Security-first architecture (SQL injection prevention, XSS protection)
+✅ Performance optimized (sub-second page loads, database indexing)
+✅ Scalable design (clean architecture, modular codebase)
+✅ Test coverage (unit, integration, E2E tests)
+✅ Full documentation (API docs, deployment guide)
+✅ Post-launch support (14-60 days warranty depending on tier)
 
 Happy to answer questions about:
 - MVP development process
@@ -168,9 +197,10 @@ AMA! 👇
 - **Outreach:** Connect with 20 founders/week
 - **Message template:**
 ```
-Hi [Name], saw your post about [their startup]. Cool idea! 
+Hi [Name], saw your post about [their startup]. Cool idea!
 
-I'm a senior engineer who specializes in MVP development for bootstrapped founders. 
+I'm a senior engineer who specializes in MVP development for bootstrapped founders.
+I build enterprise-grade MVPs in 2-4 weeks ($5k-12k).
 Just launched a new service at maulanabuilds.com
 
 Not selling, but if you ever need technical advice on your stack, happy to help.
@@ -200,22 +230,24 @@ Subject: Quick question about [Startup Name]'s MVP
 
 Hi [Founder Name],
 
-Congrats on [recent news: YC acceptance / funding / launch]! 
+Congrats on [recent news: YC acceptance / funding / launch]!
 
-I'm reaching out because I help pre-seed startups ship MVPs fast without technical debt.
+I'm reaching out because I help pre-seed startups ship enterprise-grade MVPs fast without technical debt.
 
 Recent work:
-- Laju.dev: AI-native framework (258k req/sec)
-- Velist.dev: Multi-agent AI collaboration
+- Laju.dev: AI-native framework (258k req/sec, 11x faster than Express)
+- Velist.dev: Multi-agent AI collaboration (Bun + Elysia + Svelte 5)
 - Antre.in: B2B healthcare SaaS (live, paying customers)
+- SlugPost: Publishing platform
 
 I'm offering:
 - 2-4 week MVP development
 - $5k-12k depending on scope
 - 50% upfront, 50% on delivery
-- Full code ownership
+- 100% code ownership
+- Enterprise-grade security & performance
 
-If you're still building your MVP or need to iterate fast, 
+If you're still building your MVP or need to iterate fast,
 happy to hop on a 15-min call to discuss.
 
 No pressure at all. Either way, rooting for [Startup Name]!
@@ -398,10 +430,40 @@ Maulana
 
 ### **Option 1: Keep Full Pricing** (Recommended)
 ```
-Starter:  $5,000
-Growth:   $8,000
-Scale:    $12,000
+Starter:  $5,000 (1-2 weeks)
+Growth:   $8,000 (2-3 weeks) ← MOST POPULAR
+Scale:    $12,000 (3-4 weeks)
 ```
+
+**Starter ($5k) includes:**
+- 1-2 core features (fully polished)
+- Secure authentication (JWT/OAuth)
+- Database design with proper indexing
+- API documentation (OpenAPI/Swagger)
+- Security: SQL injection prevention, XSS protection
+- Deployment with CI/CD pipeline
+- 14-day bug fix warranty
+
+**Growth ($8k) includes:**
+- Up to 5 core features (production-ready)
+- Full admin dashboard with analytics
+- Payment integration (Stripe/PayPal)
+- Role-based access control (RBAC)
+- Performance: <1s page load, optimized queries
+- Security audit + penetration testing
+- Load testing (1000+ concurrent users)
+- 30-day bug fix warranty + 1 month support
+
+**Scale ($12k) includes:**
+- Unlimited features (prioritized roadmap)
+- Advanced analytics + custom reporting
+- AI/ML integration (LLM, RAG, agents)
+- Mobile apps (React Native / PWA)
+- Microservices architecture (optional)
+- 99.9% uptime SLA guarantee
+- Comprehensive test suite (80%+ coverage)
+- 60-day warranty + 2 months priority support
+
 **Why:** Signals confidence. No "desperate freelancer" vibe.
 
 ### **Option 2: "Founding Client" Discount**
@@ -446,18 +508,27 @@ challenge right now?"
 [Specific to their needs]
 
 For a project like this, I typically charge:
-- Starter ($5k): [scope]
-- Growth ($8k): [scope] ← I'd recommend this
-- Scale ($12k): [scope]
+- Starter ($5k, 1-2 weeks): 1-2 core features, auth, database design, API docs, security hardening, deployment
+- Growth ($8k, 2-3 weeks): ← I'd recommend this
+  Up to 5 features, admin dashboard, payments, RBAC, performance optimization, security audit, load testing
+- Scale ($12k, 3-4 weeks): Unlimited features, AI/ML integration, advanced analytics, mobile apps, microservices
 
-Timeline: 2-3 weeks
+Timeline: 2-4 weeks using my 4-Week Sprint process:
+  Week 1: Architecture & Scope
+  Week 2: Backend & Logic
+  Week 3: Frontend & UI
+  Week 4: Testing & Launch
+
 Payment: 50% upfront, 50% on delivery
 
 You get:
-- Full code ownership
+- Enterprise-grade code (security-first, performance optimized)
+- 100% IP handover (you own everything)
 - Production-ready deployment
-- 30-day bug fix warranty
-- Weekly progress demos
+- 14-60 day bug fix warranty (depending on tier)
+- Weekly progress demos (async, no time-wasting meetings)
+
+I only take 1-2 clients per month. Currently: 1 slot left.
 
 How does that sound?"
 ```
@@ -499,13 +570,23 @@ Happy to give you 48 hours. Sound fair?"
 
 - 50% upfront, 50% ONLY when you're satisfied
 - Weekly demos—you see progress in real-time
-- Full code handover—you own everything
-- 11 years experience—see my portfolio at [links]
+- 100% code handover—you own everything
+- 11+ years experience—see my portfolio:
+  • Laju.dev (258k req/sec, 11x faster than Express)
+  • Velist.dev (Multi-agent AI with Bun + Elysia)
+  • Antre.in (B2B healthcare SaaS, live)
 
-I've shipped [X products]. I don't ghost. I don't miss deadlines.
+I've shipped 20+ products. I don't ghost. I don't miss deadlines.
 
-If I don't deliver, you don't pay the final 50%. 
-Your risk is protected."
+If I don't deliver, you don't pay the final 50%.
+Your risk is protected.
+
+Plus, you get:
+- 14-60 day bug fix warranty (depending on tier)
+- Enterprise-grade security (SQL injection prevention, XSS protection)
+- Performance optimization (sub-second page loads)
+
+This is what senior engineering looks like."
 ```
 
 ---

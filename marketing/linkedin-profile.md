@@ -113,29 +113,29 @@ Book a call: maulanabuilds.com
 
 **Recommended:**
 ```
-Senior Full-Stack Engineer | MVP Development for Startups | 
-11+ Years Experience | $5k-12k, 2-4 Weeks | Creator of Laju.dev
+Senior Full-Stack Engineer | MVP Development for Startups |
+11+ Years Experience | $5k-12k, 2-4 Weeks | Creator of Laju.dev (258k req/sec)
 ```
 
 **Alternative (more specific):**
 ```
-Helping Bootstrapped Founders Ship MVPs in 2-4 Weeks | 
-Senior Engineer (11+ Years) | Fixed Price $5k-12k | 
-Production-Ready Code | maulanabuilds.com
+Helping Bootstrapped Founders Ship Enterprise-Grade MVPs in 2-4 Weeks |
+Senior Engineer (11+ Years) | Fixed Price $5k-12k |
+100% IP Handover | maulanabuilds.com
 ```
 
 **Alternative (authority-focused):**
 ```
-Senior Full-Stack Engineer | 11+ Years Building Software | 
-Specializing in MVP Development | 20+ Products Shipped | 
-AI-Native Frameworks (Laju.dev, Velist.dev)
+Senior Full-Stack Engineer | 11+ Years Building Software |
+Specializing in MVP Development | 20+ Products Shipped |
+AI-Native Frameworks (Laju.dev, Velist.dev, Antre.in)
 ```
 
 **Alternative (problem-solution):**
 ```
-Tired of agencies overpromising and underdelivering? 
-I build production-ready MVPs in 2-4 weeks | 
-Senior Engineer | $5k-12k | maulanabuilds.com
+Tired of agencies overpromising and underdelivering?
+I build enterprise-grade MVPs in 2-4 weeks |
+Senior Engineer | $5k-12k | 100% IP Handover | maulanabuilds.com
 ```
 
 **Key elements:**
@@ -161,23 +161,26 @@ Senior Engineer | $5k-12k | maulanabuilds.com
 
 **Paragraph 1: Hook (Who you help + Result)**
 ```
-I help bootstrapped founders ship production-ready MVPs in 2-4 weeks 
+I help bootstrapped founders ship enterprise-grade MVPs in 2-4 weeks
 instead of 4-6 months.
 
-If you're tired of agencies overpromising and underdelivering, or 
+Senior Engineer | 100% IP Handover | Production-Grade Code
+
+If you're tired of agencies overpromising and underdelivering, or
 struggling to find a reliable developer who understands your vision—
 I can help.
 ```
 
 **Paragraph 2: Credibility (Experience + Social proof)**
 ```
-I'm a senior full-stack engineer with 11+ years of experience building 
+I'm a senior full-stack engineer with 11+ years of experience building
 software for startups and enterprises.
 
 Recent work:
-• Laju.dev - AI-native full-stack framework (258k req/sec)
-• Velist.dev - Multi-agent AI collaboration platform
+• Laju.dev - AI-native full-stack framework (258k req/sec, 11x faster than Express)
+• Velist.dev - Multi-agent AI collaboration platform (Bun + Elysia + Svelte 5)
 • Antre.in - B2B healthcare SaaS (live, paying customers)
+• SlugPost - Friction-free publishing platform
 • 20+ other products shipped
 
 I don't just write code. I design systems that scale.
@@ -187,57 +190,92 @@ I don't just write code. I design systems that scale.
 ```
 When we work together, you get:
 
-✅ Full-stack web application (React/Svelte/Next.js)
+✅ Full-stack web application (Svelte/React/TypeScript)
 ✅ Secure authentication (JWT/OAuth)
 ✅ Payment integration (Stripe/PayPal)
 ✅ Admin dashboard with analytics
-✅ Database design + API development
-✅ Production deployment (AWS/Vercel/Cloudflare)
+✅ Database design + API development (PostgreSQL/SQLite)
+✅ Production deployment (VPS/Vercel/Cloudflare)
 ✅ API documentation + code handover
-✅ 30-day bug fix warranty
+✅ 14-60 day bug fix warranty (depending on tier)
 
 Everything you need to start acquiring paying customers.
 ```
 
 **Paragraph 4: How it works (Process)**
 ```
-My process:
+The 4-Week Sprint:
 
-Week 1: Discovery + Architecture
+Week 1: Architecture & Scope
 - Requirements gathering
 - Database schema design
 - Tech stack finalization
-- Project timeline
+- Ruthlessly cut useless features
 
-Week 2-3: Development
-- Backend + API development
-- Frontend implementation
-- Authentication + payments
-- Weekly progress demos
+Week 2: Backend & Logic
+- API routes development
+- Database integrations
+- Authentication setup
+- Core business logic
 
-Week 4: Testing + Deploy
-- Bug fixes + QA
-- Performance optimization
+Week 3: Frontend & UI
+- Clean, responsive interface
+- Connect frontend to backend
+- Admin dashboard implementation
+- Weekly progress demo
+
+Week 4: Testing & Launch
+- Bug squashing
+- Payment gateway live testing
 - Production deployment
 - Code handover + documentation
+
+No endless Jira boards. No weekly 2-hour meetings.
+Just pure, asynchronous execution.
 ```
 
 **Paragraph 5: Pricing + Terms (Qualify leads)**
 ```
 Investment:
 
-• Starter: $5,000 (1-2 weeks, 1-2 features)
-• Growth: $8,000 (2-3 weeks, full MVP)
-• Scale: $12,000 (3-4 weeks, advanced features)
+• Starter: $5,000 (1-2 weeks)
+  - 1-2 core features (fully polished)
+  - Secure authentication (JWT/OAuth)
+  - Database design with proper indexing
+  - API documentation (OpenAPI/Swagger)
+  - Security: SQL injection prevention, XSS protection
+  - Deployment with CI/CD pipeline
+  - 14-day bug fix warranty
+
+• Growth: $8,000 (2-3 weeks) ← MOST POPULAR
+  - Up to 5 core features (production-ready)
+  - Full admin dashboard with analytics
+  - Payment integration (Stripe/PayPal)
+  - Role-based access control (RBAC)
+  - Performance: <1s page load, optimized queries
+  - Security audit + penetration testing
+  - Load testing (1000+ concurrent users)
+  - 30-day bug fix warranty + 1 month support
+
+• Scale: $12,000 (3-4 weeks)
+  - Unlimited features (prioritized roadmap)
+  - Advanced analytics + custom reporting
+  - AI/ML integration (LLM, RAG, agents)
+  - Mobile apps (React Native / PWA)
+  - Microservices architecture (optional)
+  - 99.9% uptime SLA guarantee
+  - Comprehensive test suite (80%+ coverage)
+  - 60-day warranty + 2 months priority support
 
 Payment: 50% upfront, 50% on delivery
 Timeline: 2-4 weeks depending on scope
-Availability: 1-2 clients per month
+Availability: 1 slot left this month
 ```
 
 **Paragraph 6: Call to Action**
 ```
 I only take 1-2 clients per month to ensure quality and attention.
+Currently: 1 slot left this month.
 
 If you're ready to ship your MVP fast without technical debt:
 
@@ -272,23 +310,23 @@ Let's build something great together.
 
 **Link 1: Your Website**
 - Title: "MVP Development Services"
-- Description: "$5k-12k, 2-4 weeks, production-ready"
+- Description: "$5k-12k, 2-4 weeks, enterprise-grade code"
 - Thumbnail: Your website screenshot
 
 **Link 2: Laju.dev**
 - Title: "Laju.dev - AI-Native Framework"
-- Description: "258k req/sec, built by me"
+- Description: "258k req/sec, 11x faster than Express"
 - Thumbnail: Laju.dev screenshot
 
 **Link 3: Velist.dev**
 - Title: "Velist.dev - Multi-Agent AI"
-- Description: "AI collaboration platform"
+- Description: "Bun + Elysia + Svelte 5, zero-to-production in minutes"
 - Thumbnail: Velist.dev screenshot
 
-**Link 4: Case Study or Testimonial**
-- Title: "Client Success Story"
-- Description: "How I helped a founder ship in 4 weeks"
-- Thumbnail: Before/after or testimonial graphic
+**Link 4: Antre.in**
+- Title: "Antre.in - B2B Healthcare SaaS"
+- Description: "Live SaaS with queue management, booking, notifications"
+- Thumbnail: Antre.in screenshot
 
 **Link 5: Calendly Booking**
 - Title: "Book a Free 15-Min Consultation"
@@ -314,7 +352,8 @@ Maulana Builds · Self-employed
 
 [Date] - Present · [X] yrs [Y] mos
 
-I help bootstrapped founders ship production-ready MVPs in 2-4 weeks.
+I help bootstrapped founders ship enterprise-grade MVPs in 2-4 weeks.
+Senior Engineer | 100% IP Handover | Production-Grade Code
 
 Services:
 • MVP Development ($5k-12k, 2-4 weeks)
@@ -324,15 +363,17 @@ Services:
 • AI Integration ($8k-15k)
 
 Technologies:
-• Frontend: React, Svelte, Next.js
+• Frontend: Svelte, React, TypeScript
 • Backend: Go, Bun, Node.js
 • Database: PostgreSQL, SQLite
+• Deployment: VPS, Vercel, Cloudflare
 • AI: OpenAI, Anthropic, LangChain
 
 Recent projects:
 • Laju.dev - AI-native framework (258k req/sec)
-• Velist.dev - Multi-agent AI platform
-• Antre.in - B2B healthcare SaaS
+• Velist.dev - Multi-agent AI collaboration
+• Antre.in - B2B healthcare SaaS (live)
+• SlugPost - Publishing platform
 
 Location: Indonesia (serving global clients)
 ```

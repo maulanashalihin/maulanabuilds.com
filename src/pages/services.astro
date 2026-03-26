@@ -389,11 +389,21 @@ import Header from '../components/Header.astro';
 						<div class="bg-[#14181F] p-3 rounded-lg border border-[#2A2F3A] shrink-0">
 							<i data-lucide="git-repo-forked" class="w-6 h-6 text-cyan-400"></i>
 						</div>
-						<div>
+						<div class="w-full">
 							<h3 class="text-lg font-bold text-gray-200 mb-2">Open Source Track Record</h3>
-							<p class="text-gray-400 text-sm leading-relaxed">
-								I build tools used by developers worldwide (Laju.dev, Velist.dev). This is the same quality your MVP gets.
+							<p class="text-gray-400 text-sm leading-relaxed mb-4">
+								I build tools used by developers worldwide. This is the same quality your MVP gets.
 							</p>
+							<div class="flex gap-3">
+								<a href="https://laju.dev" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-[#14181F] border border-[#2A2F3A] hover:border-cyan-800 px-3 py-2 rounded-lg transition group">
+									<img src="/laju.png" alt="Laju.dev" loading="lazy" width="24" height="24" class="w-6 h-6 object-contain" />
+									<span class="text-sm text-gray-400 group-hover:text-cyan-400 transition">Laju.dev</span>
+								</a>
+								<a href="https://velist.dev" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-[#14181F] border border-[#2A2F3A] hover:border-cyan-800 px-3 py-2 rounded-lg transition group">
+									<img src="/velist.png" alt="Velist.dev" loading="lazy" width="24" height="24" class="w-6 h-6 object-contain" />
+									<span class="text-sm text-gray-400 group-hover:text-cyan-400 transition">Velist.dev</span>
+								</a>
+							</div>
 						</div>
 					</div>
 				</div>

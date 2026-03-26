@@ -111,17 +111,17 @@ Maulana | Building Laju.dev + Client MVPs
 
 **Recommended:**
 ```
-Senior engineer building MVPs for bootstrapped founders. 
-11+ years. Creator of @lajudev. 
-$5k-12k, 2-4 weeks. 
+Senior engineer building enterprise-grade MVPs for bootstrapped founders.
+11+ years. Creator of @lajudev (258k req/sec).
+$5k-12k, 2-4 weeks. 100% IP handover.
 👇 Free consultation
 ```
 
 **Alternative (more casual):**
 ```
-11+ years building software. 
-Now helping founders ship MVPs in 2-4 weeks. 
-Built @lajudev, @velistdev, @antrein. 
+11+ years building software.
+Now helping founders ship MVPs in 2-4 weeks.
+Built @lajudev, @velistdev, @antrein, @slugpost.
 DMs open for technical advice.
 ```
 
@@ -131,6 +131,7 @@ Senior Full-Stack Engineer | MVP Specialist
 • 11+ years experience
 • 20+ products shipped
 • $5k-12k fixed price
+• Enterprise-grade code
 • maulanabuilds.com
 ```
 
@@ -140,6 +141,7 @@ Senior Full-Stack Engineer | MVP Specialist
 - ✅ "11+ years" (social proof)
 - ✅ Price range (qualifies leads)
 - ✅ Timeline (key differentiator)
+- ✅ "Enterprise-grade" or "Production-ready" (quality signal)
 - ✅ CTA (DM or link)
 
 **❌ Don't:**
@@ -208,32 +210,32 @@ Tweet 6: Offer + CTA
 **Example Pinned Thread:**
 
 ```
-🧵 1/6
+🧵 1/7
 
-I'm a senior engineer who builds MVPs for bootstrapped founders.
+I'm a senior engineer who builds enterprise-grade MVPs for bootstrapped founders.
 
-$5k-12k. 2-4 weeks. Production-ready.
+$5k-12k. 2-4 weeks. 100% IP handover.
 
 Here's what you get (and why I'm different from cheap freelancers): 👇
 
 ---
 
-2/6
+2/7
 
 What I build:
 
-✅ Full-stack web app (React/Svelte)
+✅ Full-stack web app (Svelte/React/TypeScript)
 ✅ Secure authentication (JWT/OAuth)
-✅ Payment integration (Stripe)
-✅ Admin dashboard
-✅ Database design + API
-✅ Production deployment
+✅ Payment integration (Stripe/PayPal)
+✅ Admin dashboard with analytics
+✅ Database design + API (PostgreSQL/SQLite)
+✅ Production deployment (VPS/Vercel/Cloudflare)
 
 Everything to start acquiring paying customers.
 
 ---
 
-3/6
+3/7
 
 Why I'm different:
 
@@ -243,39 +245,55 @@ Why I'm different:
 
 ✅ 11+ years experience
 ✅ Direct access to me (no account managers)
-✅ Production-grade code + tests
+✅ Enterprise-grade code + tests
+✅ Security-first architecture
 
 ---
 
-4/6
+4/7
+
+Tech stack I use:
+
+• Frontend: Svelte, React, TypeScript
+• Backend: Go, Bun, Node.js
+• Database: PostgreSQL, SQLite
+• Deployment: VPS, Vercel, Cloudflare
+• AI: OpenAI, Anthropic, LangChain
+
+Boring = reliable. But fast.
+
+---
+
+5/7
 
 Recent work:
 
-• Laju.dev - AI-native framework (258k req/sec)
-• Velist.dev - Multi-agent AI collaboration
-• Antre.in - B2B healthcare SaaS (live)
+• Laju.dev - AI-native framework (258k req/sec, 11x faster than Express)
+• Velist.dev - Multi-agent AI (Bun + Elysia + Svelte 5)
+• Antre.in - B2B healthcare SaaS (live, paying customers)
 • SlugPost - Publishing platform
 
-All built by me. All live. All production-ready.
+All built by me. All live. All enterprise-grade.
 
 ---
 
-5/6
+6/7
 
-How it works:
+The 4-Week Sprint:
 
-Week 1: Discovery + Architecture
-Week 2-3: Development
-Week 4: Testing + Deploy
+Week 1: Architecture & Scope
+Week 2: Backend & Logic
+Week 3: Frontend & UI
+Week 4: Testing & Launch
+
+No endless Jira boards. No weekly 2-hour meetings.
+Just pure, asynchronous execution.
 
 Payment: 50% upfront, 50% on delivery
-You own 100% of code + IP
-
-Free 15-min consultation → calendly.com/maulana-drip/30min
 
 ---
 
-6/6
+7/7
 
 I only take 1-2 clients per month to ensure quality.
 
