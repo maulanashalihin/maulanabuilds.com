@@ -1,0 +1,367 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LucideIcons from '../components/LucideIcons.astro';
+import Header from '../components/Header.astro';
+import BackToTop from '../components/BackToTop.astro';
+---
+
+<Layout>
+	<Header />
+	<LucideIcons>
+		<main id="main-content" class="min-h-screen">
+			<!-- Hero Section -->
+			<section class="max-w-7xl mx-auto px-6 pt-32 pb-16">
+				<div class="max-w-4xl">
+					<div class="inline-flex items-center gap-2 border border-[#2A2F3A] bg-[#14181F] text-cyan-400 px-4 py-1.5 rounded-full text-sm mb-8">
+						<i data-lucide="folder-open" class="w-4 h-4"></i>
+						Portfolio Archive
+					</div>
+					<h1 class="text-4xl md:text-6xl font-bold tracking-tighter leading-[1.1] mb-6">
+						Proof of Work.
+					</h1>
+					<p class="text-xl text-gray-400 max-w-3xl leading-relaxed">
+						I don't just write code; I build products. Every project below represents a <strong class="text-gray-300">production-ready system</strong> shipped with proper architecture, security, and documentation.
+					</p>
+				</div>
+			</section>
+
+			<!-- Portfolio Grid -->
+			<section class="max-w-7xl mx-auto px-6 pb-24">
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+					<!-- Laju.dev -->
+					<a href="https://laju.dev" target="_blank" rel="noopener noreferrer" class="block group border border-[#2A2F3A] bg-[#0A0D12] rounded-2xl overflow-hidden hover:border-cyan-500 transition duration-300 hover:shadow-[0_0_30px_rgba(34,211,238,0.1)]">
+						<div class="p-8">
+							<div class="flex items-center gap-4 mb-4">
+								<div class="bg-[#14181F] p-3 rounded-lg border border-[#2A2F3A] group-hover:border-cyan-800 transition">
+									<img src="/laju.png" alt="Laju.dev logo" loading="lazy" width="32" height="32" class="w-8 h-8 object-contain" />
+								</div>
+								<div>
+									<h3 class="text-xl font-bold text-gray-200 group-hover:text-cyan-400 transition">Laju.dev</h3>
+									<span class="text-xs text-gray-500">AI-Native Full-Stack Framework</span>
+								</div>
+							</div>
+							<p class="text-sm text-gray-400 mb-6 leading-relaxed">I engineered my own TypeScript framework to ship products 10x faster. It handles an extreme 258k req/sec (11x faster than Express) with built-in auth, SQLite, and AI workflows.</p>
+							<div class="flex flex-wrap gap-2">
+								<span class="text-xs font-mono text-cyan-400 bg-cyan-950/30 border border-cyan-900/50 px-2 py-1 rounded">TypeScript</span>
+								<span class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-2 py-1 rounded">Svelte 5</span>
+								<span class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-2 py-1 rounded">AI-Native</span>
+							</div>
+						</div>
+						<div class="px-8 py-4 border-t border-[#2A2F3A] bg-[#0F131A] flex items-center justify-between">
+							<span class="text-xs text-gray-500">Visit Project</span>
+							<i data-lucide="external-link" class="w-4 h-4 text-cyan-500 group-hover:translate-x-1 transition-transform"></i>
+						</div>
+					</a>
+
+					<!-- Velist.dev -->
+					<a href="https://velist.dev" target="_blank" rel="noopener noreferrer" class="block group border border-[#2A2F3A] bg-[#0A0D12] rounded-2xl overflow-hidden hover:border-cyan-500 transition duration-300 hover:shadow-[0_0_30px_rgba(34,211,238,0.1)]">
+						<div class="p-8">
+							<div class="flex items-center gap-4 mb-4">
+								<div class="bg-[#14181F] p-3 rounded-lg border border-[#2A2F3A] group-hover:border-cyan-800 transition">
+									<img src="/velist.png" alt="Velist.dev logo" loading="lazy" width="32" height="32" class="w-8 h-8 object-contain" />
+								</div>
+								<div>
+									<h3 class="text-xl font-bold text-gray-200 group-hover:text-cyan-400 transition">Velist.dev</h3>
+									<span class="text-xs text-gray-500">Multi-Agent AI Collaboration</span>
+								</div>
+							</div>
+							<p class="text-sm text-gray-400 mb-6 leading-relaxed">Built the latest AI-native fullstack framework designed for multi-agent workflows. Goes from zero-to-production in minutes with mandatory human review points.</p>
+							<div class="flex flex-wrap gap-2">
+								<span class="text-xs font-mono text-cyan-400 bg-cyan-950/30 border border-cyan-900/50 px-2 py-1 rounded">Bun</span>
+								<span class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-2 py-1 rounded">Elysia</span>
+								<span class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-2 py-1 rounded">Svelte 5</span>
+							</div>
+						</div>
+						<div class="px-8 py-4 border-t border-[#2A2F3A] bg-[#0F131A] flex items-center justify-between">
+							<span class="text-xs text-gray-500">Visit Project</span>
+							<i data-lucide="external-link" class="w-4 h-4 text-cyan-500 group-hover:translate-x-1 transition-transform"></i>
+						</div>
+					</a>
+
+					<!-- Antre.in -->
+					<a href="https://antre.in" target="_blank" rel="noopener noreferrer" class="block group border border-[#2A2F3A] bg-[#0A0D12] rounded-2xl overflow-hidden hover:border-cyan-500 transition duration-300 hover:shadow-[0_0_30px_rgba(34,211,238,0.1)]">
+						<div class="p-8">
+							<div class="flex items-center gap-4 mb-4">
+								<div class="bg-[#14181F] p-3 rounded-lg border border-[#2A2F3A] group-hover:border-cyan-800 transition">
+									<img src="/antrein.png" alt="Antre.in logo" loading="lazy" width="32" height="32" class="w-8 h-8 object-contain" />
+								</div>
+								<div>
+									<h3 class="text-xl font-bold text-gray-200 group-hover:text-cyan-400 transition">Antre.in</h3>
+									<span class="text-xs text-gray-500">B2B Healthcare SaaS</span>
+								</div>
+							</div>
+							<p class="text-sm text-gray-400 mb-6 leading-relaxed">A live, cloud-based queue management SaaS serving healthcare and service businesses. Features a digital waiting room, booking logic, notifications, and cashier integration.</p>
+							<div class="flex flex-wrap gap-2">
+								<span class="text-xs font-mono text-cyan-400 bg-cyan-950/30 border border-cyan-900/50 px-2 py-1 rounded">B2B SaaS</span>
+								<span class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-2 py-1 rounded">Queue Logic</span>
+								<span class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-2 py-1 rounded">Healthcare</span>
+							</div>
+						</div>
+						<div class="px-8 py-4 border-t border-[#2A2F3A] bg-[#0F131A] flex items-center justify-between">
+							<span class="text-xs text-gray-500">Visit Project</span>
+							<i data-lucide="external-link" class="w-4 h-4 text-cyan-500 group-hover:translate-x-1 transition-transform"></i>
+						</div>
+					</a>
+
+					<!-- SlugPost -->
+					<a href="https://slugpost.com" target="_blank" rel="noopener noreferrer" class="block group border border-[#2A2F3A] bg-[#0A0D12] rounded-2xl overflow-hidden hover:border-cyan-500 transition duration-300 hover:shadow-[0_0_30px_rgba(34,211,238,0.1)]">
+						<div class="p-8">
+							<div class="flex items-center gap-4 mb-4">
+								<div class="bg-[#14181F] p-3 rounded-lg border border-[#2A2F3A] group-hover:border-cyan-800 transition">
+									<img src="/slugpost.png" alt="SlugPost logo" loading="lazy" width="32" height="32" class="w-8 h-8 object-contain" />
+								</div>
+								<div>
+									<h3 class="text-xl font-bold text-gray-200 group-hover:text-cyan-400 transition">SlugPost</h3>
+									<span class="text-xs text-gray-500">Online Publishing Platform</span>
+								</div>
+							</div>
+							<p class="text-sm text-gray-400 mb-6 leading-relaxed">A friction-free publishing utility that converts Markdown and HTML into shareable web pages instantly with custom URLs. Built for speed and zero-registration UX.</p>
+							<div class="flex flex-wrap gap-2">
+								<span class="text-xs font-mono text-cyan-400 bg-cyan-950/30 border border-cyan-900/50 px-2 py-1 rounded">Markdown</span>
+								<span class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-2 py-1 rounded">Web Platform</span>
+							</div>
+						</div>
+						<div class="px-8 py-4 border-t border-[#2A2F3A] bg-[#0F131A] flex items-center justify-between">
+							<span class="text-xs text-gray-500">Visit Project</span>
+							<i data-lucide="external-link" class="w-4 h-4 text-cyan-500 group-hover:translate-x-1 transition-transform"></i>
+						</div>
+					</a>
+
+					<!-- TapSite.ai -->
+					<a href="https://tapsite.ai/" target="_blank" rel="noopener noreferrer" class="block group border border-[#2A2F3A] bg-[#0A0D12] rounded-2xl overflow-hidden hover:border-cyan-500 transition duration-300 hover:shadow-[0_0_30px_rgba(34,211,238,0.1)]">
+						<div class="p-8">
+							<div class="flex items-center gap-4 mb-4">
+								<div class="bg-[#14181F] p-3 rounded-lg border border-[#2A2F3A] group-hover:border-cyan-800 transition">
+									<img src="https://tapsite.ai/favicon-96x96.png" alt="TapSite.ai logo" loading="lazy" width="32" height="32" class="w-8 h-8 object-contain" />
+								</div>
+								<div>
+									<h3 class="text-xl font-bold text-gray-200 group-hover:text-cyan-400 transition">TapSite.ai</h3>
+									<span class="text-xs text-gray-500">AI Landing Page Builder</span>
+								</div>
+							</div>
+							<p class="text-sm text-gray-400 mb-6 leading-relaxed">Indonesia's first AI-powered landing page builder. Create professional websites in ~1 minute from your phone—no coding needed. Just chat about your business and get a fully functional site with custom domains, payments, and SEO tools.</p>
+							<div class="flex flex-wrap gap-2">
+								<span class="text-xs font-mono text-cyan-400 bg-cyan-950/30 border border-cyan-900/50 px-2 py-1 rounded">AI-Powered</span>
+								<span class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-2 py-1 rounded">No-Code</span>
+								<span class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-2 py-1 rounded">Mobile-First</span>
+							</div>
+						</div>
+						<div class="px-8 py-4 border-t border-[#2A2F3A] bg-[#0F131A] flex items-center justify-between">
+							<span class="text-xs text-gray-500">Visit Project</span>
+							<i data-lucide="external-link" class="w-4 h-4 text-cyan-500 group-hover:translate-x-1 transition-transform"></i>
+						</div>
+					</a>
+
+					<!-- KlikAja -->
+					<a href="https://klikaja.app/" target="_blank" rel="noopener noreferrer" class="block group border border-[#2A2F3A] bg-[#0A0D12] rounded-2xl overflow-hidden hover:border-cyan-500 transition duration-300 hover:shadow-[0_0_30px_rgba(34,211,238,0.1)]">
+						<div class="p-8">
+							<div class="flex items-center gap-4 mb-4">
+								<div class="bg-[#14181F] p-3 rounded-lg border border-[#2A2F3A] group-hover:border-cyan-800 transition">
+									<img src="https://klikaja.app/public/android-icon-96x96.png" alt="KlikAja logo" loading="lazy" width="32" height="32" class="w-8 h-8 object-contain" />
+								</div>
+								<div>
+									<h3 class="text-xl font-bold text-gray-200 group-hover:text-cyan-400 transition">KlikAja</h3>
+									<span class="text-xs text-gray-500">Link Shortener & Management</span>
+								</div>
+							</div>
+							<p class="text-sm text-gray-400 mb-6 leading-relaxed">Modern link management platform for teams. Shorten URLs, track clicks with deep analytics, rotate links for A/B testing, generate QR codes, and protect links with passwords. 100% open source with custom branded domains.</p>
+							<div class="flex flex-wrap gap-2">
+								<span class="text-xs font-mono text-cyan-400 bg-cyan-950/30 border border-cyan-900/50 px-2 py-1 rounded">Open Source</span>
+								<span class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-2 py-1 rounded">Link Shortener</span>
+								<span class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-2 py-1 rounded">Analytics</span>
+							</div>
+						</div>
+						<div class="px-8 py-4 border-t border-[#2A2F3A] bg-[#0F131A] flex items-center justify-between">
+							<span class="text-xs text-gray-500">Visit Project</span>
+							<i data-lucide="external-link" class="w-4 h-4 text-cyan-500 group-hover:translate-x-1 transition-transform"></i>
+						</div>
+					</a>
+
+					<!-- DripSender -->
+					<a href="https://dripsender.id" target="_blank" rel="noopener noreferrer" class="block group border border-[#2A2F3A] bg-[#0A0D12] rounded-2xl overflow-hidden hover:border-cyan-500 transition duration-300 hover:shadow-[0_0_30px_rgba(34,211,238,0.1)]">
+						<div class="p-8">
+							<div class="flex items-center gap-4 mb-4">
+								<div class="bg-[#14181F] p-3 rounded-lg border border-[#2A2F3A] group-hover:border-cyan-800 transition">
+									<img src="https://dripsender.id/logomark.png" alt="DripSender logo" loading="lazy" width="32" height="32" class="w-8 h-8 object-contain" />
+								</div>
+								<div>
+									<h3 class="text-xl font-bold text-gray-200 group-hover:text-cyan-400 transition">DripSender</h3>
+									<span class="text-xs text-gray-500">WhatsApp Marketing Automation</span>
+								</div>
+							</div>
+							<p class="text-sm text-gray-400 mb-6 leading-relaxed">Automated WhatsApp marketing platform for businesses to run promotions and manage customer databases without manual intervention. Features scheduled campaigns, unlimited automation chatbots, and AI-powered content generation.</p>
+							<div class="flex flex-wrap gap-2">
+								<span class="text-xs font-mono text-cyan-400 bg-cyan-950/30 border border-cyan-900/50 px-2 py-1 rounded">Marketing</span>
+								<span class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-2 py-1 rounded">WhatsApp API</span>
+								<span class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-2 py-1 rounded">Automation</span>
+							</div>
+						</div>
+						<div class="px-8 py-4 border-t border-[#2A2F3A] bg-[#0F131A] flex items-center justify-between">
+							<span class="text-xs text-gray-500">Visit Project</span>
+							<i data-lucide="external-link" class="w-4 h-4 text-cyan-500 group-hover:translate-x-1 transition-transform"></i>
+						</div>
+					</a>
+
+					<!-- DripForm -->
+					<a href="https://www.dripform.id" target="_blank" rel="noopener noreferrer" class="block group border border-[#2A2F3A] bg-[#0A0D12] rounded-2xl overflow-hidden hover:border-cyan-500 transition duration-300 hover:shadow-[0_0_30px_rgba(34,211,238,0.1)]">
+						<div class="p-8">
+							<div class="flex items-center gap-4 mb-4">
+								<div class="bg-[#14181F] p-2 rounded-lg border border-[#2A2F3A] group-hover:border-cyan-800 transition">
+									<svg class="w-8 h-8" viewBox="0 0 74.71 70.25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><linearGradient id="dripform-gradient" x1="5.21" y1="64.96" x2="54.95" y2="7.9" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9536eb"></stop><stop offset="1" stop-color="#ff3d84"></stop></linearGradient></defs><path fill="url(#dripform-gradient)" d="M0,6.28V63.97c0,3.47,2.81,6.28,6.28,6.28H45.93c15.9,0,28.79-12.89,28.79-28.79v-12.68C74.71,12.89,61.82,0,45.93,0H6.28C2.81,0,0,2.81,0,6.28Z"></path><rect fill="#fff" x="13.05" y="29.08" width="45.11" height="12.1" rx="6.05" ry="6.05"></rect><rect fill="#fff" x="13.05" y="13.08" width="45.11" height="12.1" rx="6.05" ry="6.05"></rect><rect fill="#fff" x="13.05" y="45.07" width="22.55" height="12.1" rx="6.05" ry="6.05"></rect></svg>
+								</div>
+								<div>
+									<h3 class="text-xl font-bold text-gray-200 group-hover:text-cyan-400 transition">DripForm</h3>
+									<span class="text-xs text-gray-500">Form Builder & Business Funnel</span>
+								</div>
+							</div>
+							<p class="text-sm text-gray-400 mb-6 leading-relaxed">All-in-one form builder and business funnel automation platform. Manage sales and marketing without a separate website—includes landing pages, CRM, affiliate management, WhatsApp notifications, and event ticketing.</p>
+							<div class="flex flex-wrap gap-2">
+								<span class="text-xs font-mono text-cyan-400 bg-cyan-950/30 border border-cyan-900/50 px-2 py-1 rounded">SaaS</span>
+								<span class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-2 py-1 rounded">Form Builder</span>
+								<span class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-2 py-1 rounded">CRM</span>
+							</div>
+						</div>
+						<div class="px-8 py-4 border-t border-[#2A2F3A] bg-[#0F131A] flex items-center justify-between">
+							<span class="text-xs text-gray-500">Visit Project</span>
+							<i data-lucide="external-link" class="w-4 h-4 text-cyan-500 group-hover:translate-x-1 transition-transform"></i>
+						</div>
+					</a>
+
+					<!-- CTA Card -->
+					<a href="https://calendly.com/maulana-drip/30min" target="_blank" rel="noopener noreferrer" class="block group border-2 border-dashed border-cyan-900/50 bg-gradient-to-b from-[#0F131A] to-[#0A0D12] rounded-2xl overflow-hidden hover:border-cyan-500 transition duration-300">
+						<div class="p-8 flex flex-col items-center justify-center text-center min-h-[300px]">
+							<div class="bg-cyan-950/30 p-4 rounded-full mb-6 group-hover:scale-110 transition-transform">
+								<i data-lucide="rocket" class="w-8 h-8 text-cyan-400"></i>
+							</div>
+							<h3 class="text-xl font-bold text-gray-200 mb-2 group-hover:text-cyan-400 transition">Start Your MVP</h3>
+							<p class="text-sm text-gray-400 mb-6 max-w-xs">Book a free 15-minute call to discuss your project. I only take 1 new project per month.</p>
+							<div class="inline-flex items-center gap-2 text-cyan-400 font-medium">
+								Book Your Slot
+								<i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<!-- NDA Projects Section -->
+				<div class="mt-16 border-t border-[#2A2F3A] pt-16">
+					<div class="text-center mb-12">
+						<div class="inline-flex items-center gap-2 border border-[#2A2F3A] bg-[#14181F] text-cyan-400 px-4 py-1.5 rounded-full text-sm mb-6">
+							<i data-lucide="shield-check" class="w-4 h-4"></i>
+							Confidential Work
+						</div>
+						<h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-gray-100 mb-4">
+							Under NDA
+						</h2>
+						<p class="text-gray-400 text-lg max-w-2xl mx-auto">
+							Much of my work is protected by non-disclosure agreements. I've shipped <strong class="text-gray-300">50+ production systems</strong> for clients globally—enterprise SaaS, fintech platforms, healthcare solutions, and more.
+						</p>
+					</div>
+
+					<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+						<div class="border border-[#2A2F3A] bg-[#0A0D12] p-6 rounded-xl">
+							<div class="flex items-center gap-3 mb-4">
+								<div class="bg-[#14181F] p-2 rounded-lg border border-[#2A2F3A]">
+									<i data-lucide="building-2" class="w-5 h-5 text-gray-500"></i>
+								</div>
+								<h3 class="text-lg font-bold text-gray-300">Enterprise SaaS</h3>
+							</div>
+							<p class="text-sm text-gray-500">Multi-tenant platforms serving 100K+ users with advanced RBAC, audit logs, and white-label capabilities.</p>
+						</div>
+
+						<div class="border border-[#2A2F3A] bg-[#0A0D12] p-6 rounded-xl">
+							<div class="flex items-center gap-3 mb-4">
+								<div class="bg-[#14181F] p-2 rounded-lg border border-[#2A2F3A]">
+									<i data-lucide="utensils" class="w-5 h-5 text-gray-500"></i>
+								</div>
+								<h3 class="text-lg font-bold text-gray-300">Restaurant & POS</h3>
+							</div>
+							<p class="text-sm text-gray-500">Point-of-sale systems, table management, online ordering, and kitchen display systems with real-time order tracking.</p>
+						</div>
+
+						<div class="border border-[#2A2F3A] bg-[#0A0D12] p-6 rounded-xl">
+							<div class="flex items-center gap-3 mb-4">
+								<div class="bg-[#14181F] p-2 rounded-lg border border-[#2A2F3A]">
+									<i data-lucide="heart-pulse" class="w-5 h-5 text-gray-500"></i>
+								</div>
+								<h3 class="text-lg font-bold text-gray-300">Healthcare Tech</h3>
+							</div>
+							<p class="text-sm text-gray-500">Patient management systems, telemedicine platforms, and health data analytics with HIPAA compliance.</p>
+						</div>
+
+						<div class="border border-[#2A2F3A] bg-[#0A0D12] p-6 rounded-xl">
+							<div class="flex items-center gap-3 mb-4">
+								<div class="bg-[#14181F] p-2 rounded-lg border border-[#2A2F3A]">
+									<i data-lucide="graduation-cap" class="w-5 h-5 text-gray-500"></i>
+								</div>
+								<h3 class="text-lg font-bold text-gray-300">EdTech Platforms</h3>
+							</div>
+							<p class="text-sm text-gray-500">Learning management systems, course platforms, and student engagement tools with video streaming.</p>
+						</div>
+
+						<div class="border border-[#2A2F3A] bg-[#0A0D12] p-6 rounded-xl">
+							<div class="flex items-center gap-3 mb-4">
+								<div class="bg-[#14181F] p-2 rounded-lg border border-[#2A2F3A]">
+									<i data-lucide="shopping-cart" class="w-5 h-5 text-gray-500"></i>
+								</div>
+								<h3 class="text-lg font-bold text-gray-300">E-commerce Solutions</h3>
+							</div>
+							<p class="text-sm text-gray-500">Custom storefronts, inventory management, and order fulfillment systems with multi-vendor support.</p>
+						</div>
+
+						<div class="border border-[#2A2F3A] bg-[#0A0D12] p-6 rounded-xl">
+							<div class="flex items-center gap-3 mb-4">
+								<div class="bg-[#14181F] p-2 rounded-lg border border-[#2A2F3A]">
+									<i data-lucide="brain-circuit" class="w-5 h-5 text-gray-500"></i>
+								</div>
+								<h3 class="text-lg font-bold text-gray-300">AI & Automation</h3>
+							</div>
+							<p class="text-sm text-gray-500">LLM integrations, RAG pipelines, chatbots, and workflow automation for enterprise clients.</p>
+						</div>
+					</div>
+
+					<div class="mt-12 p-6 border border-cyan-900/30 bg-cyan-950/10 rounded-xl text-center">
+						<p class="text-gray-400 mb-4">Interested in seeing specific case studies or references?</p>
+						<a href="https://calendly.com/maulana-drip/30min" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-medium transition">
+							Let's discuss your project
+							<i data-lucide="arrow-right" class="w-4 h-4"></i>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- Back to Home CTA -->
+			<section class="max-w-7xl mx-auto px-6 pb-24">
+				<div class="text-center">
+					<a href="/" class="inline-flex items-center gap-3 text-gray-400 hover:text-cyan-400 transition">
+						<i data-lucide="arrow-left" class="w-5 h-5"></i>
+						Back to Home
+					</a>
+				</div>
+			</section>
+
+			<!-- Footer -->
+			<footer class="border-t border-[#2A2F3A] py-8 text-center text-sm text-gray-600">
+				<div class="flex flex-col md:flex-row gap-4 justify-center items-center mb-4">
+					<a href="mailto:maulana@drip.id" class="hover:text-cyan-400 transition">
+						<i data-lucide="mail" class="w-4 h-4 inline mr-1"></i>
+						maulana@drip.id
+					</a>
+					<span class="hidden md:inline text-gray-700">•</span>
+					<a href="https://calendly.com/maulana-drip/30min" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition">
+						<i data-lucide="calendar" class="w-4 h-4 inline mr-1"></i>
+						Schedule a Call
+					</a>
+					<span class="hidden md:inline text-gray-700">•</span>
+					<a href="/services" class="hover:text-cyan-400 transition">
+						<i data-lucide="layers" class="w-4 h-4 inline mr-1"></i>
+						All Services
+					</a>
+				</div>
+				<p>&copy; 2026 Maulana Builds. Operating globally from Indonesia.</p>
+			</footer>
+		</main>
+
+		<BackToTop />
+	</LucideIcons>
+</Layout>
