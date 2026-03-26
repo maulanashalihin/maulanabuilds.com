@@ -1,41 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import LucideIcons from '../components/LucideIcons.astro';
-
-const projects = [
-	{
-		title: 'Laju.dev',
-		description: 'AI-native full-stack TypeScript framework. Ship products 10x faster with zero config. 258k req/sec (11x faster than Express). Built-in auth, SQLite, Svelte 5, and AI workflows.',
-		url: 'https://laju.dev',
-		tags: ['TypeScript', 'Svelte 5', 'AI-Native', 'SQLite'],
-		logo: '/laju.png',
-		days: 'v1.0.9'
-	},
-	{
-		title: 'Velist.dev',
-		description: 'AI-native fullstack framework for multi-agent collaboration. Zero-to-production in minutes with mandatory human review points. Bun + Elysia + Svelte 5.',
-		url: 'https://velist.dev',
-		tags: ['Bun', 'Elysia', 'Svelte 5', 'AI Workflows'],
-		logo: '/velist.png',
-		days: 'Latest'
-	},
-	{
-		title: 'SlugPost',
-		description: 'A free online publishing platform that converts Markdown and HTML into shareable web pages with custom URLs. No registration required.',
-		url: 'https://slugpost.com',
-		tags: ['Markdown', 'Publishing', 'Web Platform'],
-		logo: '/slugpost.png',
-		days: 'Live'
-	},
-	{
-		title: 'Antre.in',
-		description: 'Cloud-based queue management SaaS for healthcare and service businesses. Digital waiting room with booking, notifications, and cashier integration.',
-		url: 'https://antre.in',
-		tags: ['SaaS', 'Queue Management', 'Healthcare'],
-		logo: '/antrein.png',
-		days: 'Live'
-	}
-];
 ---
 
 <Layout>
@@ -190,42 +155,106 @@ const projects = [
 
 		<!-- Portfolio Section -->
 		<section class="max-w-7xl mx-auto px-6 py-24 border-t border-[#2A2F3A]">
-			<div class="mb-16">
-				<div class="text-cyan-400 text-sm font-bold tracking-widest uppercase mb-3">// Proof of Work</div>
-				<h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-gray-100">
-					Recent Shipments.
-				</h2>
-				<p class="text-gray-400 mt-2">I build complex logic, not just pretty buttons.</p>
+			<div class="mb-16 md:flex md:justify-between md:items-end">
+				<div>
+					<div class="text-cyan-400 text-sm font-bold tracking-widest uppercase mb-3">// Proof of Work</div>
+					<h2 class="text-3xl md:text-5xl font-bold tracking-tighter text-gray-100">
+						Recent Shipments.
+					</h2>
+				</div>
+				<p class="text-gray-400 text-lg max-w-md mt-4 md:mt-0">
+					I don't just use tools; I build them. This is the caliber of engineering your MVP will run on.
+				</p>
 			</div>
 
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-				{projects.map((project) => (
-					<a href={project.url} target="_blank" rel="noopener noreferrer" class="group border border-[#2A2F3A] bg-[#0A0D12] rounded-2xl overflow-hidden hover:border-cyan-800 transition block">
-						<div class="h-48 bg-[#14181F] border-b border-[#2A2F3A] flex items-center justify-center p-6 relative overflow-hidden">
-							<div class="w-20 h-20 bg-[#0A0D12] rounded-xl flex items-center justify-center p-3 border border-[#2A2F3A]">
-								<img src={project.logo} alt={project.title} class="w-full h-full object-contain" />
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+				<!-- Laju.dev -->
+				<a href="https://laju.dev" target="_blank" rel="noopener noreferrer" class="block group border border-[#2A2F3A] bg-[#0A0D12] rounded-2xl overflow-hidden hover:border-cyan-500 transition duration-300 relative">
+					<div class="absolute top-4 right-4 text-cyan-500 opacity-0 group-hover:opacity-100 transition"><i data-lucide="external-link" class="w-5 h-5"></i></div>
+					<div class="p-8">
+						<div class="flex items-center gap-4 mb-4">
+							<div class="bg-[#14181F] p-3 rounded-lg border border-[#2A2F3A] group-hover:border-cyan-800 transition">
+								<img src="/laju.png" alt="Laju.dev" class="w-8 h-8 object-contain" />
 							</div>
-							<div class="absolute inset-0 bg-gradient-to-t from-[#0A0D12] to-transparent opacity-80"></div>
-						</div>
-						<div class="p-8">
-							<div class="flex justify-between items-start mb-4">
-								<h3 class="text-xl font-bold text-gray-200">{project.title}</h3>
-								<span class="text-xs font-mono bg-[#14181F] text-cyan-500 border border-[#2A2F3A] px-2 py-1 rounded">{project.days}</span>
-							</div>
-							<p class="text-sm text-gray-500 mb-6">{project.description}</p>
-							<div class="flex flex-wrap gap-2">
-								{project.tags.map((tag) => (
-									<span class="text-xs text-gray-400 bg-[#1A1F26] px-2 py-1 rounded">{tag}</span>
-								))}
+							<div>
+								<h3 class="text-2xl font-bold text-gray-200 group-hover:text-cyan-400 transition">Laju.dev</h3>
+								<span class="text-xs text-gray-500">AI-Native Full-Stack Framework</span>
 							</div>
 						</div>
-					</a>
-				))}
-			</div>
+						<p class="text-sm text-gray-400 mb-6 leading-relaxed">I engineered my own TypeScript framework to ship products 10x faster. It handles an extreme 258k req/sec (11x faster than Express) with built-in auth, SQLite, and AI workflows.</p>
+						<div class="flex flex-wrap gap-2">
+							<span class="text-xs font-mono text-cyan-400 bg-cyan-950/30 border border-cyan-900/50 px-2 py-1 rounded">TypeScript</span>
+							<span class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-2 py-1 rounded">Svelte 5</span>
+							<span class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-2 py-1 rounded">AI-Native</span>
+						</div>
+					</div>
+				</a>
 
-			<p class="text-sm text-gray-500 text-center mt-8 italic">
-				*Other projects hidden under strict NDA. Live architecture walkthroughs available during our call.
-			</p>
+				<!-- Velist.dev -->
+				<a href="https://velist.dev" target="_blank" rel="noopener noreferrer" class="block group border border-[#2A2F3A] bg-[#0A0D12] rounded-2xl overflow-hidden hover:border-cyan-500 transition duration-300 relative">
+					<div class="absolute top-4 right-4 text-cyan-500 opacity-0 group-hover:opacity-100 transition"><i data-lucide="external-link" class="w-5 h-5"></i></div>
+					<div class="p-8">
+						<div class="flex items-center gap-4 mb-4">
+							<div class="bg-[#14181F] p-3 rounded-lg border border-[#2A2F3A] group-hover:border-cyan-800 transition">
+								<img src="/velist.png" alt="Velist.dev" class="w-8 h-8 object-contain" />
+							</div>
+							<div>
+								<h3 class="text-2xl font-bold text-gray-200 group-hover:text-cyan-400 transition">Velist.dev</h3>
+								<span class="text-xs text-gray-500">Multi-Agent AI Collaboration</span>
+							</div>
+						</div>
+						<p class="text-sm text-gray-400 mb-6 leading-relaxed">Built the latest AI-native fullstack framework designed for multi-agent workflows. Goes from zero-to-production in minutes with mandatory human review points.</p>
+						<div class="flex flex-wrap gap-2">
+							<span class="text-xs font-mono text-cyan-400 bg-cyan-950/30 border border-cyan-900/50 px-2 py-1 rounded">Bun</span>
+							<span class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-2 py-1 rounded">Elysia</span>
+							<span class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-2 py-1 rounded">Svelte 5</span>
+						</div>
+					</div>
+				</a>
+
+				<!-- Antre.in -->
+				<a href="https://antre.in" target="_blank" rel="noopener noreferrer" class="block group border border-[#2A2F3A] bg-[#0A0D12] rounded-2xl overflow-hidden hover:border-cyan-500 transition duration-300 relative">
+					<div class="absolute top-4 right-4 text-cyan-500 opacity-0 group-hover:opacity-100 transition"><i data-lucide="external-link" class="w-5 h-5"></i></div>
+					<div class="p-8">
+						<div class="flex items-center gap-4 mb-4">
+							<div class="bg-[#14181F] p-3 rounded-lg border border-[#2A2F3A] group-hover:border-cyan-800 transition">
+								<img src="/antrein.png" alt="Antre.in" class="w-8 h-8 object-contain" />
+							</div>
+							<div>
+								<h3 class="text-2xl font-bold text-gray-200 group-hover:text-cyan-400 transition">Antre.in</h3>
+								<span class="text-xs text-gray-500">B2B Healthcare SaaS</span>
+							</div>
+						</div>
+						<p class="text-sm text-gray-400 mb-6 leading-relaxed">A live, cloud-based queue management SaaS serving healthcare and service businesses. Features a digital waiting room, booking logic, notifications, and cashier integration.</p>
+						<div class="flex flex-wrap gap-2">
+							<span class="text-xs font-mono text-cyan-400 bg-cyan-950/30 border border-cyan-900/50 px-2 py-1 rounded">B2B SaaS</span>
+							<span class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-2 py-1 rounded">Queue Logic</span>
+							<span class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-2 py-1 rounded">Healthcare</span>
+						</div>
+					</div>
+				</a>
+
+				<!-- SlugPost -->
+				<a href="https://slugpost.com" target="_blank" rel="noopener noreferrer" class="block group border border-[#2A2F3A] bg-[#0A0D12] rounded-2xl overflow-hidden hover:border-cyan-500 transition duration-300 relative">
+					<div class="absolute top-4 right-4 text-cyan-500 opacity-0 group-hover:opacity-100 transition"><i data-lucide="external-link" class="w-5 h-5"></i></div>
+					<div class="p-8">
+						<div class="flex items-center gap-4 mb-4">
+							<div class="bg-[#14181F] p-3 rounded-lg border border-[#2A2F3A] group-hover:border-cyan-800 transition">
+								<img src="/slugpost.png" alt="SlugPost" class="w-8 h-8 object-contain" />
+							</div>
+							<div>
+								<h3 class="text-2xl font-bold text-gray-200 group-hover:text-cyan-400 transition">SlugPost</h3>
+								<span class="text-xs text-gray-500">Online Publishing Platform</span>
+							</div>
+						</div>
+						<p class="text-sm text-gray-400 mb-6 leading-relaxed">A friction-free publishing utility that converts Markdown and HTML into shareable web pages instantly with custom URLs. Built for speed and zero-registration UX.</p>
+						<div class="flex flex-wrap gap-2">
+							<span class="text-xs font-mono text-cyan-400 bg-cyan-950/30 border border-cyan-900/50 px-2 py-1 rounded">Markdown</span>
+							<span class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-2 py-1 rounded">Web Platform</span>
+						</div>
+					</div>
+				</a>
+			</div>
 		</section>
 
 		<!-- 4-Week Sprint Section -->
