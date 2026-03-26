@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
 import Analytics from '../components/Analytics.astro';
+import { getImage } from 'astro:assets';
+import ogImage from '../images/og-image.jpeg';
 
 interface Props {
 	title?: string;
@@ -8,13 +10,23 @@ interface Props {
 	image?: string;
 }
 
-const { 
+const {
 	title = 'Maulana Builds | High-Fidelity Startup MVPs in 4 Weeks',
 	description = 'Stop gambling with agencies. Get a production-ready MVP built by a senior engineer in 4 weeks. Fixed $2,500 scope. 100% IP handover. Available immediately.',
-	image = '/og-image.png'
+	image: userImage
 } = Astro.props;
 
 const siteUrl = 'https://maulanabuilds.com';
+
+// Generate optimized WebP image for OG (1200x630 is the standard OG ratio)
+const optimizedImage = await getImage({
+	src: ogImage,
+	format: 'webp',
+	width: 1200,
+	height: 630
+});
+
+const image = userImage ?? optimizedImage.src;
 ---
 
 <!doctype html>
