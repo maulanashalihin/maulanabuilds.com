@@ -1,0 +1,299 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LucideIcons from "../components/LucideIcons.astro";
+import Header from "../components/Header.astro";
+---
+
+<Layout>
+    <Header />
+    <LucideIcons>
+        <main id="main-content">
+            <!-- Application Form Section -->
+            <section
+                id="apply"
+                class="max-w-3xl mx-auto px-6 pt-32 pb-24 md:pt-40 md:pb-32"
+            >
+                <div class="text-center mb-12">
+                    <div
+                        class="inline-flex items-center gap-2 border border-[#2A2F3A] bg-[#14181F] text-cyan-400 px-4 py-1.5 rounded-full text-sm mb-8"
+                    >
+                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                        Zero Upfront Risk • Secured via Escrow.com
+                    </div>
+                    <h1
+                        class="text-4xl md:text-5xl font-bold tracking-tighter leading-[1.1] mb-6 text-gray-100"
+                    >
+                        Apply for an Architecture Call
+                    </h1>
+                    <p
+                        class="text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto"
+                    >
+                        Tell me about your MVP. I review every submission
+                        personally and will respond within 24 hours if we're a
+                        good technical fit.
+                    </p>
+                </div>
+
+                <!-- Application Form -->
+                <div
+                    class="border border-[#2A2F3A] bg-[#0A0D12] p-8 md:p-10 rounded-2xl"
+                >
+                    <form
+                        id="mvp-application-form"
+                        class="space-y-8"
+                        action="https://crm.maulanabuilds.com/api/submit-application"
+                        method="POST"
+                    >
+                        <!-- Name -->
+                        <div>
+                            <label
+                                for="name"
+                                class="block text-sm font-bold text-gray-300 mb-2"
+                            >
+                                Full Name <span class="text-red-400">*</span>
+                            </label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                required
+                                placeholder="John Doe"
+                                class="w-full px-4 py-3 bg-[#0F131A] border border-[#2A2F3A] rounded-xl text-gray-200 placeholder-gray-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition"
+                            />
+                        </div>
+
+                        <!-- Email -->
+                        <div>
+                            <label
+                                for="email"
+                                class="block text-sm font-bold text-gray-300 mb-2"
+                            >
+                                Email Address <span class="text-red-400">*</span
+                                >
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                                placeholder="john@company.com"
+                                class="w-full px-4 py-3 bg-[#0F131A] border border-[#2A2F3A] rounded-xl text-gray-200 placeholder-gray-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition"
+                            />
+                        </div>
+
+                        <!-- Company/Startup Name -->
+                        <div>
+                            <label
+                                for="company"
+                                class="block text-sm font-bold text-gray-300 mb-2"
+                            >
+                                Company / Startup Name
+                            </label>
+                            <input
+                                type="text"
+                                id="company"
+                                name="company"
+                                placeholder="Your Company"
+                                class="w-full px-4 py-3 bg-[#0F131A] border border-[#2A2F3A] rounded-xl text-gray-200 placeholder-gray-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition"
+                            />
+                        </div>
+
+                        <!-- Core Problem -->
+                        <div>
+                            <label
+                                for="problem"
+                                class="block text-sm font-bold text-gray-300 mb-2"
+                            >
+                                What is the core problem your MVP solves?
+                                <span class="text-red-400">*</span>
+                            </label>
+                            <textarea
+                                id="problem"
+                                name="problem"
+                                required
+                                rows="4"
+                                placeholder="Describe the pain point your target users experience and how your product solves it..."
+                                class="w-full px-4 py-3 bg-[#0F131A] border border-[#2A2F3A] rounded-xl text-gray-200 placeholder-gray-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition resize-none"
+                            ></textarea>
+                        </div>
+
+                        <!-- Target Users -->
+                        <div>
+                            <label
+                                for="users"
+                                class="block text-sm font-bold text-gray-300 mb-2"
+                            >
+                                Who are your target users?
+                            </label>
+                            <textarea
+                                id="users"
+                                name="users"
+                                rows="3"
+                                placeholder="Describe your ideal customer profile..."
+                                class="w-full px-4 py-3 bg-[#0F131A] border border-[#2A2F3A] rounded-xl text-gray-200 placeholder-gray-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition resize-none"
+                            ></textarea>
+                        </div>
+
+                        <!-- Budget Confirmation -->
+                        <div>
+                            <label
+                                class="block text-sm font-bold text-gray-300 mb-3"
+                            >
+                                Do you have a minimum budget of $5,000 ready in
+                                Escrow? <span class="text-red-400">*</span>
+                            </label>
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <label
+                                    class="flex items-center gap-3 px-4 py-3 bg-[#0F131A] border border-[#2A2F3A] rounded-xl cursor-pointer hover:border-cyan-800 transition flex-1"
+                                >
+                                    <input
+                                        type="radio"
+                                        name="budget"
+                                        value="yes"
+                                        required
+                                        class="w-4 h-4 text-cyan-500 focus:ring-cyan-500"
+                                    />
+                                    <span class="text-gray-300 font-medium"
+                                        >Yes, budget secured</span
+                                    >
+                                </label>
+                                <label
+                                    class="flex items-center gap-3 px-4 py-3 bg-[#0F131A] border border-[#2A2F3A] rounded-xl cursor-pointer hover:border-cyan-800 transition flex-1"
+                                >
+                                    <input
+                                        type="radio"
+                                        name="budget"
+                                        value="no"
+                                        required
+                                        class="w-4 h-4 text-cyan-500 focus:ring-cyan-500"
+                                    />
+                                    <span class="text-gray-300 font-medium"
+                                        >No, still planning</span
+                                    >
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Target Launch Date -->
+                        <div>
+                            <label
+                                for="launch-date"
+                                class="block text-sm font-bold text-gray-300 mb-2"
+                            >
+                                Target launch date?
+                                <span class="text-red-400">*</span>
+                            </label>
+                            <input
+                                type="date"
+                                id="launch-date"
+                                name="launch-date"
+                                required
+                                class="w-full px-4 py-3 bg-[#0F131A] border border-[#2A2F3A] rounded-xl text-gray-200 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition"
+                            />
+                        </div>
+
+                        <!-- Additional Details -->
+                        <div>
+                            <label
+                                for="details"
+                                class="block text-sm font-bold text-gray-300 mb-2"
+                            >
+                                Any additional details or technical
+                                requirements?
+                            </label>
+                            <textarea
+                                id="details"
+                                name="details"
+                                rows="4"
+                                placeholder="Tech stack preferences, integrations needed, compliance requirements, etc..."
+                                class="w-full px-4 py-3 bg-[#0F131A] border border-[#2A2F3A] rounded-xl text-gray-200 placeholder-gray-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition resize-none"
+                            ></textarea>
+                        </div>
+
+                        <!-- How did you hear about us -->
+                        <div>
+                            <label
+                                for="referral"
+                                class="block text-sm font-bold text-gray-300 mb-2"
+                            >
+                                How did you hear about Maulana Builds?
+                            </label>
+                            <select
+                                id="referral"
+                                name="referral"
+                                class="w-full px-4 py-3 bg-[#0F131A] border border-[#2A2F3A] rounded-xl text-gray-200 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition"
+                            >
+                                <option value="">Select an option</option>
+                                <option value="google">Google Search</option>
+                                <option value="linkedin">LinkedIn</option>
+                                <option value="twitter">Twitter / X</option>
+                                <option value="referral">Referral</option>
+                                <option value="github">GitHub</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="pt-4">
+                            <button
+                                type="submit"
+                                class="w-full inline-flex items-center justify-center gap-2.5 bg-cyan-500 text-[#0A0D12] font-bold text-lg px-8 py-4 rounded-xl shadow-lg shadow-cyan-900/40 hover:bg-cyan-400 transition duration-300"
+                            >
+                                Submit Application
+                                <i data-lucide="arrow-right" class="w-5 h-5"
+                                ></i>
+                            </button>
+                            <p class="text-center text-sm text-gray-500 mt-4">
+                                <i
+                                    data-lucide="clock"
+                                    class="w-4 h-4 inline mr-1 -mt-1"></i>
+                                I respond to all applications within 24 hours
+                            </p>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Trust Indicators -->
+                <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div
+                        class="border border-[#2A2F3A] bg-[#0A0D12] p-6 rounded-xl text-center"
+                    >
+                        <i
+                            data-lucide="shield"
+                            class="w-8 h-8 text-cyan-400 mx-auto mb-3"></i>
+                        <h3 class="font-bold text-gray-200 mb-1">
+                            0% Upfront Risk
+                        </h3>
+                        <p class="text-sm text-gray-500">
+                            Funds secured via Escrow.com
+                        </p>
+                    </div>
+                    <div
+                        class="border border-[#2A2F3A] bg-[#0A0D12] p-6 rounded-xl text-center"
+                    >
+                        <i
+                            data-lucide="calendar"
+                            class="w-8 h-8 text-cyan-400 mx-auto mb-3"></i>
+                        <h3 class="font-bold text-gray-200 mb-1">
+                            2-4 Week Delivery
+                        </h3>
+                        <p class="text-sm text-gray-500">
+                            Production-ready MVP
+                        </p>
+                    </div>
+                    <div
+                        class="border border-[#2A2F3A] bg-[#0A0D12] p-6 rounded-xl text-center"
+                    >
+                        <i
+                            data-lucide="code"
+                            class="w-8 h-8 text-cyan-400 mx-auto mb-3"></i>
+                        <h3 class="font-bold text-gray-200 mb-1">
+                            100% Code Ownership
+                        </h3>
+                        <p class="text-sm text-gray-500">Full IP handover</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </LucideIcons>
+</Layout>

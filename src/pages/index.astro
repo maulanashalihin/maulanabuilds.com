@@ -29,13 +29,19 @@ import FAQ from "../components/FAQ.astro";
                             Code
                         </div>
                         <h1
-                            class="text-4xl md:text-6xl font-bold tracking-tighter leading-[1.1] mb-8"
+                            class="text-4xl md:text-6xl font-bold tracking-tighter leading-[1.1] mb-4"
                         >
                             Enterprise-Grade MVP Development. <br />
                             <span class="text-gray-500"
                                 >Shipped in 2-4 Weeks.</span
                             >
                         </h1>
+                        <p
+                            class="text-2xl md:text-3xl font-bold text-emerald-400 mb-8 max-w-2xl leading-relaxed"
+                        >
+                            <i data-lucide="shield" class="w-6 h-6 inline mr-2 -mt-1"></i>
+                            Zero Upfront Financial Risk. 100% Secured via Escrow.com.
+                        </p>
                         <p
                             class="text-xl text-gray-400 mb-12 max-w-2xl leading-relaxed"
                         >
@@ -51,12 +57,10 @@ import FAQ from "../components/FAQ.astro";
                             class="flex flex-col sm:flex-row gap-6 items-center"
                         >
                             <a
-                                href="https://calendly.com/maulana-drip/30min"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href="/apply"
                                 class="w-full sm:w-auto text-center inline-flex items-center justify-center gap-2.5 bg-cyan-500 text-[#0A0D12] font-bold text-lg px-8 py-4 rounded-xl shadow-lg shadow-cyan-900/40 hover:bg-cyan-400 transition duration-300"
                             >
-                                Start Your MVP Build
+                                Apply for an Architecture Call
                                 <i data-lucide="arrow-right" class="w-5 h-5"
                                 ></i>
                             </a>
@@ -231,8 +235,7 @@ import FAQ from "../components/FAQ.astro";
                         >
                             <i
                                 data-lucide="server"
-                                class="w-4 h-4 text-cyan-500"></i> VPS / Vercel /
-                            Cloudflare
+                                class="w-4 h-4 text-cyan-500"></i> VPS / Cloud Server (No Serverless)
                         </div>
                         <div
                             class="flex items-center gap-2 border border-[#2A2F3A] bg-[#0F131A] px-4 py-2 rounded-lg text-gray-400 text-sm font-mono hover:border-cyan-800 transition cursor-default"
@@ -242,10 +245,25 @@ import FAQ from "../components/FAQ.astro";
                                 class="w-4 h-4 text-cyan-500"></i> Stripe Integration
                         </div>
                     </div>
-                    <p class="text-xs text-gray-600 mt-6">
-                        *Architecture is tailored for speed, scalability, and
-                        zero bloated server costs.
-                    </p>
+                    <div class="mt-8 p-6 border border-emerald-900/50 bg-emerald-950/10 rounded-xl max-w-3xl mx-auto">
+                        <p class="text-sm text-emerald-400 font-bold mb-2">
+                            <i data-lucide="gauge" class="w-4 h-4 inline mr-2 -mt-1"></i>
+                            Proven Performance: 100,000+ Requests/Second
+                        </p>
+                        <p class="text-xs text-gray-400 leading-relaxed">
+                            My SQLite + Go architecture blueprint handles 
+                            <strong class="text-gray-300">100k RPS on a single $200/month VPS</strong> 
+                            with sub-millisecond latency. Read the technical breakdown:
+                            <a
+                                href="https://laju.dev/blog/sqlite-blueprint-en/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-cyan-400 hover:text-cyan-300 underline"
+                            >
+                                laju.dev/blog/sqlite-blueprint
+                            </a>
+                        </p>
+                    </div>
                 </div>
             </section>
 
@@ -330,8 +348,7 @@ import FAQ from "../components/FAQ.astro";
                             </h3>
                         </div>
                         <p class="text-sm text-gray-500 leading-relaxed">
-                            Full deployment on live servers (AWS/Google
-                            Cloud/Vercel) with secured database and SSL.
+                            Full deployment on dedicated cloud servers (VPS) with secured database, SSL, and predictable monthly costs. No serverless vendor lock-in, no surprise bills.
                         </p>
                     </div>
                 </div>
@@ -485,11 +502,17 @@ import FAQ from "../components/FAQ.astro";
                                     class="w-5 h-5 text-cyan-500 shrink-0"></i>
                                 14-day bug fix warranty
                             </li>
+                            <li
+                                class="flex items-start gap-3 text-sm text-gray-400"
+                            >
+                                <i
+                                    data-lucide="circle-check"
+                                    class="w-5 h-5 text-gray-500 shrink-0"></i>
+                                Communication: Email updates (weekly)
+                            </li>
                         </ul>
                         <a
-                            href="https://calendly.com/maulana-drip/30min"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            href="/apply"
                             class="w-full inline-flex items-center justify-center gap-2 border border-[#2A2F3A] bg-[#14181F] text-gray-300 px-6 py-3 rounded-xl hover:border-cyan-800 hover:text-cyan-400 transition font-medium"
                         >
                             Start Starter Project
@@ -561,7 +584,7 @@ import FAQ from "../components/FAQ.astro";
                                 <i
                                     data-lucide="circle-check"
                                     class="w-5 h-5 text-cyan-500 shrink-0"></i>
-                                Performance: &lt;1s page load, optimized queries
+                                Database optimization + query indexing
                             </li>
                             <li
                                 class="flex items-start gap-3 text-sm text-gray-400"
@@ -569,7 +592,7 @@ import FAQ from "../components/FAQ.astro";
                                 <i
                                     data-lucide="circle-check"
                                     class="w-5 h-5 text-cyan-500 shrink-0"></i>
-                                Security audit + penetration testing
+                                Security: OWASP best practices
                             </li>
                             <li
                                 class="flex items-start gap-3 text-sm text-gray-400"
@@ -577,7 +600,7 @@ import FAQ from "../components/FAQ.astro";
                                 <i
                                     data-lucide="circle-check"
                                     class="w-5 h-5 text-cyan-500 shrink-0"></i>
-                                Load testing (1000+ concurrent users)
+                                Load testing (10,000+ concurrent users)
                             </li>
                             <li
                                 class="flex items-start gap-3 text-sm text-gray-400"
@@ -587,11 +610,17 @@ import FAQ from "../components/FAQ.astro";
                                     class="w-5 h-5 text-cyan-500 shrink-0"></i>
                                 30-day bug fix warranty + 1 month support
                             </li>
+                            <li
+                                class="flex items-start gap-3 text-sm text-gray-400"
+                            >
+                                <i
+                                    data-lucide="circle-check"
+                                    class="w-5 h-5 text-cyan-500 shrink-0"></i>
+                                Communication: Slack + Email (priority response)
+                            </li>
                         </ul>
                         <a
-                            href="https://calendly.com/maulana-drip/30min"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            href="/apply"
                             class="w-full inline-flex items-center justify-center gap-2 bg-cyan-500 text-[#0A0D12] font-bold px-6 py-3 rounded-xl hover:bg-cyan-400 transition"
                         >
                             Start Growth Project
@@ -626,7 +655,7 @@ import FAQ from "../components/FAQ.astro";
                                 <i
                                     data-lucide="circle-check"
                                     class="w-5 h-5 text-cyan-500 shrink-0"></i>
-                                Unlimited features (prioritized roadmap)
+                                Priority feature roadmap (unlimited planning)
                             </li>
                             <li
                                 class="flex items-start gap-3 text-sm text-gray-400"
@@ -642,7 +671,7 @@ import FAQ from "../components/FAQ.astro";
                                 <i
                                     data-lucide="circle-check"
                                     class="w-5 h-5 text-cyan-500 shrink-0"></i>
-                                AI/ML integration (LLM, RAG, agents)
+                                AI/ML integration (LLM, RAG, workflows)
                             </li>
                             <li
                                 class="flex items-start gap-3 text-sm text-gray-400"
@@ -658,15 +687,7 @@ import FAQ from "../components/FAQ.astro";
                                 <i
                                     data-lucide="circle-check"
                                     class="w-5 h-5 text-cyan-500 shrink-0"></i>
-                                Microservices architecture (optional)
-                            </li>
-                            <li
-                                class="flex items-start gap-3 text-sm text-gray-400"
-                            >
-                                <i
-                                    data-lucide="circle-check"
-                                    class="w-5 h-5 text-cyan-500 shrink-0"></i>
-                                99.9% uptime SLA guarantee
+                                Horizontal scaling architecture
                             </li>
                             <li
                                 class="flex items-start gap-3 text-sm text-gray-400"
@@ -684,11 +705,17 @@ import FAQ from "../components/FAQ.astro";
                                     class="w-5 h-5 text-cyan-500 shrink-0"></i>
                                 60-day warranty + 2 months priority support
                             </li>
+                            <li
+                                class="flex items-start gap-3 text-sm text-gray-400"
+                            >
+                                <i
+                                    data-lucide="circle-check"
+                                    class="w-5 h-5 text-cyan-500 shrink-0"></i>
+                                Communication: Direct Slack/Email + optional calls
+                            </li>
                         </ul>
                         <a
-                            href="https://calendly.com/maulana-drip/30min"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            href="/apply"
                             class="w-full inline-flex items-center justify-center gap-2 border border-[#2A2F3A] bg-[#14181F] text-gray-300 px-6 py-3 rounded-xl hover:border-cyan-800 hover:text-cyan-400 transition font-medium"
                         >
                             Start Scale Project
@@ -857,11 +884,11 @@ import FAQ from "../components/FAQ.astro";
                         class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center"
                     >
                         <div class="space-y-2">
-                            <div class="text-3xl font-bold text-cyan-400">
-                                50%
+                            <div class="text-3xl font-bold text-emerald-400">
+                                0%
                             </div>
                             <div class="text-sm text-gray-500">
-                                Upfront Payment
+                                Upfront Risk (Escrow)
                             </div>
                         </div>
                         <div class="space-y-2">
@@ -886,8 +913,8 @@ import FAQ from "../components/FAQ.astro";
                     >
                         <div class="flex items-start gap-4">
                             <i
-                                data-lucide="shield"
-                                class="w-6 h-6 text-cyan-400 shrink-0 mt-1"></i>
+                                data-lucide="shield-check"
+                                class="w-6 h-6 text-emerald-400 shrink-0 mt-1"></i>
                             <div>
                                 <h4 class="font-bold text-gray-200 mb-2">
                                     Risk-Free Guarantee
@@ -895,11 +922,7 @@ import FAQ from "../components/FAQ.astro";
                                 <p
                                     class="text-sm text-gray-400 leading-relaxed"
                                 >
-                                    Your payment is protected. 50% upfront to
-                                    start, 50% only when you're satisfied with
-                                    the delivered MVP. Full code handover upon
-                                    final payment. Weekly progress demos ensure
-                                    you're always in the loop.
+                                    Total Financial Security. Your project funds ($5k-$12k) are locked safely in an Escrow.com account. I do not touch a single dollar until your MVP is successfully delivered, tested, and the full source code is 100% handed over to you.
                                 </p>
                             </div>
                         </div>
@@ -964,9 +987,8 @@ import FAQ from "../components/FAQ.astro";
                                     >
                                         Laju.dev
                                     </h3>
-                                    <span class="text-xs text-gray-500"
-                                        >11x Faster Than Express & 258k req/sec
-                                        per instance</span
+                                    <span class="text-xs text-emerald-400 font-bold"
+                                        >100,000 RPS &bull; 11x Faster Than Express</span
                                     >
                                 </div>
                             </div>
@@ -974,8 +996,8 @@ import FAQ from "../components/FAQ.astro";
                                 class="text-sm text-gray-400 mb-6 leading-relaxed"
                             >
                                 I engineered my own full-stack framework to ship
-                                products 10x faster. It handles an extreme 258k
-                                req/sec (11x faster than Express) with built-in
+                                products 10x faster. Benchmarked at 100k+ req/sec
+                                (11x faster than Express) with built-in
                                 auth, SQLite, and AI workflows. Now available in
                                 TypeScript and Go.
                             </p>
@@ -1409,10 +1431,34 @@ import FAQ from "../components/FAQ.astro";
                             <div class="text-xl font-bold text-gray-200">
                                 Maulana.
                             </div>
-                            <div
-                                class="text-sm text-cyan-500 font-mono bg-cyan-950/30 px-3 py-1 rounded-full inline-block border border-cyan-900/50"
-                            >
-                                Senior Full-Stack Engineer
+                            <div class="flex items-center justify-center gap-3 flex-wrap">
+                                <a
+                                    href="https://www.linkedin.com/in/maulana-shalihin"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-sm text-cyan-500 font-mono bg-cyan-950/30 px-3 py-1 rounded-full inline-block border border-cyan-900/50 hover:border-cyan-500 hover:text-cyan-400 transition"
+                                >
+                                    <i data-lucide="linkedin" class="w-3 h-3 inline mr-1"></i>
+                                    LinkedIn
+                                </a>
+                                <a
+                                    href="https://github.com/maulanashalihin"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-sm text-gray-400 font-mono bg-[#1A1F26] px-3 py-1 rounded-full inline-block border border-[#2A2F3A] hover:border-gray-500 hover:text-gray-300 transition"
+                                >
+                                    <i data-lucide="github" class="w-3 h-3 inline mr-1"></i>
+                                    GitHub
+                                </a>
+                                <a
+                                    href="https://x.com/maulana_drip_id"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-sm text-gray-400 font-mono bg-[#1A1F26] px-3 py-1 rounded-full inline-block border border-[#2A2F3A] hover:border-gray-500 hover:text-gray-300 transition"
+                                >
+                                    <i data-lucide="twitter" class="w-3 h-3 inline mr-1"></i>
+                                    X / Twitter
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1502,14 +1548,12 @@ import FAQ from "../components/FAQ.astro";
                             class="flex flex-col sm:flex-row gap-4 justify-center items-center"
                         >
                             <a
-                                href="https://calendly.com/maulana-drip/30min"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href="/apply"
                                 class="inline-flex items-center justify-center gap-3 bg-cyan-500 text-[#0A0D12] font-bold text-xl px-10 py-5 rounded-xl shadow-[0_0_40px_rgba(34,211,238,0.3)] hover:bg-cyan-400 transition duration-300 hover:scale-105 transform"
                             >
-                                <i data-lucide="calendar-check" class="w-6 h-6"
+                                <i data-lucide="file-text" class="w-6 h-6"
                                 ></i>
-                                Book Your 15-Min Fit Call
+                                Apply for an Architecture Call
                             </a>
                             <span class="text-gray-600">or</span>
                             <a
@@ -1545,14 +1589,12 @@ import FAQ from "../components/FAQ.astro";
                     </a>
                     <span class="hidden md:inline text-gray-700">•</span>
                     <a
-                        href="https://calendly.com/maulana-drip/30min"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href="/apply"
                         class="hover:text-cyan-400 transition"
                     >
-                        <i data-lucide="calendar" class="w-4 h-4 inline mr-1"
+                        <i data-lucide="file-text" class="w-4 h-4 inline mr-1"
                         ></i>
-                        Schedule a Call
+                        Apply for Call
                     </a>
                     <span class="hidden md:inline text-gray-700">•</span>
                     <a href="/services" class="hover:text-cyan-400 transition">
