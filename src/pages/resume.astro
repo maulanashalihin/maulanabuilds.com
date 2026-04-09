@@ -1,0 +1,602 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LucideIcons from "../components/LucideIcons.astro";
+import Header from "../components/Header.astro";
+import BackToTop from "../components/BackToTop.astro";
+---
+
+<Layout>
+    <Header />
+    <LucideIcons>
+        <main id="main-content" class="min-h-screen">
+            <!-- Hero Section -->
+            <section class="max-w-7xl mx-auto px-6 pt-32 pb-16">
+                <div class="max-w-4xl">
+                    <div
+                        class="inline-flex items-center gap-2 border border-[#2A2F3A] bg-[#14181F] text-cyan-400 px-4 py-1.5 rounded-full text-sm mb-8"
+                    >
+                        <i data-lucide="file-text" class="w-4 h-4"></i>
+                        Professional Resume
+                    </div>
+                    <h1
+                        class="text-4xl md:text-6xl font-bold tracking-tighter leading-[1.1] mb-4"
+                    >
+                        MAULANA SHALIHIN
+                    </h1>
+                    <p class="text-2xl text-cyan-400 font-bold mb-6">
+                        Senior Full-Stack Software Architect
+                    </p>
+                    <div class="flex flex-wrap gap-4 text-gray-400 mb-8">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            <span>Banjarbaru, Indonesia (GMT+8)</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="globe" class="w-4 h-4"></i>
+                            <a
+                                href="https://maulanabuilds.com"
+                                class="hover:text-cyan-400 transition"
+                                >maulanabuilds.com</a
+                            >
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="linkedin" class="w-4 h-4"></i>
+                            <a
+                                href="https://www.linkedin.com/in/maulana-shalihin"
+                                class="hover:text-cyan-400 transition"
+                                target="_blank"
+                                rel="noopener noreferrer">LinkedIn</a
+                            >
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="github" class="w-4 h-4"></i>
+                            <a
+                                href="https://github.com/maulanashalihin"
+                                class="hover:text-cyan-400 transition"
+                                target="_blank"
+                                rel="noopener noreferrer">GitHub</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Professional Summary -->
+            <section class="max-w-7xl mx-auto px-6 pb-24">
+                <div
+                    class="border border-[#2A2F3A] bg-[#0A0D12] p-8 rounded-2xl"
+                >
+                    <div class="flex items-center gap-3 mb-6">
+                        <i data-lucide="user" class="w-6 h-6 text-cyan-400"></i>
+                        <h2 class="text-2xl font-bold text-gray-200">
+                            Professional Summary
+                        </h2>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed text-lg">
+                        Pragmatic Software Architect with 11+ years of
+                        experience designing, building, and scaling
+                        production-ready web applications. Specializing in the
+                        Node.js and Svelte and React ecosystems, I bridge the
+                        gap between product requirements and scalable cloud
+                        infrastructure. I heavily leverage AI-augmented
+                        development workflows using Opencode to automate
+                        boilerplate and testing, focusing my engineering hours
+                        on robust system architecture, database optimization,
+                        and secure multi-tenant deployments. Proven track record
+                        of operating autonomously in async-first, agile
+                        environments.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Core Competencies -->
+            <section class="max-w-7xl mx-auto px-6 pb-24">
+                <div class="flex items-center gap-3 mb-8">
+                    <i data-lucide="layers" class="w-6 h-6 text-cyan-400"></i>
+                    <h2 class="text-2xl font-bold text-gray-200">
+                        Core Competencies
+                    </h2>
+                </div>
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                >
+                    <!-- Frontend -->
+                    <div
+                        class="border border-[#2A2F3A] bg-[#0A0D12] p-6 rounded-xl"
+                    >
+                        <div class="flex items-center gap-2 mb-4">
+                            <i
+                                data-lucide="layout-template"
+                                class="w-5 h-5 text-cyan-400"></i>
+                            <h3 class="text-lg font-bold text-gray-200">
+                                Frontend
+                            </h3>
+                        </div>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            React.js (SPA), Next.js, Svelte/SvelteKit, Tailwind
+                            CSS, TypeScript
+                        </p>
+                    </div>
+
+                    <!-- Backend -->
+                    <div
+                        class="border border-[#2A2F3A] bg-[#0A0D12] p-6 rounded-xl"
+                    >
+                        <div class="flex items-center gap-2 mb-4">
+                            <i
+                                data-lucide="server"
+                                class="w-5 h-5 text-cyan-400"></i>
+                            <h3 class="text-lg font-bold text-gray-200">
+                                Backend
+                            </h3>
+                        </div>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Node.js, Hyper Express, Go, RESTful APIs, WebSockets
+                        </p>
+                    </div>
+
+                    <!-- Database & ORM -->
+                    <div
+                        class="border border-[#2A2F3A] bg-[#0A0D12] p-6 rounded-xl"
+                    >
+                        <div class="flex items-center gap-2 mb-4">
+                            <i
+                                data-lucide="database"
+                                class="w-5 h-5 text-cyan-400"></i>
+                            <h3 class="text-lg font-bold text-gray-200">
+                                Database & ORM
+                            </h3>
+                        </div>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            PostgreSQL, SQLite, TypeORM, Knex, Drizzle, Raw SQL,
+                            Redis
+                        </p>
+                    </div>
+
+                    <!-- Cloud & DevOps -->
+                    <div
+                        class="border border-[#2A2F3A] bg-[#0A0D12] p-6 rounded-xl"
+                    >
+                        <div class="flex items-center gap-2 mb-4">
+                            <i data-lucide="cloud" class="w-5 h-5 text-cyan-400"
+                            ></i>
+                            <h3 class="text-lg font-bold text-gray-200">
+                                Cloud & DevOps
+                            </h3>
+                        </div>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Azure/Vultr/AWS/Google Cloud,
+                            Vercel/Cloudflare/Netlify, CI/CD Pipelines
+                        </p>
+                    </div>
+
+                    <!-- Methodologies -->
+                    <div
+                        class="border border-[#2A2F3A] bg-[#0A0D12] p-6 rounded-xl lg:col-span-2"
+                    >
+                        <div class="flex items-center gap-2 mb-4">
+                            <i
+                                data-lucide="circle-help"
+                                class="w-5 h-5 text-cyan-400"></i>
+                            <h3 class="text-lg font-bold text-gray-200">
+                                Methodologies
+                            </h3>
+                        </div>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            AI-Augmented Workflows, Async-first Collaboration,
+                            Agile/Scrum, Pragmatic Engineering (Avoid
+                            Over-engineering)
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Selected Projects -->
+            <section class="max-w-7xl mx-auto px-6 pb-24">
+                <div class="flex items-center gap-3 mb-8">
+                    <i data-lucide="folder-open" class="w-6 h-6 text-cyan-400"
+                    ></i>
+                    <h2 class="text-2xl font-bold text-gray-200">
+                        Selected Projects & Architecture Experience
+                    </h2>
+                </div>
+
+                <!-- Antre.in -->
+                <div
+                    class="border border-[#2A2F3A] bg-[#0A0D12] p-8 rounded-2xl mb-6"
+                >
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-200 mb-1">
+                                Antre.in
+                            </h3>
+                            <p class="text-cyan-400 text-sm">
+                                Healthcare B2B SaaS
+                            </p>
+                        </div>
+                        <a
+                            href="https://antre.in"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-gray-400 hover:text-cyan-400 transition"
+                        >
+                            <i data-lucide="external-link" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">
+                        Engineered a multi-tenant queue management platform for
+                        medical clinics. Built with Node.js and React.
+                        Implemented complex real-time patient synchronization,
+                        role-based access control (RBAC), and automated
+                        notification systems. Secured isolated tenant data
+                        architectures using PostgreSQL.
+                    </p>
+                </div>
+
+                <!-- KlikAja.app -->
+                <div
+                    class="border border-[#2A2F3A] bg-[#0A0D12] p-8 rounded-2xl mb-6"
+                >
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-200 mb-1">
+                                KlikAja.app
+                            </h3>
+                            <p class="text-cyan-400 text-sm">
+                                Link Management & Analytics
+                            </p>
+                        </div>
+                        <a
+                            href="https://klikaja.app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-gray-400 hover:text-cyan-400 transition"
+                        >
+                            <i data-lucide="external-link" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">
+                        Developed a high-performance URL shortener processing
+                        deep analytics. Designed the database architecture to
+                        handle high concurrency with sub-200ms redirect speeds.
+                        Implemented cron jobs and background workers for active
+                        link-health monitoring.
+                    </p>
+                </div>
+
+                <!-- Laju.dev -->
+                <div
+                    class="border border-[#2A2F3A] bg-[#0A0D12] p-8 rounded-2xl mb-6"
+                >
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-200 mb-1">
+                                Laju.dev
+                            </h3>
+                            <p class="text-cyan-400 text-sm">
+                                High-Velocity Framework
+                            </p>
+                        </div>
+                        <a
+                            href="https://laju.dev"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-gray-400 hover:text-cyan-400 transition"
+                        >
+                            <i data-lucide="external-link" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">
+                        Architected a custom web framework using Go/Node.js
+                        handling 258,000 requests per second. Designed for
+                        extreme infrastructure efficiency (handling 100k+ RPS on
+                        a single VPS) and native WebSocket integration for
+                        low-latency features.
+                    </p>
+                </div>
+
+                <!-- More Projects Link -->
+                <div
+                    class="border border-cyan-900/50 bg-cyan-950/10 p-8 rounded-2xl"
+                >
+                    <div class="flex items-center gap-3 mb-4">
+                        <i
+                            data-lucide="folder-open"
+                            class="w-6 h-6 text-cyan-400"></i>
+                        <h3 class="text-xl font-bold text-gray-200">
+                            More Projects
+                        </h3>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        I've shipped 20+ production systems including enterprise
+                        SaaS, healthcare solutions, POS systems, EdTech
+                        platforms, e-commerce, and AI automation tools. Many are
+                        under NDA but available to discuss.
+                    </p>
+                    <a
+                        href="/portfolio"
+                        class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-medium transition"
+                    >
+                        View Full Portfolio
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Work Experience -->
+            <section class="max-w-7xl mx-auto px-6 pb-24">
+                <div class="flex items-center gap-3 mb-8">
+                    <i data-lucide="briefcase" class="w-6 h-6 text-cyan-400"
+                    ></i>
+                    <h2 class="text-2xl font-bold text-gray-200">
+                        Work Experience
+                    </h2>
+                </div>
+
+                <!-- Maulana Builds / MVP Builder -->
+                <div
+                    class="border border-[#2A2F3A] bg-[#0A0D12] p-8 rounded-2xl mb-6"
+                >
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="bg-[#14181F] p-3 rounded-lg border border-[#2A2F3A]"
+                        >
+                            <i
+                                data-lucide="rocket"
+                                class="w-6 h-6 text-cyan-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-200">
+                                Founder & Lead Architect / MVP Builder
+                            </h3>
+                            <p class="text-cyan-400">Maulana Builds</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center gap-4 text-sm text-gray-500 mb-4"
+                    >
+                        <span class="flex items-center gap-1">
+                            <i data-lucide="calendar" class="w-4 h-4"></i>
+                            Mar 2026 - Present
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            Banjarbaru, South Kalimantan, Indonesia · Remote
+                        </span>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed mb-4">
+                        Functioning as a Fractional CTO and Lead Architect,
+                        building enterprise-grade B2B SaaS platforms and
+                        high-performance web infrastructure. Partnering with
+                        non-technical founders globally to engineer and ship
+                        high-performance Minimum Viable Products (MVPs) in
+                        4-week sprints. Focusing on Go, Bun, Svelte, and React
+                        architectures.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="text-xs font-mono text-cyan-400 bg-cyan-950/30 border border-cyan-900/50 px-3 py-1 rounded"
+                        >
+                            Go
+                        </span>
+                        <span
+                            class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-3 py-1 rounded"
+                        >
+                            Bun
+                        </span>
+                        <span
+                            class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-3 py-1 rounded"
+                        >
+                            Svelte
+                        </span>
+                        <span
+                            class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-3 py-1 rounded"
+                        >
+                            React
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Driplab -->
+                <div
+                    class="border border-[#2A2F3A] bg-[#0A0D12] p-8 rounded-2xl mb-6"
+                >
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="bg-[#14181F] p-3 rounded-lg border border-[#2A2F3A]"
+                        >
+                            <i data-lucide="code" class="w-6 h-6 text-cyan-400"
+                            ></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-200">
+                                Full Stack Developer
+                            </h3>
+                            <p class="text-cyan-400">Driplab · Self-employed</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center gap-4 text-sm text-gray-500 mb-4"
+                    >
+                        <span class="flex items-center gap-1">
+                            <i data-lucide="calendar" class="w-4 h-4"></i>
+                            Mar 2020 - Mar 2026 · 6 yrs 1 mo
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            Banjarbaru, South Kalimantan, Indonesia
+                        </span>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="text-xs font-mono text-cyan-400 bg-cyan-950/30 border border-cyan-900/50 px-3 py-1 rounded"
+                        >
+                            Hyper Express
+                        </span>
+                        <span
+                            class="text-xs font-mono text-cyan-400 bg-cyan-950/30 border border-cyan-900/50 px-3 py-1 rounded"
+                        >
+                            Node.js
+                        </span>
+                        <span
+                            class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-3 py-1 rounded"
+                        >
+                            Svelte
+                        </span>
+                        <span
+                            class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-3 py-1 rounded"
+                        >
+                            React
+                        </span>
+                        <span
+                            class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-3 py-1 rounded"
+                        >
+                            WebSockets
+                        </span>
+                        <span
+                            class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-3 py-1 rounded"
+                        >
+                            Tailwind CSS
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Orderlink -->
+                <div
+                    class="border border-[#2A2F3A] bg-[#0A0D12] p-8 rounded-2xl mb-6"
+                >
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="bg-[#14181F] p-3 rounded-lg border border-[#2A2F3A]"
+                        >
+                            <i data-lucide="shopping-bag" class="w-6 h-6 text-cyan-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-200">
+                                Full Stack Developer
+                            </h3>
+                            <p class="text-cyan-400">Orderlink</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center gap-4 text-sm text-gray-500 mb-4"
+                    >
+                        <span class="flex items-center gap-1">
+                            <i data-lucide="calendar" class="w-4 h-4"></i>
+                            2016 - 2019 · 3 yrs
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            Indonesia
+                        </span>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="text-xs font-mono text-cyan-400 bg-cyan-950/30 border border-cyan-900/50 px-3 py-1 rounded"
+                        >
+                            PHP
+                        </span>
+                        <span
+                            class="text-xs font-mono text-cyan-400 bg-cyan-950/30 border border-cyan-900/50 px-3 py-1 rounded"
+                        >
+                            Laravel
+                        </span>
+                        <span
+                            class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-3 py-1 rounded"
+                        >
+                            Vue.js
+                        </span>
+                        <span
+                            class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-3 py-1 rounded"
+                        >
+                            MySQL
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section class="max-w-7xl mx-auto px-6 pb-24">
+                <div class="flex items-center gap-3 mb-8">
+                    <i
+                        data-lucide="graduation-cap"
+                        class="w-6 h-6 text-cyan-400"></i>
+                    <h2 class="text-2xl font-bold text-gray-200">Education</h2>
+                </div>
+
+                <div
+                    class="border border-[#2A2F3A] bg-[#0A0D12] p-8 rounded-2xl"
+                >
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="bg-[#14181F] p-3 rounded-lg border border-[#2A2F3A]"
+                            >
+                                <i
+                                    data-lucide="school"
+                                    class="w-6 h-6 text-cyan-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-200">
+                                    University of Brawijaya
+                                </h3>
+                                <p class="text-cyan-400">
+                                    Bachelor of Engineering - BE, Computer
+                                    Science
+                                </p>
+                            </div>
+                        </div>
+                        <div class="text-right text-sm text-gray-500">
+                            <p>Aug 2010 – Jul 2015</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Download/Print CTA -->
+            <section class="max-w-7xl mx-auto px-6 pb-32">
+                <div
+                    class="border border-emerald-900/50 bg-emerald-950/10 p-8 rounded-2xl text-center"
+                >
+                    <i
+                        data-lucide="printer"
+                        class="w-10 h-10 text-emerald-400 mx-auto mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-200 mb-2">
+                        Need a PDF Version?
+                    </h3>
+                    <p class="text-gray-400 mb-6 max-w-xl mx-auto">
+                        Use your browser's print function to save this page as a
+                        PDF for offline viewing or sharing.
+                    </p>
+                    <button
+                        onclick="window.print()"
+                        class="inline-flex items-center gap-2 bg-emerald-500 text-[#0A0D12] font-bold text-lg px-8 py-4 rounded-xl hover:bg-emerald-400 transition"
+                    >
+                        <i data-lucide="download" class="w-5 h-5"></i>
+                        Print / Save as PDF
+                    </button>
+                </div>
+            </section>
+        </main>
+    </LucideIcons>
+</Layout>
+
+<style>
+    @media print {
+        body {
+            background: white !important;
+            color: black !important;
+        }
+        header,
+        button {
+            display: none !important;
+        }
+        a {
+            text-decoration: none;
+            color: black !important;
+        }
+        .border {
+            border: 1px solid #ccc !important;
+        }
+    }
+</style>
