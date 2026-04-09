@@ -559,22 +559,31 @@ import BackToTop from "../components/BackToTop.astro";
                     class="border border-emerald-900/50 bg-emerald-950/10 p-8 rounded-2xl text-center"
                 >
                     <i
-                        data-lucide="printer"
+                        data-lucide="file-down"
                         class="w-10 h-10 text-emerald-400 mx-auto mb-4"></i>
                     <h3 class="text-xl font-bold text-gray-200 mb-2">
-                        Need a PDF Version?
+                        Download Resume
                     </h3>
                     <p class="text-gray-400 mb-6 max-w-xl mx-auto">
-                        Use your browser's print function to save this page as a
-                        PDF for offline viewing or sharing.
+                        Get a copy of my resume in PDF format for offline viewing or sharing.
                     </p>
-                    <button
-                        onclick="window.print()"
-                        class="inline-flex items-center gap-2 bg-emerald-500 text-[#0A0D12] font-bold text-lg px-8 py-4 rounded-xl hover:bg-emerald-400 transition"
-                    >
-                        <i data-lucide="download" class="w-5 h-5"></i>
-                        Print / Save as PDF
-                    </button>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a
+                            href="/Maulana Shalihin Resume.pdf"
+                            download="Maulana Shalihin Resume.pdf"
+                            class="inline-flex items-center justify-center gap-2 bg-emerald-500 text-[#0A0D12] font-bold text-lg px-8 py-4 rounded-xl hover:bg-emerald-400 transition"
+                        >
+                            <i data-lucide="download" class="w-5 h-5"></i>
+                            Download PDF
+                        </a>
+                        <button
+                            onclick="window.print()"
+                            class="inline-flex items-center justify-center gap-2 border border-emerald-500 text-emerald-400 font-bold text-lg px-8 py-4 rounded-xl hover:bg-emerald-950/30 transition"
+                        >
+                            <i data-lucide="printer" class="w-5 h-5"></i>
+                            Print
+                        </button>
+                    </div>
                 </div>
             </section>
         </main>
