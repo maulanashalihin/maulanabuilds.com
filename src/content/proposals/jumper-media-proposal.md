@@ -72,15 +72,17 @@ Bubble abstracts the database, which creates technical debt. We will move this t
 * **Schema Design:** Use **Goose** inside the `migrations/` directory to write strict, normalized relational database schemas.
 * **Data Seeding:** Write Go scripts utilizing the **Squirrel** query builder in the `app/repositories/` layer to safely sanitize and insert the Bubble data into the new SQL database.
 
-### Phase 2: AI-Augmented Frontend Decoupling (Svelte 5 + Inertia.js)
-* I will clone the visual DOM structure of your current Bubble application.
+### Phase 2: Frontend Cloning with 100% UI/UX Parity (Svelte 5 + Inertia.js)
+* I will clone your current Bubble pages pixel-perfect into the new stack. Users will see **zero difference** in the UI/UX—they won't even know the system has changed.
 * Utilizing AI-augmented workflows (Claude Opus 4.6), I will rewrite the proprietary Bubble UI into clean, maintainable components inside `frontend/src/components/` and `frontend/src/pages/` using **Svelte 5**.
 * **The Game Changer:** Instead of writing complex API fetchers on the frontend, I will use **Inertia.js 3**. This acts as a SPA bridge, allowing the Go Fiber backend to pass data directly to Svelte pages seamlessly, drastically reducing frontend development time.
+* **Optional:** If you want a fresh design for certain aspects, just let me know—we can iterate on those pages separately.
 
-### Phase 3: Translating Visual Workflows into Go Services
+### Phase 3: High-Performance Go APIs + URL Preservation
 * I will translate Bubble's "Visual Workflows" into a strict layered architecture in Go.
 * Business logic goes into `app/services/`, database operations into `app/repositories/`, and the HTTP routing into `app/handlers/`.
-* The **Go Fiber v2** framework will instantly solve the rate-limiting and performance bottlenecks native to Bubble's backend, delivering fasthttp-level speeds.
+* **All existing URLs will remain alive.** Every link that's currently scattered across the web (social media, emails, bookmarks) will continue working—no broken links, no lost traffic.
+* The **Go Fiber v2** framework will instantly solve the rate-limiting and performance bottlenecks native to Bubble's backend, delivering **fasthttp-level speeds** (250k+ req/sec).
 
 ### Phase 4: The "Strangler Fig" Deployment
 * I will deploy the new Laju-Go backend via Docker and CI/CD pipelines.
