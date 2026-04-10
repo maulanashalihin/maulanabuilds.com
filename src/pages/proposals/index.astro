@@ -1,0 +1,205 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import LucideIcons from '../../components/LucideIcons.astro';
+import Header from '../../components/Header.astro';
+
+const proposals = await getCollection('proposals');
+
+// Sort by date descending (newest first)
+proposals.sort((a, b) => {
+	return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
+});
+
+// Status badge configuration
+const statusConfig: { [key: string]: { class: string; label: string; icon: string } } = {
+	draft: { class: 'status-draft', label: 'Draft', icon: 'file' },
+	sent: { class: 'status-sent', label: 'Sent', icon: 'send' },
+	accepted: { class: 'status-accepted', label: 'Accepted', icon: 'circle-check' },
+	rejected: { class: 'status-rejected', label: 'Rejected', icon: 'circle-x' },
+};
+---
+
+<Layout>
+	<Header />
+	<LucideIcons>
+		<main id="main-content" class="min-h-screen">
+			<!-- Hero Section -->
+			<section class="max-w-7xl mx-auto px-6 pt-32 pb-16">
+				<div class="max-w-4xl">
+					<div
+						class="inline-flex items-center gap-2 border border-[#2A2F3A] bg-[#14181F] text-cyan-400 px-4 py-1.5 rounded-full text-sm mb-8"
+					>
+						<i data-lucide="folder-open" class="w-4 h-4"></i>
+						Proposal Archive
+					</div>
+					<h1
+						class="text-4xl md:text-6xl font-bold tracking-tighter leading-[1.1] mb-6"
+					>
+						Proposals.
+					</h1>
+					<p class="text-xl text-gray-400 max-w-3xl leading-relaxed">
+						Professional technical proposals prepared for clients. 
+						Each document outlines a comprehensive solution architecture, 
+						implementation strategy, and proof of relevant experience.
+					</p>
+				</div>
+			</section>
+
+			<!-- Proposals Grid -->
+			<section class="max-w-7xl mx-auto px-6 pb-24">
+				{proposals.length === 0 ? (
+					<div class="text-center py-24">
+						<i data-lucide="folder-open" class="w-16 h-16 text-gray-600 mx-auto mb-4"></i>
+						<h3 class="text-xl font-bold text-gray-400 mb-2">No proposals yet</h3>
+						<p class="text-gray-500">Proposals will appear here once created.</p>
+					</div>
+				) : (
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+						{proposals.map((proposal) => {
+							const formattedDate = new Date(proposal.data.date).toLocaleDateString('en-US', {
+								year: 'numeric',
+								month: 'short',
+								day: 'numeric',
+							});
+							
+							const config = statusConfig[proposal.data.status] || statusConfig.sent;
+							
+							return (
+								<a
+									href={`/proposals/${proposal.id}`}
+									class="block group border border-[#2A2F3A] bg-[#0A0D12] rounded-2xl overflow-hidden hover:border-cyan-500 transition duration-300 hover:shadow-[0_0_30px_rgba(34,211,238,0.1)]"
+								>
+									<div class="p-8">
+										<div class="flex items-start justify-between gap-4 mb-4">
+											<div class="flex items-center gap-3">
+												<div
+													class="bg-[#14181F] p-3 rounded-lg border border-[#2A2F3A] group-hover:border-cyan-800 transition"
+												>
+													<i data-lucide={config.icon} class="w-6 h-6 text-cyan-400"></i>
+												</div>
+												<div>
+													<span class={`proposal-status ${config.class}`}>
+														<i data-lucide="circle" class="w-2 h-2 fill-current"></i>
+														{config.label}
+													</span>
+												</div>
+											</div>
+										</div>
+										
+										<h3
+											class="text-xl font-bold text-gray-200 group-hover:text-cyan-400 transition mb-3 line-clamp-2"
+										>
+											{proposal.data.title}
+										</h3>
+										
+										<div class="flex items-center gap-4 mb-4 text-sm text-gray-500">
+											<div class="flex items-center gap-2">
+												<i data-lucide="building" class="w-4 h-4"></i>
+												<span>{proposal.data.client}</span>
+											</div>
+											<div class="flex items-center gap-2">
+												<i data-lucide="calendar" class="w-4 h-4"></i>
+												<span>{formattedDate}</span>
+											</div>
+										</div>
+										
+										{proposal.data.tags && proposal.data.tags.length > 0 && (
+											<div class="flex flex-wrap gap-2 mt-4">
+												{proposal.data.tags.slice(0, 4).map((tag) => (
+													<span
+														class="text-xs font-mono text-gray-400 bg-[#1A1F26] px-2 py-1 rounded border border-[#2A2F3A]"
+													>
+														#{tag}
+													</span>
+												))}
+												{proposal.data.tags.length > 4 && (
+													<span class="text-xs text-gray-500 px-2 py-1">
+														+{proposal.data.tags.length - 4} more
+													</span>
+												)}
+											</div>
+										)}
+									</div>
+									<div
+										class="px-8 py-4 border-t border-[#2A2F3A] bg-[#0F131A] flex items-center justify-between"
+									>
+										<span class="text-xs text-gray-500">View Proposal</span>
+										<i
+											data-lucide="arrow-right"
+											class="w-4 h-4 text-cyan-500 group-hover:translate-x-1 transition-transform"
+										></i>
+									</div>
+								</a>
+							);
+						})}
+					</div>
+				)}
+			</section>
+			
+			<!-- Info Section -->
+			<section class="max-w-7xl mx-auto px-6 pb-24">
+				<div class="border border-[#2A2F3A] bg-[#0F131A] rounded-2xl p-8">
+					<div class="flex items-start gap-4">
+						<div class="bg-[#14181F] p-3 rounded-lg border border-[#2A2F3A]">
+							<i data-lucide="info" class="w-6 h-6 text-cyan-400"></i>
+						</div>
+						<div>
+							<h3 class="text-lg font-bold text-gray-200 mb-2">About These Proposals</h3>
+							<p class="text-gray-400 leading-relaxed">
+								Each proposal is crafted with detailed technical analysis, architectural recommendations, 
+								and a clear implementation roadmap. They demonstrate my approach to solving complex 
+								technical challenges and migrating legacy systems to modern, scalable architectures.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+	</LucideIcons>
+</Layout>
+
+<style>
+	.proposal-status {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.375rem;
+		padding: 0.25rem 0.75rem;
+		border-radius: 9999px;
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+	
+	.status-draft {
+		background: rgba(156, 163, 175, 0.1);
+		color: #9ca3af;
+		border: 1px solid rgba(156, 163, 175, 0.2);
+	}
+	
+	.status-sent {
+		background: rgba(34, 211, 238, 0.1);
+		color: #22d3ee;
+		border: 1px solid rgba(34, 211, 238, 0.2);
+	}
+	
+	.status-accepted {
+		background: rgba(16, 185, 129, 0.1);
+		color: #10b981;
+		border: 1px solid rgba(16, 185, 129, 0.2);
+	}
+	
+	.status-rejected {
+		background: rgba(239, 68, 68, 0.1);
+		color: #ef4444;
+		border: 1px solid rgba(239, 68, 68, 0.2);
+	}
+	
+	.line-clamp-2 {
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+</style>
