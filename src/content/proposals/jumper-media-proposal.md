@@ -2,7 +2,7 @@
 title: "SaaS Migration Proposal: Bubble to Modern Web Stack"
 client: "Jumper Media"
 author: "Maulana Shalihin"
-role: "Senior Software Architect"
+role: "Senior Software Engineer"
 contact: "Indonesia - GMT+8"
 date: "2026-04-10"
 status: "sent"
@@ -13,8 +13,8 @@ tags: ["SaaS", "Migration", "Go", "React", "Bubble"]
 ---
 
 
-**Prepared for:** Jumper Media Engineering Team  
-**By:** Maulana Shalihin | Senior Software Architect  
+**Prepared for:** Jumper Media Engineering Team
+**By:** Maulana Shalihin | Senior Software Engineer
 **Location:** Indonesia - GMT+8 (Operating 100% Async-First)  
 **Links:** [GitHub](https://github.com/maulanashalihin) | [Portfolio](https://maulanabuilds.com)
 
