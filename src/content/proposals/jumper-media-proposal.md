@@ -74,7 +74,7 @@ Bubble abstracts the database, which creates technical debt. We will move this t
 
 ### Phase 2: Frontend Cloning with 100% UI/UX Parity (Svelte 5 + Inertia.js)
 * I will clone your current Bubble pages pixel-perfect into the new stack. Users will see **zero difference** in the UI/UX—they won't even know the system has changed.
-* Utilizing AI-augmented workflows (Claude Opus 4.6), I will rewrite the proprietary Bubble UI into clean, maintainable components inside `frontend/src/components/` and `frontend/src/pages/` using **Svelte 5**.
+* Utilizing AI-augmented workflows, I will rewrite the proprietary Bubble UI into clean, maintainable components inside `frontend/src/components/` and `frontend/src/pages/` using **Svelte 5**.
 * **The Game Changer:** Instead of writing complex API fetchers on the frontend, I will use **Inertia.js 3**. This acts as a SPA bridge, allowing the Go Fiber backend to pass data directly to Svelte pages seamlessly, drastically reducing frontend development time.
 * **Optional:** If you want a fresh design for certain aspects, just let me know—we can iterate on those pages separately.
 
