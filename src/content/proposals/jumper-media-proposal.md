@@ -13,7 +13,7 @@ tags: ["SaaS", "Migration", "Go", "React", "Bubble"]
 ---
 
 
-**Prepared for:** Jumper Media Engineering Team
+**Prepared for:** Jumper Media
 **By:** Maulana Shalihin | Senior Software Engineer
 **Location:** Indonesia - GMT+8 (Operating 100% Async-First)  
 **Links:** [GitHub](https://github.com/maulanashalihin) | [Portfolio](https://maulanabuilds.com)
