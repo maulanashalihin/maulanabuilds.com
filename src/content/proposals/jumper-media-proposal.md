@@ -22,7 +22,7 @@ tags: ["SaaS", "Migration", "Go", "React", "Bubble"]
 
 ## 1. Introduction & Background
 
-Hi Jumper Media team, I'm Maulana, a Senior Software Architect with over 11 years of experience. I specialize in **Go, Node.js, and cloud-native deployments**. 
+Hi Jumper Media team, I'm Maulana, a Senior Software Engineer with over 11 years of experience. I specialize in **Go, Node.js, and cloud-native deployments**. 
 
 I know your target hiring regions are in Eastern Europe, but I operate completely async-first, and I have a strong track record of taking ownership of complex SaaS rebuilds with zero micromanagement required. I don't just write code; I build robust, scalable products. 
 
