@@ -1,0 +1,490 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LucideIcons from "../components/LucideIcons.astro";
+import Header from "../components/Header.astro";
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
+const stripePublishableKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
+---
+
+<Layout>
+    <Header />
+    <LucideIcons>
+        <main id="main-content">
+            <!-- Hire Me Section -->
+            <section
+                id="hire-me"
+                class="max-w-3xl mx-auto px-6 pt-32 pb-24 md:pt-40 md:pb-32"
+            >
+                <div class="text-center mb-12">
+                    <div
+                        class="inline-flex items-center gap-2 border border-[#2A2F3A] bg-[#14181F] text-cyan-400 px-4 py-1.5 rounded-full text-sm mb-8"
+                    >
+                        <i data-lucide="briefcase" class="w-4 h-4"></i>
+                        Hire Me for Your Project
+                    </div>
+                    <h1
+                        class="text-4xl md:text-5xl font-bold tracking-tighter leading-[1.1] mb-6 text-gray-100"
+                    >
+                        Let's Build Your MVP
+                    </h1>
+                    <p
+                        class="text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto mb-8"
+                    >
+                        Tell me about your project. I'll review your requirements and get back to you within 24 hours to start building.
+                    </p>
+                    
+                    <!-- Price Display -->
+                    <div
+                        class="inline-flex items-center gap-4 border border-cyan-800 bg-gradient-to-r from-[#0F131A] to-[#0A0D12] px-8 py-4 rounded-2xl mb-8"
+                    >
+                        <div class="text-center">
+                            <div class="text-sm text-gray-400 uppercase tracking-wider mb-1">Starting at</div>
+                            <div class="text-4xl font-bold text-cyan-400">$1,000</div>
+                        </div>
+                        <div class="h-12 w-px bg-[#2A2F3A]"></div>
+                        <div class="text-left">
+                            <div class="flex items-center gap-2 text-gray-300 mb-1">
+                                <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
+                                <span class="text-sm font-medium">Secure Payment</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-gray-300">
+                                <i data-lucide="credit-card" class="w-4 h-4 text-cyan-400"></i>
+                                <span class="text-sm">Powered by Stripe</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hire Me Form -->
+                <div
+                    class="border border-[#2A2F3A] bg-[#0A0D12] p-8 md:p-10 rounded-2xl"
+                >
+                    <form 
+                        id="hire-me-form" 
+                        class="space-y-8"
+                        data-stripe-key={stripePublishableKey}
+                        data-supabase-url={supabaseUrl}
+                        data-supabase-key={supabaseKey}
+                    >
+                        <!-- Name -->
+                        <div>
+                            <label
+                                for="name"
+                                class="block text-sm font-bold text-gray-300 mb-2"
+                            >
+                                Full Name <span class="text-red-400">*</span>
+                            </label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                required
+                                placeholder="John Doe"
+                                class="w-full px-4 py-3 bg-[#0F131A] border border-[#2A2F3A] rounded-xl text-gray-200 placeholder-gray-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition"
+                            />
+                        </div>
+
+                        <!-- Email -->
+                        <div>
+                            <label
+                                for="email"
+                                class="block text-sm font-bold text-gray-300 mb-2"
+                            >
+                                Email Address <span class="text-red-400">*</span>
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                                placeholder="john@company.com"
+                                class="w-full px-4 py-3 bg-[#0F131A] border border-[#2A2F3A] rounded-xl text-gray-200 placeholder-gray-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition"
+                            />
+                        </div>
+
+                        <!-- Company/Startup Name -->
+                        <div>
+                            <label
+                                for="company"
+                                class="block text-sm font-bold text-gray-300 mb-2"
+                            >
+                                Company / Startup Name
+                            </label>
+                            <input
+                                type="text"
+                                id="company"
+                                name="company"
+                                placeholder="Your Company"
+                                class="w-full px-4 py-3 bg-[#0F131A] border border-[#2A2F3A] rounded-xl text-gray-200 placeholder-gray-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition"
+                            />
+                        </div>
+
+                        <!-- Project Description -->
+                        <div>
+                            <label
+                                for="description"
+                                class="block text-sm font-bold text-gray-300 mb-2"
+                            >
+                                What do you want to build? <span class="text-red-400">*</span>
+                            </label>
+                            <textarea
+                                id="description"
+                                name="description"
+                                required
+                                rows="5"
+                                placeholder="Describe your project, the problem it solves, your target users, and any specific features you need..."
+                                class="w-full px-4 py-3 bg-[#0F131A] border border-[#2A2F3A] rounded-xl text-gray-200 placeholder-gray-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition resize-none"
+                            ></textarea>
+                        </div>
+
+                        <!-- Technical Requirements -->
+                        <div>
+                            <label
+                                for="requirements"
+                                class="block text-sm font-bold text-gray-300 mb-2"
+                            >
+                                Technical Requirements (Optional)
+                            </label>
+                            <textarea
+                                id="requirements"
+                                name="requirements"
+                                rows="4"
+                                placeholder="Tech stack preferences, integrations needed, compliance requirements, timeline, etc..."
+                                class="w-full px-4 py-3 bg-[#0F131A] border border-[#2A2F3A] rounded-xl text-gray-200 placeholder-gray-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition resize-none"
+                            ></textarea>
+                        </div>
+
+                        <!-- Budget Confirmation -->
+                        <div>
+                            <label
+                                class="block text-sm font-bold text-gray-300 mb-3"
+                            >
+                                Project Investment: <span class="text-cyan-400">$1,000</span>
+                            </label>
+                            <div class="flex items-start gap-3 p-4 bg-[#0F131A] border border-[#2A2F3A] rounded-xl">
+                                <i data-lucide="info" class="w-5 h-5 text-cyan-400 shrink-0 mt-0.5"></i>
+                                <p class="text-sm text-gray-400">
+                                    This is an initial consultation and project setup fee. 
+                                    After reviewing your requirements, I'll provide a detailed proposal 
+                                    with a complete project scope and timeline.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="pt-4">
+                            <button
+                                type="submit"
+                                id="submit-button"
+                                class="w-full inline-flex items-center justify-center gap-2.5 bg-cyan-500 text-[#0A0D12] font-bold text-lg px-8 py-4 rounded-xl shadow-lg shadow-cyan-900/40 hover:bg-cyan-400 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                                <span>Proceed to Payment</span>
+                                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                            </button>
+                            <p class="text-center text-sm text-gray-500 mt-4">
+                                <i
+                                    data-lucide="lock"
+                                    class="w-4 h-4 inline mr-1 -mt-1"></i>
+                                Secure payment via Stripe • 256-bit SSL encrypted
+                            </p>
+                        </div>
+                    </form>
+
+                    <!-- Payment Container (hidden initially) -->
+                    <div id="payment-container" class="hidden mt-8 space-y-6">
+                        <div class="p-6 bg-[#0F131A] border border-[#2A2F3A] rounded-xl">
+                            <h3 class="text-xl font-bold text-gray-100 mb-4">Complete Payment</h3>
+                            <div id="payment-element" class="mb-6">
+                                <!-- Stripe Element will be inserted here -->
+                            </div>
+                            <button
+                                type="button"
+                                id="pay-button"
+                                class="w-full inline-flex items-center justify-center gap-2.5 bg-cyan-500 text-[#0A0D12] font-bold text-lg px-8 py-4 rounded-xl shadow-lg shadow-cyan-900/40 hover:bg-cyan-400 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                                <span>Pay $1,000</span>
+                                <i data-lucide="lock" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Success Message (hidden by default) -->
+                    <div id="success-message" class="hidden text-center py-12">
+                        <div class="w-20 h-20 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i data-lucide="check-circle" class="w-10 h-10 text-emerald-400"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold text-gray-100 mb-4">Payment Successful!</h2>
+                        <p class="text-xl text-gray-400 mb-8">
+                            Thank you for your payment. I'll review your project details and get back to you within 24 hours.
+                        </p>
+                        <a
+                            href="/"
+                            class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition font-medium"
+                        >
+                            Back to Home
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+
+                    <!-- Error Message (hidden by default) -->
+                    <div id="error-message" class="hidden mt-6 p-4 bg-red-500/10 border border-red-800 rounded-xl">
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="alert-circle" class="w-5 h-5 text-red-400 shrink-0 mt-0.5"></i>
+                            <p class="text-sm text-red-300" id="error-text"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trust Indicators -->
+                <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div
+                        class="border border-[#2A2F3A] bg-[#0A0D12] p-6 rounded-xl text-center"
+                    >
+                        <i
+                            data-lucide="clock"
+                            class="w-8 h-8 text-cyan-400 mx-auto mb-3"></i>
+                        <h3 class="font-bold text-gray-200 mb-1">
+                            24h Response Time
+                        </h3>
+                        <p class="text-sm text-gray-500">
+                            I review every submission
+                        </p>
+                    </div>
+                    <div
+                        class="border border-[#2A2F3A] bg-[#0A0D12] p-6 rounded-xl text-center"
+                    >
+                        <i
+                            data-lucide="shield"
+                            class="w-8 h-8 text-cyan-400 mx-auto mb-3"></i>
+                        <h3 class="font-bold text-gray-200 mb-1">
+                            Secure Payment
+                        </h3>
+                        <p class="text-sm text-gray-500">
+                            Stripe encrypted transactions
+                        </p>
+                    </div>
+                    <div
+                        class="border border-[#2A2F3A] bg-[#0A0D12] p-6 rounded-xl text-center"
+                    >
+                        <i
+                            data-lucide="code"
+                            class="w-8 h-8 text-cyan-400 mx-auto mb-3"></i>
+                        <h3 class="font-bold text-gray-200 mb-1">
+                            100% Code Ownership
+                        </h3>
+                        <p class="text-sm text-gray-500">Full IP handover</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <script>
+            import { loadStripe } from '@stripe/stripe-js';
+            import { createClient } from '@supabase/supabase-js';
+
+            declare global {
+                interface Window {
+                    lucide: any;
+                }
+            }
+
+            const STRIPE_EDGE_FUNCTION_URL = 'https://pbeqnkvmavntirrddwgc.supabase.co/functions/v1/stripe-payments/create-payment-intent';
+            const AMOUNT_IN_CENTS = 100000; // $1000
+
+            const form = document.getElementById('hire-me-form') as HTMLFormElement;
+            const submitButton = document.getElementById('submit-button') as HTMLButtonElement;
+            const successMessage = document.getElementById('success-message') as HTMLDivElement;
+            const errorMessage = document.getElementById('error-message') as HTMLDivElement;
+            const errorText = document.getElementById('error-text') as HTMLParagraphElement;
+
+            // Initialize Stripe and Supabase with server-passed env vars from data attributes
+            const stripePublishableKey = form.dataset.stripeKey as string;
+            const supabaseUrl = form.dataset.supabaseUrl as string;
+            const supabaseKey = form.dataset.supabaseKey as string;
+            
+            const stripePromise = loadStripe(stripePublishableKey);
+            const supabase = createClient(supabaseUrl, supabaseKey);
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                // Disable button and show loading state
+                submitButton.disabled = true;
+                submitButton.innerHTML = `
+                    <svg class="animate-spin h-5 w-5 text-[#0A0D12] inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span>Processing...</span>
+                `;
+
+                // Hide any previous error messages
+                errorMessage.classList.add('hidden');
+
+                try {
+                    // Gather form data
+                    const formData = new FormData(form);
+                    const data = {
+                        name: formData.get('name') as string,
+                        email: formData.get('email') as string,
+                        company: formData.get('company') as string || null,
+                        description: formData.get('description') as string,
+                        requirements: formData.get('requirements') as string || null,
+                    };
+
+                    // Step 1: Save to Supabase
+                    const { data: hireRequest, error: supabaseError } = await supabase
+                        .from('hire_requests')
+                        .insert([
+                            {
+                                name: data.name,
+                                email: data.email,
+                                company: data.company,
+                                project_description: data.description,
+                                requirements: data.requirements,
+                                amount: AMOUNT_IN_CENTS,
+                                currency: 'usd',
+                                payment_status: 'pending',
+                            },
+                        ])
+                        .select()
+                        .single();
+
+                    if (supabaseError) {
+                        throw new Error(`Failed to save request: ${supabaseError.message}`);
+                    }
+
+                    // Step 2: Create Stripe Payment Intent via Edge Function
+                    const response = await fetch(STRIPE_EDGE_FUNCTION_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            // Instead of sending the anon key as a Bearer token (which fails JWT validation),
+                            // we send it explicitly as the apikey header.
+                            'apikey': supabaseKey,
+                        },
+                        body: JSON.stringify({
+                            amount: AMOUNT_IN_CENTS,
+                            currency: 'usd',
+                            customerId: undefined,
+                            metadata: {
+                                hireRequestId: hireRequest.id,
+                                name: data.name,
+                                email: data.email,
+                            },
+                        }),
+                    });
+
+                    if (!response.ok) {
+                        const errorData = await response.json().catch(() => ({}));
+                        throw new Error(errorData.error || 'Failed to create payment intent');
+                    }
+
+                    const paymentIntent = await response.json();
+
+                    // Step 3: Update Supabase with Payment Intent ID
+                    await supabase
+                        .from('hire_requests')
+                        .update({ payment_intent_id: paymentIntent.id })
+                        .eq('id', hireRequest.id);
+
+                    // Step 4: Use Stripe Elements to confirm payment
+                    const stripe = await stripePromise;
+                    if (!stripe) {
+                        throw new Error('Failed to load Stripe');
+                    }
+
+                    // Hide the form and show the payment container
+                    form.classList.add('hidden');
+                    const paymentContainer = document.getElementById('payment-container') as HTMLDivElement;
+                    paymentContainer.classList.remove('hidden');
+
+                    const elements = stripe.elements({
+                        clientSecret: paymentIntent.client_secret,
+                        appearance: {
+                            theme: 'night',
+                            variables: {
+                                colorBackground: '#0F131A',
+                                colorText: '#E5E7EB',
+                                colorDanger: '#F87171',
+                                fontFamily: 'ui-sans-serif, system-ui, sans-serif',
+                                colorPrimary: '#22d3ee', // cyan-400
+                            }
+                        }
+                    });
+
+                    const paymentElement = elements.create('payment');
+                    paymentElement.mount('#payment-element');
+
+                    const payButton = document.getElementById('pay-button') as HTMLButtonElement;
+                    
+                    // Re-initialize icons for the new button
+                    if ((window as any).lucide) {
+                        (window as any).lucide.createIcons();
+                    }
+
+                    payButton.addEventListener('click', async () => {
+                        payButton.disabled = true;
+                        payButton.innerHTML = `
+                            <svg class="animate-spin h-5 w-5 text-[#0A0D12] inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            <span>Processing...</span>
+                        `;
+                        errorMessage.classList.add('hidden');
+
+                        const { error: stripeError } = await stripe.confirmPayment({
+                            elements,
+                            confirmParams: {
+                                return_url: `${window.location.origin}/hire-me?success=true`,
+                                payment_method_data: {
+                                    billing_details: {
+                                        name: data.name,
+                                        email: data.email,
+                                    },
+                                },
+                            },
+                        });
+
+                        if (stripeError) {
+                            errorText.textContent = stripeError.message || 'Payment failed';
+                            errorMessage.classList.remove('hidden');
+                            payButton.disabled = false;
+                            payButton.innerHTML = '<span>Pay $1,000</span><i data-lucide="lock" class="w-5 h-5 inline ml-2"></i>';
+                            if ((window as any).lucide) {
+                                (window as any).lucide.createIcons();
+                            }
+                        }
+                    });
+
+                } catch (error) {
+                    console.error('Error:', error);
+                    errorText.textContent = error instanceof Error ? error.message : 'An unexpected error occurred';
+                    errorMessage.classList.remove('hidden');
+                    
+                    // Re-enable button
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = `
+                        <span>Proceed to Payment</span>
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    `;
+                    
+                    // Re-initialize Lucide icons
+                    if (window.lucide) {
+                        window.lucide.createIcons();
+                    }
+                }
+            });
+
+            // Check for success parameter on page load
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('success') === 'true') {
+                form.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+            }
+        </script>
+    </LucideIcons>
+</Layout>

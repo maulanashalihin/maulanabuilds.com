@@ -12,6 +12,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@stripe/stripe-js": "^9.1.0",
+    "@supabase/supabase-js": "^2.103.0",
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.0.8",
     "lucide": "^1.7.0",
