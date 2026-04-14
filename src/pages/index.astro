@@ -216,13 +216,13 @@ import FAQ from "../components/FAQ.astro";
                         >
                             <i
                                 data-lucide="layers"
-                                class="w-4 h-4 text-cyan-500"></i> Svelte / React
+                                class="w-4 h-4 text-cyan-500"></i> React Router v7 / Svelte 5
                         </div>
                         <div
                             class="flex items-center gap-2 border border-[#2A2F3A] bg-[#0F131A] px-4 py-2 rounded-lg text-gray-400 text-sm font-mono hover:border-cyan-800 transition cursor-default"
                         >
                             <i data-lucide="zap" class="w-4 h-4 text-cyan-500"
-                            ></i> Rust / Go / Bun
+                            ></i> HyperExpress / Go / Bun
                         </div>
 
                         <div
@@ -230,7 +230,7 @@ import FAQ from "../components/FAQ.astro";
                         >
                             <i
                                 data-lucide="database"
-                                class="w-4 h-4 text-cyan-500"></i> PostgreSQL / SQLite
+                                class="w-4 h-4 text-cyan-500"></i> PostgreSQL / SQLite (WAL Mode)
                         </div>
                         <div
                             class="flex items-center gap-2 border border-[#2A2F3A] bg-[#0F131A] px-4 py-2 rounded-lg text-gray-400 text-sm font-mono hover:border-cyan-800 transition cursor-default"
@@ -255,23 +255,27 @@ import FAQ from "../components/FAQ.astro";
                             <i
                                 data-lucide="gauge"
                                 class="w-4 h-4 inline mr-2 -mt-1"></i>
-                            Proven Performance: 100,000+ Requests/Second
+                            Proven Performance: 197,000+ Requests/Second
                         </p>
-                        <p class="text-xs text-gray-400 leading-relaxed">
-                            My SQLite + Go architecture blueprint handles
-                            <strong class="text-gray-300"
-                                >100k RPS on a single $200/month VPS</strong
-                            >
-                            with sub-millisecond latency. Read the technical breakdown:
-                            <a
-                                href="https://laju.dev/blog/sqlite-blueprint-en/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="text-cyan-400 hover:text-cyan-300 underline"
-                            >
-                                laju.dev/blog/sqlite-blueprint
-                            </a>
+                        <p class="text-xs text-gray-400 leading-relaxed mb-3">
+                            My <strong class="text-gray-300">HyperReact</strong> boilerplate (HyperExpress + Kysely + SQLite) delivers
+                            <strong class="text-gray-300">197k RPS with 0.52ms latency</strong>—7.5x faster than Express.js.
+                            SQLite WAL mode achieves 22-33x faster writes with near-zero ORM overhead.
                         </p>
+                        <div class="space-y-1 text-xs text-gray-400">
+                            <p>
+                                <span class="text-cyan-400">→</span> 
+                                <strong class="text-gray-300">HyperExpress:</strong> 197k RPS vs Express 26k RPS
+                            </p>
+                            <p>
+                                <span class="text-cyan-400">→</span> 
+                                <strong class="text-gray-300">SQLite WAL:</strong> 99k ops/sec insert (22x faster than DELETE mode)
+                            </p>
+                            <p>
+                                <span class="text-cyan-400">→</span> 
+                                <strong class="text-gray-300">Kysely ORM:</strong> 0-5% overhead vs native better-sqlite3
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>

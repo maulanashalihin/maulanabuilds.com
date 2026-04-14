@@ -1,0 +1,166 @@
+/* A4 Resume PDF Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.4;
+  color: #1a1a1a;
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 15mm;
+  background: #fff;
+}
+
+h1 {
+  font-size: 24pt;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #000;
+  letter-spacing: -0.5px;
+}
+
+h1 + p {
+  font-size: 11pt;
+  color: #0891b2;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-size: 11pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #0891b2;
+  border-bottom: 2px solid #0891b2;
+  padding-bottom: 4px;
+  margin: 16px 0 10px 0;
+}
+
+h3 {
+  font-size: 10.5pt;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 2px 0;
+}
+
+p {
+  margin-bottom: 8px;
+  text-align: justify;
+}
+
+ul {
+  margin: 6px 0;
+  padding-left: 18px;
+}
+
+li {
+  margin-bottom: 3px;
+}
+
+strong {
+  font-weight: 600;
+  color: #000;
+}
+
+em {
+  color: #666;
+  font-style: italic;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #e5e5e5;
+  margin: 14px 0;
+}
+
+a {
+  color: #0891b2;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Compact spacing for one-page */
+section {
+  margin-bottom: 12px;
+}
+
+/* Inline contact info */
+h1 + p + p {
+  font-size: 9pt;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+/* Skills compact */
+h2 + p, h2 + p + p, h2 + p + p + p, h2 + p + p + p + p, h2 + p + p + p + p + p {
+  margin-bottom: 4px;
+  font-size: 10pt;
+}
+
+/* Project entries */
+h3 + p {
+  font-size: 9.5pt;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+/* Experience entries - compact */
+experience-entry {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Achievements bullets */
+achievements {
+  display: block;
+}
+
+achievements p {
+  margin-bottom: 4px;
+  font-size: 10pt;
+}
+
+/* Footer note */
+p:last-of-type {
+  font-size: 8.5pt;
+  color: #888;
+  text-align: center;
+  margin-top: 16px;
+}
+
+/* Print optimizations */
+@media print {
+  body {
+    padding: 12mm;
+    font-size: 10pt;
+  }
+  
+  h1 { font-size: 22pt; }
+  h2 { font-size: 10.5pt; }
+  
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+  
+  /* Force page breaks */
+  h2 {
+    page-break-after: avoid;
+  }
+  
+  /* Avoid orphan/widow */
+  p, li {
+    orphans: 2;
+    widows: 2;
+  }
+}
