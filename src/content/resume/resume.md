@@ -50,6 +50,13 @@ Developed a high-performance URL shortener processing deep analytics. Designed t
 
 ---
 
+### EatJom
+**SaaS Restaurant Ordering System** | [eatjom.co](https://eatjom.co)
+
+Architected a multi-tenant restaurant ordering platform with specialized kitchen stations. Built with HyperExpress and Svelte 5. Implemented automatic order splitting across multiple kitchens, menu modifiers system, dual ordering modes (waitress + QR self-service), and real-time kitchen display system. Delivers cost-effective solution replacing RM2,000+/month traditional systems.
+
+---
+
 ### Laju.dev
 **High-Velocity Framework** | [laju.dev](https://laju.dev)
 
