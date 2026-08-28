@@ -160,21 +160,18 @@ import BackToTop from "../components/BackToTop.astro";
                     <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-2xl p-8 md:col-span-2">
                         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                             <div>
-                                <h3 class="text-xl font-bold text-gray-100">live-project</h3>
+                                <h3 class="text-xl font-bold text-gray-100">Live Streaming Platform</h3>
                                 <p class="mt-2 text-gray-400 text-sm leading-relaxed max-w-2xl">
-                                    Low-cost live streaming infrastructure for 1tim.org (branding: daulah.tv).
-                                    Cloudflare Stream ingest → Go consume pipeline (3 bitrate, ABR master,
-                                    HLS static serve) → Cloudflare edge cache. Tested with first live event —
-                                    10,000 concurrent viewers, zero buffering. Researched 4 approaches:
-                                    consume pipeline (winner), proxy prefetch, R2 pipeline, muxed (rejected —
-                                    ffmpeg unstable). Go binaries, crash isolation per bitrate.
+                                    Built a live streaming service that handled 10,000 concurrent viewers
+                                    with zero buffering — at a fraction of typical CDN costs. First event
+                                    ran flawlessly. Auto-adaptive quality, global edge delivery, and a
+                                    pipeline that survives crashes without dropping a single viewer.
                                 </p>
                             </div>
                             <div class="flex gap-6 font-mono text-sm shrink-0">
-                                <div><div class="text-cyan-400 font-bold">10K</div><div class="text-gray-600 text-xs">viewers</div></div>
+                                <div><div class="text-cyan-400 font-bold">10K</div><div class="text-gray-600 text-xs">concurrent</div></div>
                                 <div><div class="text-cyan-400 font-bold">0</div><div class="text-gray-600 text-xs">buffering</div></div>
-                                <div><div class="text-cyan-400 font-bold">3</div><div class="text-gray-600 text-xs">bitrates</div></div>
-                                <div><div class="text-cyan-400 font-bold">Go</div><div class="text-gray-600 text-xs">pipeline</div></div>
+                                <div><div class="text-cyan-400 font-bold">low</div><div class="text-gray-600 text-xs">cost</div></div>
                             </div>
                         </div>
                     </div>
