@@ -17,8 +17,9 @@ import BackToTop from "../components/BackToTop.astro";
                     <div class="text-cyan-400 text-sm font-mono tracking-widest uppercase mb-6">
                         Senior Software Engineer · 11+ yrs
                     </div>
-                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-gray-100 leading-[1.05]">
-                        I design and build<br />production systems.
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[1.05]">
+                        <span class="text-gray-100">I design and build</span><br />
+                        <span class="bg-gradient-to-r from-cyan-400 to-cyan-600 bg-clip-text text-transparent">production systems.</span>
                     </h1>
                     <p class="mt-8 text-lg md:text-xl text-gray-400 leading-relaxed max-w-2xl">
                         Frameworks, protocol implementations, and replication tools.
@@ -49,6 +50,26 @@ import BackToTop from "../components/BackToTop.astro";
                             maulana@drip.id
                         </a>
                     </div>
+
+                    <!-- Metrics -->
+                    <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-px bg-[#2A2F3A] border border-[#2A2F3A] rounded-2xl overflow-hidden">
+                        <div class="bg-[#0A0D12] p-6">
+                            <div class="text-3xl font-bold text-cyan-400 font-mono">11+</div>
+                            <div class="text-gray-600 text-sm mt-1">years</div>
+                        </div>
+                        <div class="bg-[#0A0D12] p-6">
+                            <div class="text-3xl font-bold text-cyan-400 font-mono">12K+</div>
+                            <div class="text-gray-600 text-sm mt-1">users served</div>
+                        </div>
+                        <div class="bg-[#0A0D12] p-6">
+                            <div class="text-3xl font-bold text-cyan-400 font-mono">10K</div>
+                            <div class="text-gray-600 text-sm mt-1">live viewers</div>
+                        </div>
+                        <div class="bg-[#0A0D12] p-6">
+                            <div class="text-3xl font-bold text-cyan-400 font-mono">258K</div>
+                            <div class="text-gray-600 text-sm mt-1">RPS benchmarked</div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -61,7 +82,7 @@ import BackToTop from "../components/BackToTop.astro";
                     Real products, real users.
                 </h2>
                 <p class="text-gray-500 mb-12 max-w-2xl">
-                    SaaS products and infrastructure I built and shipped to production — not demos, not tutorials.
+                    SaaS products and infrastructure I built and shipped — not demos, not tutorials.
                 </p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -69,8 +90,7 @@ import BackToTop from "../components/BackToTop.astro";
                     <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-2xl p-8">
                         <h3 class="text-xl font-bold text-gray-100">dripsender.id</h3>
                         <p class="mt-2 text-gray-400 text-sm leading-relaxed">
-                            WhatsApp marketing automation platform. Multi-tenant SaaS serving
-                            12,000+ users across 14 servers. Node.js + SQLite for cost-efficient scale.
+                            WhatsApp marketing automation serving 12,000+ users across 14 servers.
                         </p>
                         <div class="mt-4 flex gap-6 font-mono text-sm">
                             <div><span class="text-cyan-400 font-bold">12K+</span> <span class="text-gray-600 text-xs">users</span></div>
@@ -82,12 +102,10 @@ import BackToTop from "../components/BackToTop.astro";
                     <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-2xl p-8">
                         <h3 class="text-xl font-bold text-gray-100">Antre.in</h3>
                         <p class="mt-2 text-gray-400 text-sm leading-relaxed">
-                            Healthcare B2B SaaS — multi-tenant queue management with real-time
-                            patient sync, RBAC, automated notifications. Node.js + React + PostgreSQL.
+                            Healthcare B2B SaaS. Real-time patient queue management, multi-tenant, RBAC.
                         </p>
                         <div class="mt-4 flex gap-6 font-mono text-sm">
                             <div><span class="text-cyan-400 font-bold">B2B</span> <span class="text-gray-600 text-xs">healthcare</span></div>
-                            <div><span class="text-cyan-400 font-bold">RBAC</span> <span class="text-gray-600 text-xs">multi-tenant</span></div>
                         </div>
                     </div>
 
@@ -95,25 +113,21 @@ import BackToTop from "../components/BackToTop.astro";
                     <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-2xl p-8">
                         <h3 class="text-xl font-bold text-gray-100">Orderlink.in</h3>
                         <p class="mt-2 text-gray-400 text-sm leading-relaxed">
-                            SaaS platform with 2,000+ paid subscribers. Subscription business
-                            scaling, payment integration, multi-tenant architecture. Laravel + Vue.js.
+                            SaaS platform with 2,000+ paid subscribers. Subscription billing, multi-tenant.
                         </p>
                         <div class="mt-4 flex gap-6 font-mono text-sm">
                             <div><span class="text-cyan-400 font-bold">2K+</span> <span class="text-gray-600 text-xs">paid subs</span></div>
                         </div>
                     </div>
 
-                    <!-- eatjom -->
+                    <!-- EatJom -->
                     <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-2xl p-8">
                         <h3 class="text-xl font-bold text-gray-100">EatJom</h3>
                         <p class="mt-2 text-gray-400 text-sm leading-relaxed">
-                            Multi-tenant restaurant SaaS. QR self-ordering + waitress mode,
-                            multi-kitchen receipt splitting, menu modifiers, custom branding.
-                            Database-per-tenant isolation. HyperExpress + Svelte 5.
+                            Multi-tenant restaurant SaaS. QR ordering, multi-kitchen receipts, custom branding.
                         </p>
                         <div class="mt-4 flex gap-6 font-mono text-sm">
                             <div><span class="text-cyan-400 font-bold">SaaS</span> <span class="text-gray-600 text-xs">multi-tenant</span></div>
-                            <div><span class="text-cyan-400 font-bold">QR</span> <span class="text-gray-600 text-xs">ordering</span></div>
                         </div>
                     </div>
 
@@ -127,8 +141,7 @@ import BackToTop from "../components/BackToTop.astro";
                             <i data-lucide="external-link" class="inline w-4 h-4 ml-1 text-gray-600"></i>
                         </h3>
                         <p class="mt-2 text-gray-400 text-sm leading-relaxed">
-                            Markdown publishing tool — paste markdown, get a shareable web page.
-                            No registration required. Live at slugpost.com. Built with laju framework.
+                            Markdown to shareable web page. No registration. Live at slugpost.com.
                         </p>
                         <div class="mt-4 flex gap-6 font-mono text-sm">
                             <div><span class="text-cyan-400 font-bold">8★</span> <span class="text-gray-600 text-xs">GitHub</span></div>
@@ -146,9 +159,7 @@ import BackToTop from "../components/BackToTop.astro";
                             <i data-lucide="external-link" class="inline w-4 h-4 ml-1 text-gray-600"></i>
                         </h3>
                         <p class="mt-2 text-gray-400 text-sm leading-relaxed">
-                            Smart link shortener with advanced analytics — URL rotation, QR codes,
-                            A/B testing, geo-routing, conversion tracking. Live at klikaja.app.
-                            Built in 1 day with laju framework.
+                            Smart link shortener with analytics. QR codes, A/B testing, geo-routing.
                         </p>
                         <div class="mt-4 flex gap-6 font-mono text-sm">
                             <div><span class="text-cyan-400 font-bold">3★</span> <span class="text-gray-600 text-xs">GitHub</span></div>
@@ -156,16 +167,15 @@ import BackToTop from "../components/BackToTop.astro";
                         </div>
                     </a>
 
-                    <!-- live-project -->
-                    <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-2xl p-8 md:col-span-2">
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    <!-- Live Streaming — full width, special treatment -->
+                    <div class="bg-[#0F131A] border border-cyan-500/20 rounded-2xl p-8 md:col-span-2 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl"></div>
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 relative">
                             <div>
                                 <h3 class="text-xl font-bold text-gray-100">Live Streaming Platform</h3>
                                 <p class="mt-2 text-gray-400 text-sm leading-relaxed max-w-2xl">
-                                    Built a live streaming service that handled 10,000 concurrent viewers
-                                    with zero buffering — at a fraction of typical CDN costs. First event
-                                    ran flawlessly. Auto-adaptive quality, global edge delivery, and a
-                                    pipeline that survives crashes without dropping a single viewer.
+                                    10,000 concurrent viewers. Zero buffering. A fraction of typical CDN costs.
+                                    First event ran flawlessly — auto-adaptive quality, global edge delivery.
                                 </p>
                             </div>
                             <div class="flex gap-6 font-mono text-sm shrink-0">
@@ -188,50 +198,35 @@ import BackToTop from "../components/BackToTop.astro";
                         Libraries, frameworks, and tools.
                     </h2>
                     <p class="text-gray-500 mb-12 max-w-2xl">
-                        55+ public repos. Protocol implementations, replication tools,
-                        full-stack starters, and npm packages. All MIT, all with CI.
+                        55+ public repos. All MIT, all with CI.
                     </p>
 
-                    <!-- Featured: large cards -->
-                    <div class="space-y-6 mb-6">
-                        <!-- walsync -->
+                    <!-- Featured -->
+                    <div class="space-y-6 mb-8">
                         <a
                             href="https://github.com/maulanashalihin/walsync"
                             class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-8 hover:border-cyan-500/50 transition group"
                         >
                             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                                 <div>
-                                    <h3 class="text-xl font-bold text-gray-100 group-hover:text-cyan-400 transition">
-                                        walsync
-                                    </h3>
-                                    <p class="mt-2 text-gray-400 max-w-2xl">
-                                        Live SQLite WAL shipping replication. Go binary with HTTP/Fiber
-                                        transport and gzip compression. Ships WAL frames to replicas in real-time.
-                                    </p>
+                                    <h3 class="text-xl font-bold text-gray-100 group-hover:text-cyan-400 transition">walsync</h3>
+                                    <p class="mt-2 text-gray-400">SQLite WAL shipping replication. Go binary, HTTP transport, gzip.</p>
                                 </div>
                                 <div class="flex gap-6 font-mono text-sm shrink-0">
                                     <div><div class="text-cyan-400 font-bold">348K</div><div class="text-gray-600 text-xs">read QPS</div></div>
                                     <div><div class="text-cyan-400 font-bold">84K</div><div class="text-gray-600 text-xs">write QPS</div></div>
-                                    <div><div class="text-cyan-400 font-bold">Go</div><div class="text-gray-600 text-xs">binary</div></div>
                                 </div>
                             </div>
                         </a>
 
-                        <!-- laju -->
                         <a
                             href="https://github.com/maulanashalihin/laju"
                             class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-8 hover:border-cyan-500/50 transition group"
                         >
                             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                                 <div>
-                                    <h3 class="text-xl font-bold text-gray-100 group-hover:text-cyan-400 transition">
-                                        laju
-                                    </h3>
-                                    <p class="mt-2 text-gray-400 max-w-2xl">
-                                        High-performance TypeScript web framework. HyperExpress + Svelte 5
-                                        + Inertia.js with dev server, codegen, SQLite ORM. Powers slugpost.com
-                                        and klikaja.app. Live at laju.dev.
-                                    </p>
+                                    <h3 class="text-xl font-bold text-gray-100 group-hover:text-cyan-400 transition">laju</h3>
+                                    <p class="mt-2 text-gray-400">High-performance TypeScript web framework. Powers slugpost.com and klikaja.app.</p>
                                 </div>
                                 <div class="flex gap-6 font-mono text-sm shrink-0">
                                     <div><div class="text-cyan-400 font-bold">258K</div><div class="text-gray-600 text-xs">RPS</div></div>
@@ -240,293 +235,141 @@ import BackToTop from "../components/BackToTop.astro";
                             </div>
                         </a>
 
-                        <!-- dulak — flagship system architecture -->
                         <a
                             href="https://github.com/maulanashalihin/dulak"
                             class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-8 hover:border-cyan-500/50 transition group"
                         >
                             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                                 <div>
-                                    <h3 class="text-xl font-bold text-gray-100 group-hover:text-cyan-400 transition">
-                                        dulak
-                                    </h3>
-                                    <p class="mt-2 text-gray-400 max-w-2xl">
-                                        Full-stack Bun boilerplate — Hono + bun:sqlite + Inertia v3 with
-                                        in-process SSR. Auth (argon2id, OAuth, RBAC), TUS resumable uploads,
-                                        rate limiting, CSRF, migrations, Docker, CI. 6 templates (React/Svelte/Vue
-                                        + Tailwind). Published as <span class="text-cyan-600">npm: create-dulak</span>.
-                                        Docs at dulak.pages.dev. Designed for AI-agent maintainability —
-                                        conventions codified in AGENTS.md, TypeBox validation, strict TS.
-                                    </p>
+                                    <h3 class="text-xl font-bold text-gray-100 group-hover:text-cyan-400 transition">dulak</h3>
+                                    <p class="mt-2 text-gray-400">Full-stack Bun boilerplate. Auth, uploads, SSR, 6 templates. <span class="text-cyan-600">npm create-dulak</span>.</p>
                                 </div>
                                 <div class="flex gap-6 font-mono text-sm shrink-0">
                                     <div><div class="text-cyan-400 font-bold">6★</div><div class="text-gray-600 text-xs">GitHub</div></div>
-                                    <div><div class="text-cyan-400 font-bold">2</div><div class="text-gray-600 text-xs">forks</div></div>
                                     <div><div class="text-cyan-400 font-bold">Bun</div><div class="text-gray-600 text-xs">runtime</div></div>
                                 </div>
                             </div>
                         </a>
 
-                        <!-- kilat — flagship edge architecture -->
                         <a
                             href="https://github.com/maulanashalihin/kilat"
                             class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-8 hover:border-cyan-500/50 transition group"
                         >
                             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                                 <div>
-                                    <h3 class="text-xl font-bold text-gray-100 group-hover:text-cyan-400 transition">
-                                        kilat
-                                    </h3>
-                                    <p class="mt-2 text-gray-400 max-w-2xl">
-                                        Full-stack Cloudflare Workers edge starter — Hono + D1 + Inertia v3
-                                        with in-process SSR inside the Worker bundle. PBKDF2 auth (Web Crypto),
-                                        KV session cache, Google OAuth, D1 read replication, rate limiting.
-                                        <span class="text-cyan-600">bun create kilat</span>. Deploys to 300+
-                                        edge locations with <span class="font-mono">wrangler deploy</span>.
-                                        Zero ops — no Docker, no VPS, no reverse proxy.
-                                    </p>
+                                    <h3 class="text-xl font-bold text-gray-100 group-hover:text-cyan-400 transition">kilat</h3>
+                                    <p class="mt-2 text-gray-400">Cloudflare Workers edge starter. Deploys to 300+ locations. Zero ops.</p>
                                 </div>
                                 <div class="flex gap-6 font-mono text-sm shrink-0">
                                     <div><div class="text-cyan-400 font-bold">6★</div><div class="text-gray-600 text-xs">GitHub</div></div>
-                                    <div><div class="text-cyan-400 font-bold">2</div><div class="text-gray-600 text-xs">forks</div></div>
                                     <div><div class="text-cyan-400 font-bold">300+</div><div class="text-gray-600 text-xs">edge locs</div></div>
                                 </div>
                             </div>
                         </a>
 
-                        <!-- learn-api -->
                         <a
                             href="https://github.com/maulanashalihin/learn-api"
                             class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-8 hover:border-cyan-500/50 transition group"
                         >
                             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                                 <div>
-                                    <h3 class="text-xl font-bold text-gray-100 group-hover:text-cyan-400 transition">
-                                        learn-api
-                                    </h3>
-                                    <p class="mt-2 text-gray-400 max-w-2xl">
-                                        Hands-on API technologies course: 19 modules from REST to CRDT
-                                        multi-writer replication. Node.js + TypeScript + Bun. Each module
-                                        is working code + README.
-                                    </p>
+                                    <h3 class="text-xl font-bold text-gray-100 group-hover:text-cyan-400 transition">learn-api</h3>
+                                    <p class="mt-2 text-gray-400">19-module API technologies course. REST to CRDT replication. Working code + README.</p>
                                 </div>
                                 <div class="flex gap-6 font-mono text-sm shrink-0">
                                     <div><div class="text-cyan-400 font-bold">19</div><div class="text-gray-600 text-xs">modules</div></div>
-                                    <div><div class="text-cyan-400 font-bold">TS</div><div class="text-gray-600 text-xs">+ Bun</div></div>
                                 </div>
                             </div>
                         </a>
                     </div>
 
-                    <!-- laju-go boilerplate -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    <!-- Compact grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         <a
                             href="https://github.com/maulanashalihin/laju-go"
-                            class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-6 hover:border-cyan-500/50 transition group"
+                            class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group"
                         >
-                            <h3 class="text-lg font-bold text-gray-100 group-hover:text-cyan-400 transition">laju-go</h3>
-                            <p class="mt-2 text-gray-400 text-sm">
-                                Go Fiber SaaS boilerplate: Svelte 5 + Inertia.js 3 + SQLite (CGO).
-                                sqlc, templ, TUS uploads, OAuth, RBAC, rate limiting.
-                                <span class="text-cyan-600">npx create-laju-go</span>
-                            </p>
-                            <div class="mt-4 font-mono text-xs text-gray-600">2★ · Go Fiber · MIT</div>
+                            <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">laju-go</h3>
+                            <p class="mt-1 text-gray-500 text-sm">Go Fiber SaaS boilerplate. <span class="text-cyan-600">npx create-laju-go</span></p>
                         </a>
                         <a
                             href="https://github.com/maulanashalihin/fiber-inertia"
-                            class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-6 hover:border-cyan-500/50 transition group"
+                            class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group"
                         >
-                            <h3 class="text-lg font-bold text-gray-100 group-hover:text-cyan-400 transition">fiber-inertia</h3>
-                            <p class="mt-2 text-gray-400 text-sm">
-                                Inertia.js v3 server-side adapter for Go Fiber. Auto-detect JSON/HTML,
-                                asset versioning, partial reloads, shared props. Native — no bridge.
-                            </p>
-                            <div class="mt-4 font-mono text-xs text-gray-600">Go · MIT · CI</div>
+                            <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">fiber-inertia</h3>
+                            <p class="mt-1 text-gray-500 text-sm">Inertia.js v3 adapter for Go Fiber.</p>
                         </a>
                         <a
                             href="https://github.com/maulanashalihin/tusdfiber"
-                            class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-6 hover:border-cyan-500/50 transition group"
+                            class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group"
                         >
-                            <h3 class="text-lg font-bold text-gray-100 group-hover:text-cyan-400 transition">tusdfiber</h3>
-                            <p class="mt-2 text-gray-400 text-sm">
-                                Native TUS resumable upload protocol for Go Fiber. Streaming body,
-                                Prometheus metrics. First-class Fiber handler — no adaptor.
-                            </p>
-                            <div class="mt-4 font-mono text-xs text-gray-600">Go · MIT · CI</div>
+                            <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">tusdfiber</h3>
+                            <p class="mt-1 text-gray-500 text-sm">TUS resumable uploads for Go Fiber.</p>
                         </a>
-                    </div>
-
-                    <!-- Tools & packages -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <a
                             href="https://github.com/maulanashalihin/svelte-wysiwyg-editor"
-                            class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-6 hover:border-cyan-500/50 transition group"
+                            class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group"
                         >
                             <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">svelte-wysiwyg-editor</h3>
-                            <p class="mt-2 text-gray-400 text-sm">
-                                Dependency-light WYSIWYG rich text editor for Svelte 4 & 5.
-                                No ProseMirror, no TipTap. Image upload, gallery, RTL, dark mode.
-                            </p>
-                            <div class="mt-3 font-mono text-xs text-gray-600">npm · Svelte · MIT</div>
+                            <p class="mt-1 text-gray-500 text-sm">WYSIWYG editor for Svelte 4 & 5. npm package.</p>
                         </a>
                         <a
                             href="https://github.com/maulanashalihin/cdn-s3-proxy"
-                            class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-6 hover:border-cyan-500/50 transition group"
+                            class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group"
                         >
                             <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">cdn-s3-proxy</h3>
-                            <p class="mt-2 text-gray-400 text-sm">
-                                Go Fiber reverse proxy with disk caching for S3/Wasabi.
-                                AWS Signature V4, range requests, ETag/304. Behind Cloudflare.
-                            </p>
-                            <div class="mt-3 font-mono text-xs text-gray-600">Go · MIT · production</div>
+                            <p class="mt-1 text-gray-500 text-sm">S3 CDN reverse proxy with disk caching. Go.</p>
                         </a>
                         <a
                             href="https://github.com/maulanashalihin/go-sqlite-benchmark-mattn-vs-modernc"
-                            class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-6 hover:border-cyan-500/50 transition group"
+                            class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group"
                         >
                             <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">go-sqlite-benchmark</h3>
-                            <p class="mt-2 text-gray-400 text-sm">
-                                Benchmark: mattn/go-sqlite3 (CGO) vs modernc.org/sqlite (pure Go).
-                                1.3–1.9x throughput difference measured.
-                            </p>
-                            <div class="mt-3 font-mono text-xs text-gray-600">Go · benchmark</div>
+                            <p class="mt-1 text-gray-500 text-sm">mattn vs modernc SQLite driver benchmark.</p>
                         </a>
                     </div>
                 </div>
             </section>
 
             <!-- Engineering Notes -->
-            <section id="engineering" class="bg-[#0F131A] py-20 border-t border-[#2A2F3A]">
-                <div class="max-w-7xl mx-auto px-6">
-                    <div class="text-cyan-400 text-sm font-mono tracking-widest uppercase mb-3">
-                        Engineering Notes
-                    </div>
-                    <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-gray-100 mb-12">
-                        Research I've done.
-                    </h2>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-6">
-                            <div class="text-cyan-400 font-mono text-xs mb-3">BENCHMARK</div>
-                            <h3 class="text-lg font-bold text-gray-100 mb-2">
-                                SQLite Replication Landscape
-                            </h3>
-                            <p class="text-gray-400 text-sm leading-relaxed">
-                                Tested walsync, LiteFS, Marmot, cr-sqlite, HarmonyLite, and HA SQLite
-                                on OVH VPS. Measured read/write QPS, replication latency, and conflict
-                                resolution. walsync: 348K read, 84K write QPS.
-                            </p>
-                        </div>
-
-                        <div class="bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-6">
-                            <div class="text-cyan-400 font-mono text-xs mb-3">BENCHMARK</div>
-                            <h3 class="text-lg font-bold text-gray-100 mb-2">
-                                HTTP/3 vs HTTP/1.1
-                            </h3>
-                            <p class="text-gray-400 text-sm leading-relaxed">
-                                Cross-server test: OVH Singapore ↔ Underconst Bandung. Bun 1.4 HTTP/3
-                                experimental lacks connection pooling — TLS handshake overhead 4-5x.
-                                HTTP/1.1 + 50ms interval = 319ms batch propagation. HTTP/3 not worth
-                                it for server-to-server sync.
-                            </p>
-                        </div>
-
-                        <div class="bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-6">
-                            <div class="text-cyan-400 font-mono text-xs mb-3">BENCHMARK</div>
-                            <h3 class="text-lg font-bold text-gray-100 mb-2">
-                                Framework Performance
-                            </h3>
-                            <p class="text-gray-400 text-sm leading-relaxed">
-                                HyperExpress (uWebSockets) vs Express vs Bun.serve. laju framework
-                                hits 258K RPS on a single VPS. Express still dominant for API-to-API
-                                at 50%+ market share, but not for raw throughput.
-                            </p>
-                        </div>
-
-                        <div class="bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-6">
-                            <div class="text-cyan-400 font-mono text-xs mb-3">RESEARCH</div>
-                            <h3 class="text-lg font-bold text-gray-100 mb-2">
-                                CRDT Multi-Writer Replication
-                            </h3>
-                            <p class="text-gray-400 text-sm leading-relaxed">
-                                Built cr-sqlite module: CRDT-based multi-writer SQLite replication using
-                                Bun + crsqlite extension. Cross-server convergence verified. 4.2x write
-                                overhead, zero read overhead vs plain SQLite.
-                            </p>
-                        </div>
-
-                        <div class="bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-6">
-                            <div class="text-cyan-400 font-mono text-xs mb-3">BENCHMARK</div>
-                            <h3 class="text-lg font-bold text-gray-100 mb-2">
-                                PostgreSQL 18
-                            </h3>
-                            <p class="text-gray-400 text-sm leading-relaxed">
-                                Benchmarked PostgreSQL 18 against SQLite for read-heavy workloads.
-                                Tested connection pooling, WAL configuration, and async replication.
-                                Documented when to use each.
-                            </p>
-                        </div>
-
-                        <div class="bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-6">
-                            <div class="text-cyan-400 font-mono text-xs mb-3">COURSE</div>
-                            <h3 class="text-lg font-bold text-gray-100 mb-2">
-                                19 API Technologies
-                            </h3>
-                            <p class="text-gray-400 text-sm leading-relaxed">
-                                REST, GraphQL, gRPC, tRPC, WebSockets, SSE, Webhooks, Kafka, Raft,
-                                Redis Pub/Sub, BullMQ, JWT, OAuth2, rate limiting, circuit breakers,
-                                WAL shipping, CRDT replication, HTTP/2, HTTP/3. Each with working code.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Stack -->
-            <section id="stack" class="max-w-7xl mx-auto px-6 py-20 border-t border-[#2A2F3A]">
+            <section id="engineering" class="max-w-7xl mx-auto px-6 py-20 border-t border-[#2A2F3A]">
                 <div class="text-cyan-400 text-sm font-mono tracking-widest uppercase mb-3">
-                    Stack
+                    Engineering Notes
                 </div>
                 <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-gray-100 mb-12">
-                    What I use.
+                    Research I've done.
                 </h2>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div>
-                        <div class="text-gray-600 font-mono text-xs uppercase mb-3">Frontend</div>
-                        <ul class="space-y-2 text-gray-300">
-                            <li>Svelte 5</li>
-                            <li>React Router v7</li>
-                            <li>Inertia.js v3</li>
-                            <li>Tailwind CSS v4</li>
-                        </ul>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5">
+                        <div class="text-cyan-400 font-mono text-xs mb-2">BENCHMARK</div>
+                        <h3 class="text-base font-bold text-gray-100 mb-1">SQLite Replication</h3>
+                        <p class="text-gray-500 text-sm">Tested 6 tools. walsync: 348K read QPS.</p>
                     </div>
-                    <div>
-                        <div class="text-gray-600 font-mono text-xs uppercase mb-3">Backend</div>
-                        <ul class="space-y-2 text-gray-300">
-                            <li>Go · Fiber</li>
-                            <li>HyperExpress · Node.js</li>
-                            <li>Bun · Hono</li>
-                            <li>TUS resumable uploads</li>
-                        </ul>
+                    <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5">
+                        <div class="text-cyan-400 font-mono text-xs mb-2">BENCHMARK</div>
+                        <h3 class="text-base font-bold text-gray-100 mb-1">HTTP/3 vs HTTP/1.1</h3>
+                        <p class="text-gray-500 text-sm">Cross-server test. HTTP/3 not worth it for sync.</p>
                     </div>
-                    <div>
-                        <div class="text-gray-600 font-mono text-xs uppercase mb-3">Database</div>
-                        <ul class="space-y-2 text-gray-300">
-                            <li>SQLite · WAL mode</li>
-                            <li>PostgreSQL 18</li>
-                            <li>Cloudflare D1</li>
-                            <li>BadgerDB</li>
-                        </ul>
+                    <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5">
+                        <div class="text-cyan-400 font-mono text-xs mb-2">BENCHMARK</div>
+                        <h3 class="text-base font-bold text-gray-100 mb-1">Framework Performance</h3>
+                        <p class="text-gray-500 text-sm">258K RPS on a single VPS.</p>
                     </div>
-                    <div>
-                        <div class="text-gray-600 font-mono text-xs uppercase mb-3">Infra</div>
-                        <ul class="space-y-2 text-gray-300">
-                            <li>VPS · Cloudflare</li>
-                            <li>Docker</li>
-                            <li>Stripe</li>
-                            <li>GitHub Actions CI</li>
-                        </ul>
+                    <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5">
+                        <div class="text-cyan-400 font-mono text-xs mb-2">RESEARCH</div>
+                        <h3 class="text-base font-bold text-gray-100 mb-1">CRDT Replication</h3>
+                        <p class="text-gray-500 text-sm">Multi-writer SQLite. Zero read overhead.</p>
+                    </div>
+                    <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5">
+                        <div class="text-cyan-400 font-mono text-xs mb-2">BENCHMARK</div>
+                        <h3 class="text-base font-bold text-gray-100 mb-1">PostgreSQL 18</h3>
+                        <p class="text-gray-500 text-sm">Benchmarked vs SQLite for read-heavy workloads.</p>
+                    </div>
+                    <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5">
+                        <div class="text-cyan-400 font-mono text-xs mb-2">COURSE</div>
+                        <h3 class="text-base font-bold text-gray-100 mb-1">19 API Technologies</h3>
+                        <p class="text-gray-500 text-sm">REST to CRDT. Each with working code.</p>
                     </div>
                 </div>
             </section>
@@ -542,39 +385,15 @@ import BackToTop from "../components/BackToTop.astro";
                     </h2>
                     <div class="space-y-6 text-gray-400 leading-relaxed text-lg">
                         <p>
-                            11+ years building software. I started with PHP, moved to Node.js, then Go,
-                            and now work across all three. My focus is infrastructure: frameworks,
-                            protocol implementations, replication tools, and production boilerplates.
+                            11+ years building software — from PHP to Node.js to Go. I work directly
+                            with founders and technical teams. No project managers, no status meetings.
+                            Just code, measurements, and shipped products.
                         </p>
                         <p>
-                            I don't do agencies, project managers, or status meetings. I write code,
-                            measure it, and ship it. Every repo on my GitHub has CI, MIT licensing,
-                            and professional documentation — because that's the baseline, not the feature.
+                            20+ projects shipped: queue systems serving thousands daily, web frameworks
+                            hitting 258K RPS, live streaming for 10K concurrent viewers, replication tools
+                            matching native performance. I measure everything.
                         </p>
-                        <p>
-                            I've built 20+ projects including queue management systems handling thousands
-                            of users daily, web frameworks hitting 258K RPS, and SQLite replication tools
-                            matching native embedded performance. I measure everything.
-                        </p>
-                    </div>
-
-                    <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
-                        <div>
-                            <div class="text-3xl font-bold text-cyan-400 font-mono">11+</div>
-                            <div class="text-gray-600 text-sm mt-1">years experience</div>
-                        </div>
-                        <div>
-                            <div class="text-3xl font-bold text-cyan-400 font-mono">12K+</div>
-                            <div class="text-gray-600 text-sm mt-1">users served</div>
-                        </div>
-                        <div>
-                            <div class="text-3xl font-bold text-cyan-400 font-mono">10K</div>
-                            <div class="text-gray-600 text-sm mt-1">live viewers</div>
-                        </div>
-                        <div>
-                            <div class="text-3xl font-bold text-cyan-400 font-mono">258K</div>
-                            <div class="text-gray-600 text-sm mt-1">RPS benchmarked</div>
-                        </div>
                     </div>
                 </div>
             </section>
