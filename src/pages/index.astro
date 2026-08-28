@@ -336,41 +336,64 @@ import BackToTop from "../components/BackToTop.astro";
                 <div class="text-cyan-400 text-sm font-mono tracking-widest uppercase mb-3">
                     Engineering Notes
                 </div>
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-gray-100 mb-12">
-                    Research I've done.
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-gray-100 mb-4">
+                    Opinions, backed by benchmarks.
                 </h2>
+                <p class="text-gray-500 mb-12 max-w-2xl">
+                    14 engineering notes on architecture, databases, auth, and deployment.
+                    Written for the dulak boilerplate docs.
+                </p>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5">
-                        <div class="text-cyan-400 font-mono text-xs mb-2">BENCHMARK</div>
-                        <h3 class="text-base font-bold text-gray-100 mb-1">SQLite Replication</h3>
-                        <p class="text-gray-500 text-sm">Tested 6 tools. walsync: 348K read QPS.</p>
-                    </div>
-                    <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5">
-                        <div class="text-cyan-400 font-mono text-xs mb-2">BENCHMARK</div>
-                        <h3 class="text-base font-bold text-gray-100 mb-1">HTTP/3 vs HTTP/1.1</h3>
-                        <p class="text-gray-500 text-sm">Cross-server test. HTTP/3 not worth it for sync.</p>
-                    </div>
-                    <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5">
-                        <div class="text-cyan-400 font-mono text-xs mb-2">BENCHMARK</div>
-                        <h3 class="text-base font-bold text-gray-100 mb-1">Framework Performance</h3>
-                        <p class="text-gray-500 text-sm">258K RPS on a single VPS.</p>
-                    </div>
-                    <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5">
-                        <div class="text-cyan-400 font-mono text-xs mb-2">RESEARCH</div>
-                        <h3 class="text-base font-bold text-gray-100 mb-1">CRDT Replication</h3>
-                        <p class="text-gray-500 text-sm">Multi-writer SQLite. Zero read overhead.</p>
-                    </div>
-                    <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5">
-                        <div class="text-cyan-400 font-mono text-xs mb-2">BENCHMARK</div>
-                        <h3 class="text-base font-bold text-gray-100 mb-1">PostgreSQL 18</h3>
-                        <p class="text-gray-500 text-sm">Benchmarked vs SQLite for read-heavy workloads.</p>
-                    </div>
-                    <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5">
-                        <div class="text-cyan-400 font-mono text-xs mb-2">COURSE</div>
-                        <h3 class="text-base font-bold text-gray-100 mb-1">19 API Technologies</h3>
-                        <p class="text-gray-500 text-sm">REST to CRDT. Each with working code.</p>
-                    </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <a href="https://dulak.pages.dev/blog/why-no-nginx/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
+                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">Nginx is dead. Cloudflare killed it.</h3>
+                    </a>
+                    <a href="https://dulak.pages.dev/blog/why-sqlite-not-postgres/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
+                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">SQLite beats Postgres — we benchmarked it.</h3>
+                    </a>
+                    <a href="https://dulak.pages.dev/blog/why-no-orm/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
+                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">ORMs are dead in 2026. AI killed them.</h3>
+                    </a>
+                    <a href="https://dulak.pages.dev/blog/why-sessions-not-jwt/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
+                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">JWT is the wrong default. Sessions are the right one.</h3>
+                    </a>
+                    <a href="https://dulak.pages.dev/blog/why-argon2id-not-bcrypt/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
+                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">bcrypt is from 1999. Your passwords deserve better.</h3>
+                    </a>
+                    <a href="https://dulak.pages.dev/blog/why-leave-nextjs/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
+                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">Next.js is the default. It should not be.</h3>
+                    </a>
+                    <a href="https://dulak.pages.dev/blog/why-leave-laravel/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
+                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">Laravel is good. Your next project should not use it.</h3>
+                    </a>
+                    <a href="https://dulak.pages.dev/blog/why-bun-not-node/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
+                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">Node needs 5 tools. Bun ships one.</h3>
+                    </a>
+                    <a href="https://dulak.pages.dev/blog/ssr-vs-spa/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
+                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">SSR vs SPA: 50ms to content, or 2 seconds of blank screen.</h3>
+                    </a>
+                    <a href="https://dulak.pages.dev/blog/why-inertia-not-spa/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
+                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">Your SPA needs a router, an API, and state. Inertia needs none of it.</h3>
+                    </a>
+                    <a href="https://dulak.pages.dev/blog/why-no-cache-service/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
+                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">Your database is already the cache.</h3>
+                    </a>
+                    <a href="https://dulak.pages.dev/blog/why-vanilla-css-not-tailwind/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
+                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">Tailwind is a build step you don't need.</h3>
+                    </a>
+                    <a href="https://dulak.pages.dev/blog/how-to-upload-files-over-100mb/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
+                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">Your 2GB upload keeps failing. Here's the fix.</h3>
+                    </a>
+                    <a href="https://dulak.pages.dev/blog/why-not-pm2/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
+                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">PM2 is a band-aid. Bun doesn't need it.</h3>
+                    </a>
+                </div>
+
+                <div class="mt-8">
+                    <a href="https://dulak.pages.dev/blog/" class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition font-mono text-sm">
+                        Read all notes
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
                 </div>
             </section>
 
