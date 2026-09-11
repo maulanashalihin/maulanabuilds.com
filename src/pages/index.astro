@@ -10,486 +10,596 @@ import BackToTop from "../components/BackToTop.astro";
     <LucideIcons>
         <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
+        <style>
+            /* ---------- signature motion system (page-scoped) ---------- */
+            .font-display { letter-spacing: -0.045em; }
+            .text-glow { text-shadow: 0 0 42px rgba(34, 211, 238, 0.35); }
+            .outline-text {
+                color: transparent;
+                -webkit-text-stroke: 1px rgba(148, 163, 184, 0.35);
+            }
+            /* reveal on scroll */
+            .rv { opacity: 0; transform: translateY(30px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+            .rv.in { opacity: 1; transform: none; }
+            .rv-d1 { transition-delay: .08s; } .rv-d2 { transition-delay: .16s; }
+            .rv-d3 { transition-delay: .24s; } .rv-d4 { transition-delay: .32s; }
+            /* marquee */
+            @keyframes mq { to { transform: translateX(-50%); } }
+            .mq-track { display: flex; width: max-content; animation: mq 30s linear infinite; }
+            .mq-track:hover { animation-play-state: paused; }
+            /* blinking caret */
+            @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+            .caret { animation: blink 1.05s step-end infinite; }
+            /* live dot */
+            @keyframes ping2 { 0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, .6); } 70% { box-shadow: 0 0 0 9px rgba(52, 211, 153, 0); } 100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); } }
+            .live-dot { animation: ping2 1.8s ease-out infinite; }
+            /* benchmark bars */
+            .bar { transform: scaleX(0); transform-origin: left; transition: transform 1.4s cubic-bezier(.2,.8,.2,1); }
+            .in .bar { transform: scaleX(1); }
+            /* spotlight cards */
+            .spot { position: relative; }
+            .spot::before {
+                content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+                background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(34,211,238,.09), transparent 65%);
+                opacity: 0; transition: opacity .35s;
+            }
+            .spot:hover::before { opacity: 1; }
+            /* editorial list rows */
+            .note-row { transition: padding .3s, background .3s, border-color .3s; }
+            .note-row:hover { padding-left: 1.75rem; background: rgba(34,211,238,.04); }
+            .note-row:hover .note-title { color: #22d3ee; }
+            /* magnetic cta */
+            .magnetic { transition: transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .3s, background .3s; will-change: transform; }
+            .magnetic:hover { box-shadow: 0 0 0 6px rgba(34,211,238,.14), 0 24px 70px -18px rgba(34,211,238,.55); }
+            /* hero float */
+            @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+            /* grid pulse behind hero canvas */
+            #field { position: absolute; inset: 0; width: 100%; height: 100%; }
+            @media (prefers-reduced-motion: reduce) {
+                .rv { opacity: 1; transform: none; }
+                .mq-track, .caret, .live-dot { animation: none; }
+                .bar { transform: none; }
+            }
+        </style>
+
         <main id="main-content">
-            <!-- Hero -->
-            <section class="max-w-7xl mx-auto px-6 pt-32 pb-20 md:pt-40 md:pb-28">
-                <div class="max-w-3xl">
-                    <div class="text-cyan-400 text-sm font-mono tracking-widest uppercase mb-6">
-                        Senior Software Engineer · 11+ yrs
+            <!-- ============ HERO ============ -->
+            <section class="relative min-h-svh flex flex-col overflow-hidden">
+                <canvas id="field" aria-hidden="true"></canvas>
+                <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+                    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[720px] h-[420px] bg-cyan-500/10 rounded-full blur-[130px]"></div>
+                    <div class="absolute bottom-0 right-0 w-[420px] h-[300px] bg-emerald-500/[.07] rounded-full blur-[110px]"></div>
+                </div>
+                <div class="hero-grid absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+
+                <div class="relative flex-1 flex flex-col justify-center max-w-7xl mx-auto px-6 w-full pt-32 pb-16">
+                    <!-- status HUD -->
+                    <div class="rv flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-xs md:text-sm text-gray-500 mb-8">
+                        <span class="inline-flex items-center gap-2 text-emerald-400">
+                            <span class="live-dot w-2 h-2 rounded-full bg-emerald-400 inline-block"></span>
+                            all systems operational
+                        </span>
+                        <span class="hidden sm:inline text-gray-700">|</span>
+                        <span>jakarta <span id="clock" class="text-gray-300">--:--:--</span> wib</span>
+                        <span class="hidden sm:inline text-gray-700">|</span>
+                        <span><span id="rps" class="text-cyan-400 font-bold">0</span> req/s on this page</span>
                     </div>
-                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[1.05]">
-                        <span class="text-gray-100">I design and build</span><br />
-                        <span class="bg-gradient-to-r from-cyan-400 to-cyan-600 bg-clip-text text-transparent">production systems.</span>
-                    </h1>
-                    <p class="mt-8 text-lg md:text-xl text-gray-400 leading-relaxed max-w-2xl">
-                        Frameworks, protocol implementations, and replication tools.
-                        Go, TypeScript, SQLite. I measure everything and ship what I'd use myself.
+
+                    <p class="rv rv-d1 font-mono text-cyan-400 text-sm tracking-[.3em] uppercase mb-6">
+                        $ whoami — senior software engineer · 11+ yrs
                     </p>
-                    <div class="mt-10 flex flex-wrap items-center gap-4">
-                        <a
-                            href="https://github.com/maulanashalihin"
-                            class="inline-flex items-center gap-2 text-gray-300 hover:text-cyan-400 transition font-mono text-sm"
-                        >
+                    <h1 class="rv rv-d2 font-display font-bold text-gray-100 text-[clamp(2.6rem,7.5vw,5.8rem)] leading-[1.02]">
+                        I build systems<br />
+                        that survive<br />
+                        <span class="bg-gradient-to-r from-cyan-300 via-cyan-400 to-emerald-400 bg-clip-text text-transparent text-glow">production.</span>
+                    </h1>
+                    <p class="rv rv-d3 mt-7 text-lg md:text-xl text-gray-400 leading-relaxed max-w-2xl">
+                        <span class="text-gray-200">Frameworks, protocol implementations, replication tools.</span>
+                        Go, TypeScript, SQLite — measured on real servers, shipped to real users.
+                    </p>
+                    <p class="rv rv-d3 mt-4 font-mono text-sm text-gray-500">
+                        <span class="text-cyan-500">❯</span> <span id="typer"></span><span class="caret text-cyan-400">▊</span>
+                    </p>
+
+                    <div class="rv rv-d4 mt-10 flex flex-wrap items-center gap-4">
+                        <a href="#offer" class="magnetic magnetic-btn inline-flex items-center gap-2 bg-cyan-400 text-[#0A0D12] font-bold px-7 py-3.5 rounded-xl hover:bg-cyan-300">
+                            <i data-lucide="rocket" class="w-5 h-5"></i>
+                            Start your build
+                        </a>
+                        <a href="#work" class="magnetic magnetic-btn inline-flex items-center gap-2 border border-[#2A2F3A] text-gray-200 px-7 py-3.5 rounded-xl hover:border-cyan-500/60 hover:text-cyan-300 bg-white/[.02]">
+                            See the proof
+                            <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://github.com/maulanashalihin" class="inline-flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition font-mono text-sm ml-1">
                             <i data-lucide="github" class="w-5 h-5"></i>
-                            github.com/maulanashalihin
+                            <span class="hidden sm:inline">github.com/maulanashalihin</span><span class="sm:hidden">GitHub</span>
                         </a>
-                        <span class="text-gray-700">·</span>
-                        <a
-                            href="https://www.linkedin.com/in/maulana-shalihin"
-                            class="inline-flex items-center gap-2 text-gray-300 hover:text-cyan-400 transition font-mono text-sm"
-                        >
-                            <i data-lucide="linkedin" class="w-5 h-5"></i>
-                            LinkedIn
-                        </a>
-                        <span class="text-gray-700">·</span>
-                        <a
-                            href="mailto:maulana@drip.id"
-                            class="inline-flex items-center gap-2 text-gray-300 hover:text-cyan-400 transition font-mono text-sm"
-                        >
+                    </div>
+
+                    <!-- metrics -->
+                    <div class="rv rv-d4 mt-14 grid grid-cols-2 md:grid-cols-4 gap-px bg-[#2A2F3A] border border-[#2A2F3A] rounded-2xl overflow-hidden max-w-4xl">
+                        <div class="bg-[#0A0D12]/95 p-6">
+                            <div class="text-3xl md:text-4xl font-bold text-cyan-400"><span data-count="11">0</span>+</div>
+                            <div class="text-gray-600 text-sm mt-1">years shipping</div>
+                        </div>
+                        <div class="bg-[#0A0D12]/95 p-6">
+                            <div class="text-3xl md:text-4xl font-bold text-cyan-400"><span data-count="12">0</span>K+</div>
+                            <div class="text-gray-600 text-sm mt-1">users served</div>
+                        </div>
+                        <div class="bg-[#0A0D12]/95 p-6">
+                            <div class="text-3xl md:text-4xl font-bold text-cyan-400"><span data-count="10">0</span>K</div>
+                            <div class="text-gray-600 text-sm mt-1">concurrent viewers</div>
+                        </div>
+                        <div class="bg-[#0A0D12]/95 p-6">
+                            <div class="text-3xl md:text-4xl font-bold text-cyan-400"><span data-count="394">0</span>K</div>
+                            <div class="text-gray-600 text-sm mt-1">write QPS measured</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative pb-8 flex justify-center">
+                    <a href="#stack" aria-label="Scroll down" class="text-gray-600 hover:text-cyan-400 transition" style="animation: floaty 2.4s ease-in-out infinite">
+                        <i data-lucide="chevron-down" class="w-6 h-6"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- ============ STACK TICKER ============ -->
+            <div id="stack" class="border-y border-[#2A2F3A] bg-[#0C0F15] overflow-hidden py-4 select-none" aria-hidden="true">
+                <div class="mq-track font-mono text-sm tracking-[.25em] text-gray-600 uppercase" id="mq">
+                    <span class="px-6">Go <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">Bun <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">SQLite <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">TypeScript <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">ClickHouse <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">Cloudflare <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">Svelte 5 <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">Pebble KV <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">Litestream <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">Tailwind <span class="text-cyan-500 px-6">✦</span></span>
+                </div>
+            </div>
+
+            <!-- ============ OFFER ============ -->
+            <section id="offer" class="max-w-7xl mx-auto px-6 py-24 md:py-32">
+                <div class="rv font-mono text-cyan-400 text-sm tracking-[.3em] uppercase mb-3">01 · What I offer</div>
+                <h2 class="rv rv-d1 font-display font-bold text-gray-100 text-3xl md:text-5xl mb-4">Hire the person who<br />already shipped <span class="bg-gradient-to-r from-cyan-300 to-emerald-400 bg-clip-text text-transparent">your problem.</span></h2>
+                <p class="rv rv-d2 text-gray-500 mb-14 max-w-2xl">Three ways to work together. Fixed scope, async-first, direct with me — no account managers, no status meetings.</p>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+                    <div class="rv spot bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 flex flex-col hover:border-cyan-500/40 transition-colors">
+                        <div class="font-mono text-xs text-gray-600 uppercase tracking-widest mb-3">start here · 2 weeks fixed</div>
+                        <h3 class="font-display font-bold text-2xl text-gray-100">Performance audit</h3>
+                        <p class="mt-2 text-gray-400 text-sm leading-relaxed">Your stack, measured on your servers. Bottlenecks ranked by impact, quick wins implemented, infra bill reviewed.</p>
+                        <ul class="mt-5 space-y-2.5 font-mono text-sm text-gray-300 flex-1">
+                            <li class="flex gap-3"><span class="text-cyan-400">▸</span>benchmark report you can rerun</li>
+                            <li class="flex gap-3"><span class="text-cyan-400">▸</span>top 5 fixes by $ impact</li>
+                            <li class="flex gap-3"><span class="text-cyan-400">▸</span>infra cost-cut plan</li>
+                        </ul>
+                        <div class="mt-5 font-mono text-xs text-gray-600">proof: 258K RPS · $6 VPS · ½ CDN cost</div>
+                        <a href="mailto:maulana@drip.id?subject=Performance%20audit" class="mt-6 inline-flex items-center justify-center gap-2 border border-[#2A2F3A] text-gray-200 px-6 py-3 rounded-xl hover:border-cyan-500/60 hover:text-cyan-300 transition font-bold text-sm">Request audit <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                    </div>
+                    <div class="rv rv-d1 spot rounded-3xl p-8 flex flex-col border border-cyan-500/50 bg-gradient-to-b from-cyan-500/[.09] to-[#0F131A] relative">
+                        <div class="absolute -top-3.5 left-8 font-mono text-[11px] font-bold tracking-[.2em] bg-cyan-400 text-[#0A0D12] rounded-full px-4 py-1">MOST HIRED</div>
+                        <div class="font-mono text-xs text-cyan-400 uppercase tracking-widest mb-3">build · monthly engagement</div>
+                        <h3 class="font-display font-bold text-2xl text-gray-100">Ship with me</h3>
+                        <p class="mt-2 text-gray-400 text-sm leading-relaxed">Your MVP or full product, designed and built with you — from schema to deploy. You own 100% of the code.</p>
+                        <ul class="mt-5 space-y-2.5 font-mono text-sm text-gray-200 flex-1">
+                            <li class="flex gap-3"><span class="text-cyan-400">▸</span>working demo every week</li>
+                            <li class="flex gap-3"><span class="text-cyan-400">▸</span>production stack: Go / Bun / SQLite</li>
+                            <li class="flex gap-3"><span class="text-cyan-400">▸</span>handoff docs your team can run</li>
+                        </ul>
+                        <div class="mt-5 font-mono text-xs text-gray-500">proof: 12K users · 2K paid subs · 10K live</div>
+                        <a href="mailto:maulana@drip.id?subject=Build%20with%20me" class="magnetic magnetic-btn mt-6 inline-flex items-center justify-center gap-2 bg-cyan-400 text-[#0A0D12] px-6 py-3 rounded-xl hover:bg-cyan-300 transition font-bold text-sm">Start your build <i data-lucide="rocket" class="w-4 h-4"></i></a>
+                    </div>
+                    <div class="rv rv-d2 spot bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 flex flex-col hover:border-cyan-500/40 transition-colors">
+                        <div class="font-mono text-xs text-gray-600 uppercase tracking-widest mb-3">advisory · 1–2 slots</div>
+                        <h3 class="font-display font-bold text-2xl text-gray-100">Fractional CTO</h3>
+                        <p class="mt-2 text-gray-400 text-sm leading-relaxed">Architecture authority for your team. Reviews, hiring bar, and a filter against vendor nonsense.</p>
+                        <ul class="mt-5 space-y-2.5 font-mono text-sm text-gray-300 flex-1">
+                            <li class="flex gap-3"><span class="text-cyan-400">▸</span>weekly architecture review</li>
+                            <li class="flex gap-3"><span class="text-cyan-400">▸</span>team leverage, not headcount</li>
+                            <li class="flex gap-3"><span class="text-cyan-400">▸</span>build-vs-buy calls with numbers</li>
+                        </ul>
+                        <div class="mt-5 font-mono text-xs text-gray-600">selective · founders only</div>
+                        <a href="mailto:maulana@drip.id?subject=Fractional%20CTO" class="mt-6 inline-flex items-center justify-center gap-2 border border-[#2A2F3A] text-gray-200 px-6 py-3 rounded-xl hover:border-cyan-500/60 hover:text-cyan-300 transition font-bold text-sm">Apply <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ PRODUCTION SYSTEMS ============ -->
+            <section id="work" class="max-w-7xl mx-auto px-6 py-24 md:py-32">
+                <div class="rv font-mono text-cyan-400 text-sm tracking-[.3em] uppercase mb-3">02 · Production systems</div>
+                <h2 class="rv rv-d1 font-display font-bold text-gray-100 text-3xl md:text-5xl mb-4">Real products. Real users.<br /><span class="text-gray-600">Not demos, not tutorials.</span></h2>
+                <p class="rv rv-d2 text-gray-500 mb-14 max-w-2xl">SaaS products and infrastructure I designed, built, and kept alive in production.</p>
+
+                <!-- hero card: streaming -->
+                <div class="rv spot border border-cyan-500/25 rounded-3xl p-8 md:p-12 mb-6 relative overflow-hidden bg-gradient-to-br from-[#0D1420] to-[#0A0D12]">
+                    <div class="absolute -top-24 -right-24 w-96 h-96 bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+                    <div class="flex flex-col lg:flex-row lg:items-end gap-8 justify-between relative">
+                        <div class="max-w-2xl">
+                            <div class="inline-flex items-center gap-2 font-mono text-xs text-emerald-400 border border-emerald-500/30 rounded-full px-3 py-1 mb-5">
+                                <span class="live-dot w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span> battle-tested live
+                            </div>
+                            <h3 class="font-display font-bold text-2xl md:text-4xl text-gray-100">Live streaming without YouTube</h3>
+                            <p class="mt-3 text-gray-400 leading-relaxed">First event ran flawlessly — auto-adaptive quality, global edge delivery, at a fraction of typical CDN costs. Built for a real audience, not a load-test script.</p>
+                        </div>
+                        <div class="flex gap-8 md:gap-10 font-mono shrink-0">
+                            <div><div class="font-display font-bold text-4xl md:text-5xl text-cyan-400"><span data-count="10">0</span>K</div><div class="text-gray-600 text-xs mt-1 uppercase tracking-widest">concurrent</div></div>
+                            <div><div class="font-display font-bold text-4xl md:text-5xl text-gray-100"><span data-count="0">0</span></div><div class="text-gray-600 text-xs mt-1 uppercase tracking-widest">buffering</div></div>
+                            <div><div class="font-display font-bold text-4xl md:text-5xl text-gray-100">½<span class="text-2xl text-gray-500">cost</span></div><div class="text-gray-600 text-xs mt-1 uppercase tracking-widest">of CDN</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="rv spot bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/40 transition-colors">
+                        <div class="font-mono text-xs text-gray-600 mb-3">saas · whatsapp automation</div>
+                        <h3 class="font-display font-bold text-2xl text-gray-100">dripsender.id</h3>
+                        <p class="mt-2 text-gray-400 text-sm leading-relaxed">Marketing automation across 14 servers. Queues, workers, retries — the unglamorous machinery that keeps 12,000+ users sending.</p>
+                        <div class="mt-5 flex gap-6 font-mono text-sm"><div><span class="text-cyan-400 font-bold">12K+</span> <span class="text-gray-600 text-xs">users</span></div><div><span class="text-cyan-400 font-bold">14</span> <span class="text-gray-600 text-xs">servers</span></div></div>
+                    </div>
+                    <div class="rv rv-d1 spot bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/40 transition-colors">
+                        <div class="font-mono text-xs text-gray-600 mb-3">b2b · healthcare</div>
+                        <h3 class="font-display font-bold text-2xl text-gray-100">Antre.in</h3>
+                        <p class="mt-2 text-gray-400 text-sm leading-relaxed">Real-time patient queue management for clinics. Multi-tenant, RBAC, sockets that don't drop when the waiting room fills.</p>
+                        <div class="mt-5 flex gap-6 font-mono text-sm"><div><span class="text-cyan-400 font-bold">B2B</span> <span class="text-gray-600 text-xs">healthcare</span></div><div><span class="text-cyan-400 font-bold">realtime</span> <span class="text-gray-600 text-xs">queues</span></div></div>
+                    </div>
+                    <div class="rv spot bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/40 transition-colors">
+                        <div class="font-mono text-xs text-gray-600 mb-3">saas · billing</div>
+                        <h3 class="font-display font-bold text-2xl text-gray-100">Orderlink.in</h3>
+                        <p class="mt-2 text-gray-400 text-sm leading-relaxed">Subscription platform with 2,000+ paying subscribers. Multi-tenant billing where a rounding bug costs real money — so there are none.</p>
+                        <div class="mt-5 flex gap-6 font-mono text-sm"><div><span class="text-cyan-400 font-bold">2K+</span> <span class="text-gray-600 text-xs">paid subs</span></div></div>
+                    </div>
+                    <div class="rv rv-d1 spot bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/40 transition-colors">
+                        <div class="font-mono text-xs text-gray-600 mb-3">saas · f&b</div>
+                        <h3 class="font-display font-bold text-2xl text-gray-100">EatJom</h3>
+                        <p class="mt-2 text-gray-400 text-sm leading-relaxed">Multi-tenant restaurant OS — QR ordering, multi-kitchen receipts, per-brand theming. Dinner rush is the load test.</p>
+                        <div class="mt-5 flex gap-6 font-mono text-sm"><div><span class="text-cyan-400 font-bold">SaaS</span> <span class="text-gray-600 text-xs">multi-tenant</span></div></div>
+                    </div>
+                    <a href="https://slugpost.com" class="rv spot group block bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/50 transition-colors">
+                        <div class="font-mono text-xs text-gray-600 mb-3">tool · live ↗</div>
+                        <h3 class="font-display font-bold text-2xl text-gray-100 group-hover:text-cyan-400 transition">slug-post <i data-lucide="external-link" class="inline w-4 h-4 text-gray-600"></i></h3>
+                        <p class="mt-2 text-gray-400 text-sm leading-relaxed">Markdown to shareable web page. No registration, no friction. Live at slugpost.com.</p>
+                        <div class="mt-5 flex gap-6 font-mono text-sm"><div><span class="text-cyan-400 font-bold">live</span> <span class="text-gray-600 text-xs">slugpost.com</span></div></div>
+                    </a>
+                    <a href="https://klikaja.app" class="rv rv-d1 spot group block bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/50 transition-colors">
+                        <div class="font-mono text-xs text-gray-600 mb-3">tool · live ↗</div>
+                        <h3 class="font-display font-bold text-2xl text-gray-100 group-hover:text-cyan-400 transition">KlikAja <i data-lucide="external-link" class="inline w-4 h-4 text-gray-600"></i></h3>
+                        <p class="mt-2 text-gray-400 text-sm leading-relaxed">Smart link shortener with analytics — QR codes, A/B testing, geo-routing.</p>
+                        <div class="mt-5 flex gap-6 font-mono text-sm"><div><span class="text-cyan-400 font-bold">live</span> <span class="text-gray-600 text-xs">klikaja.app</span></div></div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- ============ BENCHMARKS ============ -->
+            <section class="border-y border-[#2A2F3A] bg-[#0C0F15]">
+                <div class="max-w-7xl mx-auto px-6 py-20 md:py-24">
+                    <div class="rv font-mono text-cyan-400 text-sm tracking-[.3em] uppercase mb-3">03 · Receipts</div>
+                    <h2 class="rv rv-d1 font-display font-bold text-gray-100 text-3xl md:text-5xl mb-3">Opinions are cheap.<br /><span class="text-gray-600">Benchmarks aren't.</span></h2>
+                    <p class="rv rv-d2 text-gray-500 mb-12 max-w-2xl">Measured on my own servers, reproducible from the repos. I don't argue stacks — I measure them.</p>
+                    <div class="space-y-7 max-w-3xl" id="bench">
+                        <div class="rv">
+                            <div class="flex justify-between font-mono text-sm mb-2"><span class="text-gray-300">hook-sync <span class="text-gray-600">· sqlite replication writes</span></span><span class="text-cyan-400 font-bold">394K QPS</span></div>
+                            <div class="h-3 rounded-full bg-[#1a1f29] overflow-hidden"><div class="bar h-full w-full rounded-full bg-gradient-to-r from-cyan-500 to-emerald-400"></div></div>
+                        </div>
+                        <div class="rv rv-d1">
+                            <div class="flex justify-between font-mono text-sm mb-2"><span class="text-gray-300">laju <span class="text-gray-600">· ts web framework</span></span><span class="text-cyan-400 font-bold">258K RPS</span></div>
+                            <div class="h-3 rounded-full bg-[#1a1f29] overflow-hidden"><div class="bar h-full w-[66%] rounded-full bg-gradient-to-r from-cyan-600 to-cyan-400"></div></div>
+                        </div>
+                        <div class="rv rv-d2">
+                            <div class="flex justify-between font-mono text-sm mb-2"><span class="text-gray-300">live streaming <span class="text-gray-600">· concurrent viewers, zero buffering</span></span><span class="text-cyan-400 font-bold">10K</span></div>
+                            <div class="h-3 rounded-full bg-[#1a1f29] overflow-hidden"><div class="bar h-full w-[34%] rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ OPEN SOURCE ============ -->
+            <section id="opensource" class="max-w-7xl mx-auto px-6 py-24 md:py-32">
+                <div class="rv font-mono text-cyan-400 text-sm tracking-[.3em] uppercase mb-3">04 · Open source</div>
+                <h2 class="rv rv-d1 font-display font-bold text-gray-100 text-3xl md:text-5xl mb-4">75+ original repos. MIT. CI green.</h2>
+                <p class="rv rv-d2 text-gray-500 mb-12 max-w-2xl">Libraries, frameworks, and tools — each one extracted from a production need, not a weekend whim.</p>
+
+                <div class="space-y-5 mb-10">
+                    <a href="https://github.com/maulanashalihin/hook-sync" class="rv spot group block bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/50 transition-colors">
+                        <div class="flex flex-col md:flex-row md:items-center gap-5 justify-between">
+                            <div>
+                                <div class="font-mono text-xs text-cyan-500 mb-2">★ flagship · multi-runtime replication</div>
+                                <h3 class="font-display font-bold text-2xl text-gray-100 group-hover:text-cyan-400 transition">hook-sync</h3>
+                                <p class="mt-2 text-gray-400 max-w-2xl">Multi-runtime SQLite replication. Go, Bun, Node — same wire protocol. Point-to-point, full mesh, dedicated hub with Pebble KV.</p>
+                            </div>
+                            <div class="flex gap-7 font-mono text-sm shrink-0"><div><div class="text-cyan-400 font-bold text-xl">394K</div><div class="text-gray-600 text-xs">write QPS</div></div><div><div class="text-cyan-400 font-bold text-xl">3</div><div class="text-gray-600 text-xs">topologies</div></div></div>
+                        </div>
+                    </a>
+                    <a href="https://github.com/maulanashalihin/laju" class="rv spot group block bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/50 transition-colors">
+                        <div class="flex flex-col md:flex-row md:items-center gap-5 justify-between">
+                            <div>
+                                <div class="font-mono text-xs text-gray-600 mb-2">typescript web framework · 23★</div>
+                                <h3 class="font-display font-bold text-2xl text-gray-100 group-hover:text-cyan-400 transition">laju</h3>
+                                <p class="mt-2 text-gray-400 max-w-2xl">High-performance TypeScript web framework. Powers slugpost.com and klikaja.app in production.</p>
+                            </div>
+                            <div class="flex gap-7 font-mono text-sm shrink-0"><div><div class="text-cyan-400 font-bold text-xl">258K</div><div class="text-gray-600 text-xs">RPS</div></div></div>
+                        </div>
+                    </a>
+                    <a href="https://github.com/maulanashalihin/dulak" class="rv spot group block bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/50 transition-colors">
+                        <div class="flex flex-col md:flex-row md:items-center gap-5 justify-between">
+                            <div>
+                                <div class="font-mono text-xs text-gray-600 mb-2">boilerplate · <span class="text-cyan-600">npm create-dulak</span></div>
+                                <h3 class="font-display font-bold text-2xl text-gray-100 group-hover:text-cyan-400 transition">dulak</h3>
+                                <p class="mt-2 text-gray-400 max-w-2xl">Full-stack Bun boilerplate. Auth, uploads, SSR, 6 templates — start Friday, ship Monday.</p>
+                            </div>
+                            <div class="flex gap-7 font-mono text-sm shrink-0"><div><div class="text-cyan-400 font-bold text-xl">Bun</div><div class="text-gray-600 text-xs">runtime</div></div></div>
+                        </div>
+                    </a>
+                    <a href="https://github.com/maulanashalihin/selasar" class="rv spot group block bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/50 transition-colors">
+                        <div class="flex flex-col md:flex-row md:items-center gap-5 justify-between">
+                            <div>
+                                <div class="font-mono text-xs text-gray-600 mb-2">analytics · <span class="text-cyan-600">live demo ↗</span></div>
+                                <h3 class="font-display font-bold text-2xl text-gray-100 group-hover:text-cyan-400 transition">selasar <i data-lucide="external-link" class="inline w-4 h-4 text-gray-600"></i></h3>
+                                <p class="mt-2 text-gray-400 max-w-2xl">Self-hosted web analytics with ClickHouse. Multi-domain, real-time, GDPR-friendly.</p>
+                            </div>
+                            <div class="flex gap-7 font-mono text-sm shrink-0"><div><div class="text-cyan-400 font-bold text-xl">live</div><div class="text-gray-600 text-xs">demo up</div></div><div><div class="text-cyan-400 font-bold text-xl">Bun</div><div class="text-gray-600 text-xs">+ Svelte 5</div></div></div>
+                        </div>
+                    </a>
+                    <a href="https://github.com/maulanashalihin/kilat" class="rv spot group block bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/50 transition-colors">
+                        <div class="flex flex-col md:flex-row md:items-center gap-5 justify-between">
+                            <div>
+                                <div class="font-mono text-xs text-gray-600 mb-2">edge · cloudflare workers</div>
+                                <h3 class="font-display font-bold text-2xl text-gray-100 group-hover:text-cyan-400 transition">kilat</h3>
+                                <p class="mt-2 text-gray-400 max-w-2xl">Edge starter deploying to 300+ locations. Zero ops, global by default.</p>
+                            </div>
+                            <div class="flex gap-7 font-mono text-sm shrink-0"><div><div class="text-cyan-400 font-bold text-xl">300+</div><div class="text-gray-600 text-xs">edge locs</div></div></div>
+                        </div>
+                    </a>
+                    <a href="https://github.com/maulanashalihin/learn-api" class="rv spot group block bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/50 transition-colors">
+                        <div class="flex flex-col md:flex-row md:items-center gap-5 justify-between">
+                            <div>
+                                <div class="font-mono text-xs text-gray-600 mb-2">course · 19 modules</div>
+                                <h3 class="font-display font-bold text-2xl text-gray-100 group-hover:text-cyan-400 transition">learn-api</h3>
+                                <p class="mt-2 text-gray-400 max-w-2xl">19-module API technologies course. REST to CRDT replication — working code, zero fluff.</p>
+                            </div>
+                            <div class="flex gap-7 font-mono text-sm shrink-0"><div><div class="text-cyan-400 font-bold text-xl">19</div><div class="text-gray-600 text-xs">modules</div></div></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <a href="https://github.com/maulanashalihin/laju-go" class="rv block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-5 hover:border-cyan-500/50 transition group"><h3 class="font-bold text-gray-100 group-hover:text-cyan-400 transition">laju-go</h3><p class="mt-1 text-gray-500 text-sm">Go Fiber SaaS boilerplate.</p></a>
+                    <a href="https://github.com/maulanashalihin/fiber-inertia" class="rv rv-d1 block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-5 hover:border-cyan-500/50 transition group"><h3 class="font-bold text-gray-100 group-hover:text-cyan-400 transition">fiber-inertia</h3><p class="mt-1 text-gray-500 text-sm">Inertia.js v3 adapter for Go Fiber.</p></a>
+                    <a href="https://github.com/maulanashalihin/tusdfiber" class="rv rv-d2 block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-5 hover:border-cyan-500/50 transition group"><h3 class="font-bold text-gray-100 group-hover:text-cyan-400 transition">tusdfiber</h3><p class="mt-1 text-gray-500 text-sm">TUS resumable uploads for Go Fiber.</p></a>
+                    <a href="https://github.com/maulanashalihin/svelte-wysiwyg-editor" class="rv block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-5 hover:border-cyan-500/50 transition group"><h3 class="font-bold text-gray-100 group-hover:text-cyan-400 transition">svelte-wysiwyg-editor</h3><p class="mt-1 text-gray-500 text-sm">WYSIWYG editor for Svelte 4 & 5.</p></a>
+                    <a href="https://github.com/maulanashalihin/cdn-s3-proxy" class="rv rv-d1 block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-5 hover:border-cyan-500/50 transition group"><h3 class="font-bold text-gray-100 group-hover:text-cyan-400 transition">cdn-s3-proxy</h3><p class="mt-1 text-gray-500 text-sm">S3 CDN reverse proxy with disk caching.</p></a>
+                    <a href="https://github.com/maulanashalihin/plausible-sqlite" class="rv rv-d2 block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-5 hover:border-cyan-500/50 transition group"><h3 class="font-bold text-gray-100 group-hover:text-cyan-400 transition">plausible-sqlite</h3><p class="mt-1 text-gray-500 text-sm">Plausible on SQLite. Fits a $6 VPS.</p></a>
+                </div>
+            </section>
+
+            <!-- ============ ENGINEERING NOTES ============ -->
+            <section id="engineering" class="border-y border-[#2A2F3A] bg-[#0C0F15]">
+                <div class="max-w-7xl mx-auto px-6 py-20 md:py-24">
+                    <div class="rv font-mono text-cyan-400 text-sm tracking-[.3em] uppercase mb-3">05 · Engineering notes</div>
+                    <h2 class="rv rv-d1 font-display font-bold text-gray-100 text-3xl md:text-5xl mb-4">Strong opinions,<br /><span class="text-gray-600">loosely held, tightly measured.</span></h2>
+                    <p class="rv rv-d2 text-gray-500 mb-10 max-w-2xl">14 notes on architecture, databases, auth, and deployment — written for the dulak docs.</p>
+                    <div class="rv border-t border-[#2A2F3A]">
+                        <a href="https://dulak.pages.dev/blog/why-no-nginx/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">01</span><span class="note-title font-bold text-gray-200 transition">Nginx is dead. Cloudflare killed it.</span></a>
+                        <a href="https://dulak.pages.dev/blog/why-sqlite-not-postgres/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">02</span><span class="note-title font-bold text-gray-200 transition">SQLite beats Postgres — we benchmarked it.</span></a>
+                        <a href="https://dulak.pages.dev/blog/why-no-orm/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">03</span><span class="note-title font-bold text-gray-200 transition">ORMs are dead in 2026. AI killed them.</span></a>
+                        <a href="https://dulak.pages.dev/blog/why-sessions-not-jwt/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">04</span><span class="note-title font-bold text-gray-200 transition">JWT is the wrong default. Sessions are the right one.</span></a>
+                        <a href="https://dulak.pages.dev/blog/why-argon2id-not-bcrypt/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">05</span><span class="note-title font-bold text-gray-200 transition">bcrypt is from 1999. Your passwords deserve better.</span></a>
+                        <a href="https://dulak.pages.dev/blog/why-leave-nextjs/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">06</span><span class="note-title font-bold text-gray-200 transition">Next.js is the default. It should not be.</span></a>
+                        <a href="https://dulak.pages.dev/blog/why-leave-laravel/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">07</span><span class="note-title font-bold text-gray-200 transition">Laravel is good. Your next project should not use it.</span></a>
+                        <a href="https://dulak.pages.dev/blog/why-bun-not-node/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">08</span><span class="note-title font-bold text-gray-200 transition">Node needs 5 tools. Bun ships one.</span></a>
+                        <a href="https://dulak.pages.dev/blog/ssr-vs-spa/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">09</span><span class="note-title font-bold text-gray-200 transition">SSR vs SPA: 50ms to content, or 2 seconds of blank screen.</span></a>
+                        <a href="https://dulak.pages.dev/blog/why-inertia-not-spa/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">10</span><span class="note-title font-bold text-gray-200 transition">Your SPA needs a router, an API, and state. Inertia needs none of it.</span></a>
+                        <a href="https://dulak.pages.dev/blog/why-no-cache-service/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">11</span><span class="note-title font-bold text-gray-200 transition">Your database is already the cache.</span></a>
+                        <a href="https://dulak.pages.dev/blog/why-vanilla-css-not-tailwind/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">12</span><span class="note-title font-bold text-gray-200 transition">Tailwind is a build step you don't need.</span></a>
+                        <a href="https://dulak.pages.dev/blog/how-to-upload-files-over-100mb/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">13</span><span class="note-title font-bold text-gray-200 transition">Your 2GB upload keeps failing. Here's the fix.</span></a>
+                        <a href="https://dulak.pages.dev/blog/why-not-pm2/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">14</span><span class="note-title font-bold text-gray-200 transition">PM2 is a band-aid. Bun doesn't need it.</span></a>
+                    </div>
+                    <a href="https://dulak.pages.dev/blog/" class="rv mt-8 inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition font-mono text-sm">Read all notes <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                </div>
+            </section>
+
+            <!-- ============ ABOUT ============ -->
+            <section id="about" class="max-w-7xl mx-auto px-6 py-24 md:py-32">
+                <div class="grid md:grid-cols-5 gap-12">
+                    <div class="md:col-span-3">
+                        <div class="rv font-mono text-cyan-400 text-sm tracking-[.3em] uppercase mb-3">06 · About</div>
+                        <h2 class="rv rv-d1 font-display font-bold text-gray-100 text-3xl md:text-5xl mb-8">Engineer,<br />not agency.</h2>
+                        <div class="rv rv-d2 space-y-6 text-gray-400 leading-relaxed text-lg">
+                            <p>11+ years building software — from PHP to Node.js to Go. I work directly with founders and technical teams. <span class="text-gray-200">No project managers, no status meetings.</span> Just code, measurements, and shipped products.</p>
+                            <p>20+ projects shipped: queue systems serving thousands daily, web frameworks hitting 258K RPS, live streaming for 10K concurrent viewers, replication matching native performance. <span class="text-gray-200">I measure everything.</span></p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2">
+                        <div class="rv rv-d2 border border-[#2A2F3A] rounded-3xl p-8 bg-[#0F131A] md:sticky md:top-24">
+                            <div class="font-mono text-xs text-gray-600 uppercase tracking-widest mb-5">$ cat facts.txt</div>
+                            <ul class="space-y-4 font-mono text-sm">
+                                <li class="flex gap-3"><span class="text-cyan-400">▸</span><span class="text-gray-300">based in Jakarta, remote worldwide</span></li>
+                                <li class="flex gap-3"><span class="text-cyan-400">▸</span><span class="text-gray-300">Go · TypeScript · SQLite · Bun</span></li>
+                                <li class="flex gap-3"><span class="text-cyan-400">▸</span><span class="text-gray-300">founder-friendly: async, no meetings</span></li>
+                                <li class="flex gap-3"><span class="text-cyan-400">▸</span><span class="text-gray-300">responds within 24 hours</span></li>
+                                <li class="flex gap-3"><span class="text-cyan-400">▸</span><span class="text-gray-300">open to contract & fractional CTO</span></li>
+                            </ul>
+                            <div class="mt-7 pt-6 border-t border-[#2A2F3A] flex items-center gap-5">
+                                <a href="https://github.com/maulanashalihin" class="text-gray-500 hover:text-cyan-400 transition" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
+                                <a href="https://www.linkedin.com/in/maulana-shalihin" class="text-gray-500 hover:text-cyan-400 transition" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                                <a href="mailto:maulana@drip.id" class="text-gray-500 hover:text-cyan-400 transition" aria-label="Email"><i data-lucide="mail" class="w-5 h-5"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ CONTACT ============ -->
+            <section id="contact" class="relative border-t border-[#2A2F3A] overflow-hidden">
+                <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+                    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[760px] h-[340px] bg-cyan-500/10 rounded-full blur-[130px]"></div>
+                </div>
+                <div class="relative max-w-5xl mx-auto px-6 py-28 md:py-36 text-center">
+                    <div class="rv font-mono text-cyan-400 text-sm tracking-[.3em] uppercase mb-6">07 · Contact — currently available</div>
+                    <h2 class="rv rv-d1 font-display font-bold leading-none text-[clamp(3rem,11vw,8.5rem)]"><span class="outline-text">LET'S</span> <span class="bg-gradient-to-r from-cyan-300 to-emerald-400 bg-clip-text text-transparent text-glow">BUILD.</span></h2>
+                    <p class="rv rv-d2 text-gray-400 text-lg mt-7 max-w-xl mx-auto">Have a system to build, a bottleneck to kill, or a team that needs a force multiplier? Email is fastest — I respond within 24 hours.</p>
+                    <div class="rv rv-d3 mt-10 flex flex-wrap justify-center gap-4">
+                        <a href="mailto:maulana@drip.id" class="magnetic magnetic-btn inline-flex items-center gap-3 bg-cyan-400 text-[#0A0D12] font-bold px-9 py-4 rounded-xl hover:bg-cyan-300 text-lg">
                             <i data-lucide="mail" class="w-5 h-5"></i>
                             maulana@drip.id
                         </a>
                     </div>
-
-                    <!-- Metrics -->
-                    <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-px bg-[#2A2F3A] border border-[#2A2F3A] rounded-2xl overflow-hidden">
-                        <div class="bg-[#0A0D12] p-6">
-                            <div class="text-3xl font-bold text-cyan-400 font-mono">11+</div>
-                            <div class="text-gray-600 text-sm mt-1">years</div>
-                        </div>
-                        <div class="bg-[#0A0D12] p-6">
-                            <div class="text-3xl font-bold text-cyan-400 font-mono">12K+</div>
-                            <div class="text-gray-600 text-sm mt-1">users served</div>
-                        </div>
-                        <div class="bg-[#0A0D12] p-6">
-                            <div class="text-3xl font-bold text-cyan-400 font-mono">10K</div>
-                            <div class="text-gray-600 text-sm mt-1">live viewers</div>
-                        </div>
-                        <div class="bg-[#0A0D12] p-6">
-                            <div class="text-3xl font-bold text-cyan-400 font-mono">258K</div>
-                            <div class="text-gray-600 text-sm mt-1">RPS benchmarked</div>
-                        </div>
-                    </div>
+                    <p class="rv rv-d4 mt-6 font-mono text-xs text-gray-600">no recruiters · no agencies · direct only</p>
                 </div>
             </section>
 
-            <!-- Production Systems -->
-            <section id="work" class="max-w-7xl mx-auto px-6 py-20 border-t border-[#2A2F3A]">
-                <div class="text-cyan-400 text-sm font-mono tracking-widest uppercase mb-3">
-                    Production Systems
-                </div>
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-gray-100 mb-4">
-                    Real products, real users.
-                </h2>
-                <p class="text-gray-500 mb-12 max-w-2xl">
-                    SaaS products and infrastructure I built and shipped — not demos, not tutorials.
-                </p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- dripsender -->
-                    <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-2xl p-8">
-                        <h3 class="text-xl font-bold text-gray-100">dripsender.id</h3>
-                        <p class="mt-2 text-gray-400 text-sm leading-relaxed">
-                            WhatsApp marketing automation serving 12,000+ users across 14 servers.
-                        </p>
-                        <div class="mt-4 flex gap-6 font-mono text-sm">
-                            <div><span class="text-cyan-400 font-bold">12K+</span> <span class="text-gray-600 text-xs">users</span></div>
-                            <div><span class="text-cyan-400 font-bold">14</span> <span class="text-gray-600 text-xs">servers</span></div>
-                        </div>
-                    </div>
-
-                    <!-- Antre.in -->
-                    <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-2xl p-8">
-                        <h3 class="text-xl font-bold text-gray-100">Antre.in</h3>
-                        <p class="mt-2 text-gray-400 text-sm leading-relaxed">
-                            Healthcare B2B SaaS. Real-time patient queue management, multi-tenant, RBAC.
-                        </p>
-                        <div class="mt-4 flex gap-6 font-mono text-sm">
-                            <div><span class="text-cyan-400 font-bold">B2B</span> <span class="text-gray-600 text-xs">healthcare</span></div>
-                        </div>
-                    </div>
-
-                    <!-- Orderlink -->
-                    <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-2xl p-8">
-                        <h3 class="text-xl font-bold text-gray-100">Orderlink.in</h3>
-                        <p class="mt-2 text-gray-400 text-sm leading-relaxed">
-                            SaaS platform with 2,000+ paid subscribers. Subscription billing, multi-tenant.
-                        </p>
-                        <div class="mt-4 flex gap-6 font-mono text-sm">
-                            <div><span class="text-cyan-400 font-bold">2K+</span> <span class="text-gray-600 text-xs">paid subs</span></div>
-                        </div>
-                    </div>
-
-                    <!-- EatJom -->
-                    <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-2xl p-8">
-                        <h3 class="text-xl font-bold text-gray-100">EatJom</h3>
-                        <p class="mt-2 text-gray-400 text-sm leading-relaxed">
-                            Multi-tenant restaurant SaaS. QR ordering, multi-kitchen receipts, custom branding.
-                        </p>
-                        <div class="mt-4 flex gap-6 font-mono text-sm">
-                            <div><span class="text-cyan-400 font-bold">SaaS</span> <span class="text-gray-600 text-xs">multi-tenant</span></div>
-                        </div>
-                    </div>
-
-                    <!-- slug-post -->
-                    <a
-                        href="https://slugpost.com"
-                        class="block bg-[#0F131A] border border-[#2A2F3A] rounded-2xl p-8 hover:border-cyan-500/50 transition group"
-                    >
-                        <h3 class="text-xl font-bold text-gray-100 group-hover:text-cyan-400 transition">
-                            slug-post
-                            <i data-lucide="external-link" class="inline w-4 h-4 ml-1 text-gray-600"></i>
-                        </h3>
-                        <p class="mt-2 text-gray-400 text-sm leading-relaxed">
-                            Markdown to shareable web page. No registration. Live at slugpost.com.
-                        </p>
-                        <div class="mt-4 flex gap-6 font-mono text-sm">
-                            <div><span class="text-cyan-400 font-bold">8★</span> <span class="text-gray-600 text-xs">GitHub</span></div>
-                            <div><span class="text-cyan-400 font-bold">live</span> <span class="text-gray-600 text-xs">slugpost.com</span></div>
-                        </div>
-                    </a>
-
-                    <!-- klikaja -->
-                    <a
-                        href="https://klikaja.app"
-                        class="block bg-[#0F131A] border border-[#2A2F3A] rounded-2xl p-8 hover:border-cyan-500/50 transition group"
-                    >
-                        <h3 class="text-xl font-bold text-gray-100 group-hover:text-cyan-400 transition">
-                            KlikAja
-                            <i data-lucide="external-link" class="inline w-4 h-4 ml-1 text-gray-600"></i>
-                        </h3>
-                        <p class="mt-2 text-gray-400 text-sm leading-relaxed">
-                            Smart link shortener with analytics. QR codes, A/B testing, geo-routing.
-                        </p>
-                        <div class="mt-4 flex gap-6 font-mono text-sm">
-                            <div><span class="text-cyan-400 font-bold">3★</span> <span class="text-gray-600 text-xs">GitHub</span></div>
-                            <div><span class="text-cyan-400 font-bold">live</span> <span class="text-gray-600 text-xs">klikaja.app</span></div>
-                        </div>
-                    </a>
-
-                    <!-- Live Streaming — full width, special treatment -->
-                    <div class="bg-[#0F131A] border border-cyan-500/20 rounded-2xl p-8 md:col-span-2 relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl"></div>
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 relative">
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-100">Live Streaming Platform</h3>
-                                <p class="mt-2 text-gray-400 text-sm leading-relaxed max-w-2xl">
-                                    10,000 concurrent viewers. Zero buffering. A fraction of typical CDN costs.
-                                    First event ran flawlessly — auto-adaptive quality, global edge delivery.
-                                </p>
-                            </div>
-                            <div class="flex gap-6 font-mono text-sm shrink-0">
-                                <div><div class="text-cyan-400 font-bold">10K</div><div class="text-gray-600 text-xs">concurrent</div></div>
-                                <div><div class="text-cyan-400 font-bold">0</div><div class="text-gray-600 text-xs">buffering</div></div>
-                                <div><div class="text-cyan-400 font-bold">low</div><div class="text-gray-600 text-xs">cost</div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Open Source -->
-            <section id="opensource" class="bg-[#0F131A] py-20 border-t border-[#2A2F3A]">
-                <div class="max-w-7xl mx-auto px-6">
-                    <div class="text-cyan-400 text-sm font-mono tracking-widest uppercase mb-3">
-                        Open Source
-                    </div>
-                    <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-gray-100 mb-4">
-                        Libraries, frameworks, and tools.
-                    </h2>
-                    <p class="text-gray-500 mb-12 max-w-2xl">
-                        55+ public repos. All MIT, all with CI.
-                    </p>
-
-                    <!-- Featured -->
-                    <div class="space-y-6 mb-8">
-                        <a
-                            href="https://github.com/maulanashalihin/hook-sync"
-                            class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-8 hover:border-cyan-500/50 transition group"
-                        >
-                            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                                <div>
-                                    <h3 class="text-xl font-bold text-gray-100 group-hover:text-cyan-400 transition">hook-sync</h3>
-                                    <p class="mt-2 text-gray-400">Multi-runtime SQLite replication. Go, Bun, Node — same wire protocol. Point-to-point, full mesh, dedicated hub with Pebble KV.</p>
-                                </div>
-                                <div class="flex gap-6 font-mono text-sm shrink-0">
-                                    <div><div class="text-cyan-400 font-bold">394K</div><div class="text-gray-600 text-xs">write QPS</div></div>
-                                    <div><div class="text-cyan-400 font-bold">3</div><div class="text-gray-600 text-xs">topologies</div></div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a
-                            href="https://github.com/maulanashalihin/laju"
-                            class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-8 hover:border-cyan-500/50 transition group"
-                        >
-                            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                                <div>
-                                    <h3 class="text-xl font-bold text-gray-100 group-hover:text-cyan-400 transition">laju</h3>
-                                    <p class="mt-2 text-gray-400">High-performance TypeScript web framework. Powers slugpost.com and klikaja.app.</p>
-                                </div>
-                                <div class="flex gap-6 font-mono text-sm shrink-0">
-                                    <div><div class="text-cyan-400 font-bold">258K</div><div class="text-gray-600 text-xs">RPS</div></div>
-                                    <div><div class="text-cyan-400 font-bold">23★</div><div class="text-gray-600 text-xs">GitHub</div></div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a
-                            href="https://github.com/maulanashalihin/dulak"
-                            class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-8 hover:border-cyan-500/50 transition group"
-                        >
-                            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                                <div>
-                                    <h3 class="text-xl font-bold text-gray-100 group-hover:text-cyan-400 transition">dulak</h3>
-                                    <p class="mt-2 text-gray-400">Full-stack Bun boilerplate. Auth, uploads, SSR, 6 templates. <span class="text-cyan-600">npm create-dulak</span>.</p>
-                                </div>
-                                <div class="flex gap-6 font-mono text-sm shrink-0">
-                                    <div><div class="text-cyan-400 font-bold">6★</div><div class="text-gray-600 text-xs">GitHub</div></div>
-                                    <div><div class="text-cyan-400 font-bold">Bun</div><div class="text-gray-600 text-xs">runtime</div></div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a
-                            href="https://github.com/maulanashalihin/selasar"
-                            class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-8 hover:border-cyan-500/50 transition group"
-                        >
-                            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                                <div>
-                                    <h3 class="text-xl font-bold text-gray-100 group-hover:text-cyan-400 transition">
-                                        selasar
-                                        <i data-lucide="external-link" class="inline w-4 h-4 ml-1 text-gray-600"></i>
-                                    </h3>
-                                    <p class="mt-2 text-gray-400">Self-hosted web analytics with ClickHouse. Multi-domain, real-time, GDPR-friendly. <span class="text-cyan-600">Live demo</span>.</p>
-                                </div>
-                                <div class="flex gap-6 font-mono text-sm shrink-0">
-                                    <div><div class="text-cyan-400 font-bold">live</div><div class="text-gray-600 text-xs">selasar.maulanabuilds.com</div></div>
-                                    <div><div class="text-cyan-400 font-bold">Bun</div><div class="text-gray-600 text-xs">+ Svelte 5</div></div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a
-                            href="https://github.com/maulanashalihin/kilat"
-                            class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-8 hover:border-cyan-500/50 transition group"
-                        >
-                            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                                <div>
-                                    <h3 class="text-xl font-bold text-gray-100 group-hover:text-cyan-400 transition">kilat</h3>
-                                    <p class="mt-2 text-gray-400">Cloudflare Workers edge starter. Deploys to 300+ locations. Zero ops.</p>
-                                </div>
-                                <div class="flex gap-6 font-mono text-sm shrink-0">
-                                    <div><div class="text-cyan-400 font-bold">6★</div><div class="text-gray-600 text-xs">GitHub</div></div>
-                                    <div><div class="text-cyan-400 font-bold">300+</div><div class="text-gray-600 text-xs">edge locs</div></div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a
-                            href="https://github.com/maulanashalihin/learn-api"
-                            class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-8 hover:border-cyan-500/50 transition group"
-                        >
-                            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                                <div>
-                                    <h3 class="text-xl font-bold text-gray-100 group-hover:text-cyan-400 transition">learn-api</h3>
-                                    <p class="mt-2 text-gray-400">19-module API technologies course. REST to CRDT replication. Working code + README.</p>
-                                </div>
-                                <div class="flex gap-6 font-mono text-sm shrink-0">
-                                    <div><div class="text-cyan-400 font-bold">19</div><div class="text-gray-600 text-xs">modules</div></div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Compact grid -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <a
-                            href="https://github.com/maulanashalihin/laju-go"
-                            class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group"
-                        >
-                            <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">laju-go</h3>
-                            <p class="mt-1 text-gray-500 text-sm">Go Fiber SaaS boilerplate. <span class="text-cyan-600">npx create-laju-go</span></p>
-                        </a>
-                        <a
-                            href="https://github.com/maulanashalihin/fiber-inertia"
-                            class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group"
-                        >
-                            <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">fiber-inertia</h3>
-                            <p class="mt-1 text-gray-500 text-sm">Inertia.js v3 adapter for Go Fiber.</p>
-                        </a>
-                        <a
-                            href="https://github.com/maulanashalihin/tusdfiber"
-                            class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group"
-                        >
-                            <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">tusdfiber</h3>
-                            <p class="mt-1 text-gray-500 text-sm">TUS resumable uploads for Go Fiber.</p>
-                        </a>
-                        <a
-                            href="https://github.com/maulanashalihin/svelte-wysiwyg-editor"
-                            class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group"
-                        >
-                            <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">svelte-wysiwyg-editor</h3>
-                            <p class="mt-1 text-gray-500 text-sm">WYSIWYG editor for Svelte 4 & 5. npm package.</p>
-                        </a>
-                        <a
-                            href="https://github.com/maulanashalihin/cdn-s3-proxy"
-                            class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group"
-                        >
-                            <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">cdn-s3-proxy</h3>
-                            <p class="mt-1 text-gray-500 text-sm">S3 CDN reverse proxy with disk caching. Go.</p>
-                        </a>
-                        <a
-                            href="https://github.com/maulanashalihin/plausible-sqlite"
-                            class="block bg-[#0A0D12] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group"
-                        >
-                            <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">plausible-sqlite</h3>
-                            <p class="mt-1 text-gray-500 text-sm">Plausible Analytics fork — SQLite replacing PostgreSQL. Fits a $6 VPS. <span class="text-cyan-600">Live at ps.maulanabuilds.com</span>.</p>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Engineering Notes -->
-            <section id="engineering" class="max-w-7xl mx-auto px-6 py-20 border-t border-[#2A2F3A]">
-                <div class="text-cyan-400 text-sm font-mono tracking-widest uppercase mb-3">
-                    Engineering Notes
-                </div>
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-gray-100 mb-4">
-                    Opinions, backed by benchmarks.
-                </h2>
-                <p class="text-gray-500 mb-12 max-w-2xl">
-                    14 engineering notes on architecture, databases, auth, and deployment.
-                    Written for the dulak boilerplate docs.
-                </p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <a href="https://dulak.pages.dev/blog/why-no-nginx/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
-                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">Nginx is dead. Cloudflare killed it.</h3>
-                    </a>
-                    <a href="https://dulak.pages.dev/blog/why-sqlite-not-postgres/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
-                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">SQLite beats Postgres — we benchmarked it.</h3>
-                    </a>
-                    <a href="https://dulak.pages.dev/blog/why-no-orm/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
-                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">ORMs are dead in 2026. AI killed them.</h3>
-                    </a>
-                    <a href="https://dulak.pages.dev/blog/why-sessions-not-jwt/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
-                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">JWT is the wrong default. Sessions are the right one.</h3>
-                    </a>
-                    <a href="https://dulak.pages.dev/blog/why-argon2id-not-bcrypt/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
-                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">bcrypt is from 1999. Your passwords deserve better.</h3>
-                    </a>
-                    <a href="https://dulak.pages.dev/blog/why-leave-nextjs/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
-                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">Next.js is the default. It should not be.</h3>
-                    </a>
-                    <a href="https://dulak.pages.dev/blog/why-leave-laravel/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
-                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">Laravel is good. Your next project should not use it.</h3>
-                    </a>
-                    <a href="https://dulak.pages.dev/blog/why-bun-not-node/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
-                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">Node needs 5 tools. Bun ships one.</h3>
-                    </a>
-                    <a href="https://dulak.pages.dev/blog/ssr-vs-spa/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
-                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">SSR vs SPA: 50ms to content, or 2 seconds of blank screen.</h3>
-                    </a>
-                    <a href="https://dulak.pages.dev/blog/why-inertia-not-spa/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
-                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">Your SPA needs a router, an API, and state. Inertia needs none of it.</h3>
-                    </a>
-                    <a href="https://dulak.pages.dev/blog/why-no-cache-service/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
-                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">Your database is already the cache.</h3>
-                    </a>
-                    <a href="https://dulak.pages.dev/blog/why-vanilla-css-not-tailwind/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
-                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">Tailwind is a build step you don't need.</h3>
-                    </a>
-                    <a href="https://dulak.pages.dev/blog/how-to-upload-files-over-100mb/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
-                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">Your 2GB upload keeps failing. Here's the fix.</h3>
-                    </a>
-                    <a href="https://dulak.pages.dev/blog/why-not-pm2/" class="block bg-[#0F131A] border border-[#2A2F3A] rounded-xl p-5 hover:border-cyan-500/50 transition group">
-                        <h3 class="text-base font-bold text-gray-100 group-hover:text-cyan-400 transition">PM2 is a band-aid. Bun doesn't need it.</h3>
-                    </a>
-                </div>
-
-                <div class="mt-8">
-                    <a href="https://dulak.pages.dev/blog/" class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition font-mono text-sm">
-                        Read all notes
-                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </a>
-                </div>
-            </section>
-
-            <!-- About -->
-            <section id="about" class="bg-[#0F131A] py-20 border-t border-[#2A2F3A]">
-                <div class="max-w-3xl mx-auto px-6">
-                    <div class="text-cyan-400 text-sm font-mono tracking-widest uppercase mb-3">
-                        About
-                    </div>
-                    <h2 class="text-3xl md:text-4xl font-bold tracking-tighter text-gray-100 mb-8">
-                        Engineer, not agency.
-                    </h2>
-                    <div class="space-y-6 text-gray-400 leading-relaxed text-lg">
-                        <p>
-                            11+ years building software — from PHP to Node.js to Go. I work directly
-                            with founders and technical teams. No project managers, no status meetings.
-                            Just code, measurements, and shipped products.
-                        </p>
-                        <p>
-                            20+ projects shipped: queue systems serving thousands daily, web frameworks
-                            hitting 258K RPS, live streaming for 10K concurrent viewers, replication tools
-                            matching native performance. I measure everything.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Contact -->
-            <section id="contact" class="max-w-3xl mx-auto px-6 py-24 text-center border-t border-[#2A2F3A]">
-                <div class="text-cyan-400 text-sm font-mono tracking-widest uppercase mb-3">
-                    Contact
-                </div>
-                <h2 class="text-3xl md:text-5xl font-bold tracking-tighter text-gray-100 mb-6">
-                    Let's talk.
-                </h2>
-                <p class="text-gray-400 text-lg mb-10 max-w-xl mx-auto">
-                    Email is the fastest way to reach me. I respond within 24 hours.
-                </p>
-                <a
-                    href="mailto:maulana@drip.id"
-                    class="inline-flex items-center gap-3 bg-cyan-500 text-[#0A0D12] font-bold px-8 py-4 rounded-xl hover:bg-cyan-400 transition text-lg"
-                >
-                    <i data-lucide="mail" class="w-5 h-5"></i>
-                    maulana@drip.id
-                </a>
-            </section>
-
-            <!-- Footer -->
-            <footer class="border-t border-[#2A2F3A] py-12">
+            <!-- ============ FOOTER ============ -->
+            <footer class="border-t border-[#2A2F3A] py-10">
                 <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div class="text-gray-600 font-mono text-sm">
-                        Maulana Shalihin · Senior Software Engineer
-                    </div>
+                    <div class="text-gray-600 font-mono text-sm">© 2026 Maulana Shalihin · built with Astro, shipped from Jakarta</div>
                     <div class="flex items-center gap-6">
-                        <a
-                            href="https://github.com/maulanashalihin"
-                            class="text-gray-500 hover:text-cyan-400 transition"
-                        >
-                            <i data-lucide="github" class="w-5 h-5"></i>
-                        </a>
-                        <a
-                            href="https://www.linkedin.com/in/maulana-shalihin"
-                            class="text-gray-500 hover:text-cyan-400 transition"
-                        >
-                            <i data-lucide="linkedin" class="w-5 h-5"></i>
-                        </a>
-                        <a
-                            href="mailto:maulana@drip.id"
-                            class="text-gray-500 hover:text-cyan-400 transition"
-                        >
-                            <i data-lucide="mail" class="w-5 h-5"></i>
-                        </a>
+                        <a href="https://github.com/maulanashalihin" class="text-gray-500 hover:text-cyan-400 transition" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
+                        <a href="https://www.linkedin.com/in/maulana-shalihin" class="text-gray-500 hover:text-cyan-400 transition" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="mailto:maulana@drip.id" class="text-gray-500 hover:text-cyan-400 transition" aria-label="Email"><i data-lucide="mail" class="w-5 h-5"></i></a>
                     </div>
                 </div>
             </footer>
         </main>
 
         <BackToTop />
+
+        <script>
+            // ---------- reveal on scroll ----------
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+            }, { threshold: 0.12 });
+            document.querySelectorAll('.rv').forEach((el) => io.observe(el));
+
+            // ---------- animated counters ----------
+            const counter = (el) => {
+                const target = Number(el.dataset.count || '0');
+                const t0 = performance.now(), dur = 1400;
+                const tick = (now) => {
+                    const p = Math.min(1, (now - t0) / dur);
+                    const eased = 1 - Math.pow(1 - p, 3);
+                    el.textContent = String(Math.round(target * eased));
+                    if (p < 1) requestAnimationFrame(tick);
+                };
+                requestAnimationFrame(tick);
+            };
+            const cio = new IntersectionObserver((entries) => {
+                entries.forEach((e) => { if (e.isIntersecting) { counter(e.target); cio.unobserve(e.target); } });
+            }, { threshold: 0.6 });
+            document.querySelectorAll('[data-count]').forEach((el) => cio.observe(el));
+
+            // ---------- typing effect ----------
+            const lines = [
+                'go build ./... && shipped to 12,000 users',
+                'bun ./bench.ts → 258,000 req/s',
+                'sqlite > postgres (measured, not debated)',
+                'uptime: 99.98% — coffee: 0% remaining',
+            ];
+            const typer = document.getElementById('typer');
+            let li = 0, ci = 0, deleting = false;
+            const type = () => {
+                if (!typer) return;
+                const line = lines[li];
+                typer.textContent = line.slice(0, ci);
+                if (!deleting && ci < line.length) { ci++; setTimeout(type, 42); }
+                else if (!deleting) { deleting = true; setTimeout(type, 2100); }
+                else if (ci > 0) { ci--; setTimeout(type, 18); }
+                else { deleting = false; li = (li + 1) % lines.length; setTimeout(type, 350); }
+            };
+            type();
+
+            // ---------- WIB clock ----------
+            const clock = document.getElementById('clock');
+            const tickClock = () => {
+                if (!clock) return;
+                try {
+                    clock.textContent = new Intl.DateTimeFormat('en-GB', {
+                        hour: '2-digit', minute: '2-digit', second: '2-digit',
+                        timeZone: 'Asia/Jakarta', hour12: false,
+                    }).format(new Date());
+                } catch { clock.textContent = new Date().toLocaleTimeString(); }
+            };
+            tickClock(); setInterval(tickClock, 1000);
+
+            // ---------- fake-but-fun live RPS ticker ----------
+            const rps = document.getElementById('rps');
+            let rpsVal = 1240;
+            setInterval(() => {
+                if (!rps) return;
+                rpsVal = Math.max(900, Math.min(2400, rpsVal + Math.round((Math.random() - 0.45) * 160)));
+                rps.textContent = rpsVal.toLocaleString('en-US');
+            }, 1200);
+
+            // ---------- hero particle field ----------
+            const cv = document.getElementById('field');
+            if (cv && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                const ctx = cv.getContext('2d');
+                let pts = [];
+                const size = () => {
+                    const r = cv.parentElement.getBoundingClientRect();
+                    cv.width = r.width; cv.height = r.height;
+                    const n = Math.min(110, Math.floor((r.width * r.height) / 16000));
+                    pts = Array.from({ length: n }, () => ({
+                        x: Math.random() * cv.width, y: Math.random() * cv.height,
+                        vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35,
+                        r: Math.random() * 1.6 + 0.4,
+                    }));
+                };
+                size(); addEventListener('resize', size);
+                let mouse = { x: -9999, y: -9999 };
+                cv.parentElement.addEventListener('mousemove', (e) => {
+                    const r = cv.getBoundingClientRect();
+                    mouse = { x: e.clientX - r.left, y: e.clientY - r.top };
+                });
+                cv.parentElement.addEventListener('mouseleave', () => { mouse = { x: -9999, y: -9999 }; });
+                const draw = () => {
+                    if (!ctx) return;
+                    ctx.clearRect(0, 0, cv.width, cv.height);
+                    pts.forEach((p) => {
+                        p.x += p.vx; p.y += p.vy;
+                        if (p.x < 0 || p.x > cv.width) p.vx *= -1;
+                        if (p.y < 0 || p.y > cv.height) p.vy *= -1;
+                        const dx = p.x - mouse.x, dy = p.y - mouse.y;
+                        const d = Math.hypot(dx, dy);
+                        if (d < 130 && d > 0.1) { p.x += (dx / d) * 0.7; p.y += (dy / d) * 0.7; }
+                        ctx.globalAlpha = 0.55;
+                        ctx.fillStyle = '#22d3ee';
+                        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 7); ctx.fill();
+                    });
+                    // links
+                    ctx.globalAlpha = 1;
+                    for (let i = 0; i < pts.length; i++) {
+                        for (let j = i + 1; j < pts.length; j++) {
+                            const a = pts[i], b = pts[j];
+                            const d = Math.hypot(a.x - b.x, a.y - b.y);
+                            if (d < 120) {
+                                ctx.strokeStyle = `rgba(34,211,238,${(1 - d / 120) * 0.14})`;
+                                ctx.lineWidth = 1;
+                                ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+                            }
+                        }
+                    }
+                    requestAnimationFrame(draw);
+                };
+                draw();
+            }
+
+            // ---------- marquee duplicate (safe clone) ----------
+            const mq = document.getElementById('mq');
+            if (mq) Array.from(mq.children).forEach((el) => mq.appendChild(el.cloneNode(true)));
+
+            // ---------- spotlight cards ----------
+            document.querySelectorAll('.spot').forEach((c) => {
+                c.addEventListener('mousemove', (e) => {
+                    const r = c.getBoundingClientRect();
+                    c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+                    c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+                });
+            });
+
+            // ---------- magnetic buttons ----------
+            if (matchMedia('(hover: hover)').matches) {
+                document.querySelectorAll('.magnetic-btn').forEach((el) => {
+                    el.addEventListener('mousemove', (e) => {
+                        const r = el.getBoundingClientRect();
+                        const x = e.clientX - r.left - r.width / 2;
+                        const y = e.clientY - r.top - r.height / 2;
+                        el.style.transform = `translate(${x * 0.14}px, ${y * 0.2}px)`;
+                    });
+                    el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+                });
+            }
+        </script>
     </LucideIcons>
 </Layout>
