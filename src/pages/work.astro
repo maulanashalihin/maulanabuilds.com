@@ -1,0 +1,67 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LucideIcons from "../components/LucideIcons.astro";
+import Header from "../components/Header.astro";
+import BackToTop from "../components/BackToTop.astro";
+---
+
+<Layout title="All Work | Maulana Shalihin" description="Every production system: dripsender, Orderlink, Antre.in, EatJom, slug-post, KlikAja, live streaming.">
+    <Header />
+    <LucideIcons>
+        <main id="main-content" class="max-w-7xl mx-auto px-6 pt-32 pb-24">
+            <a href="/#work" class="inline-flex items-center gap-2 font-mono text-sm text-gray-500 hover:text-cyan-300 transition mb-8">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> back home
+            </a>
+            <div class="font-mono text-cyan-400 text-sm tracking-[.3em] uppercase mb-3">All work</div>
+            <h1 class="font-display font-bold text-gray-100 text-3xl md:text-5xl mb-4">Everything that stayed up.</h1>
+            <p class="text-gray-500 mb-14 max-w-2xl">I designed, built, and operated these. They handle real traffic today.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8">
+                    <div class="font-mono text-xs text-gray-600 mb-3">saas · whatsapp automation</div>
+                    <h3 class="font-display font-bold text-2xl text-gray-100">dripsender.id</h3>
+                    <p class="mt-2 text-gray-400 text-sm leading-relaxed">WhatsApp marketing automation across 14 servers. Queue, workers, retries — 12,000+ users sending daily.</p>
+                    <div class="mt-5 flex gap-6 font-mono text-sm"><div><span class="text-cyan-400 font-bold">12K+</span> <span class="text-gray-600 text-xs">users</span></div><div><span class="text-cyan-400 font-bold">14</span> <span class="text-gray-600 text-xs">servers</span></div></div>
+                </div>
+                <a href="https://slugpost.com" class="group block bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/50 transition-colors">
+                    <div class="font-mono text-xs text-gray-600 mb-3">tool · live ↗</div>
+                    <h3 class="font-display font-bold text-2xl text-gray-100 group-hover:text-cyan-400 transition">slug-post <i data-lucide="external-link" class="inline w-4 h-4 text-gray-600"></i></h3>
+                    <p class="mt-2 text-gray-400 text-sm leading-relaxed">Markdown to shareable web page. No registration, no friction. Live at slugpost.com.</p>
+                    <div class="mt-5 flex gap-6 font-mono text-sm"><div><span class="text-cyan-400 font-bold">live</span> <span class="text-gray-600 text-xs">slugpost.com</span></div></div>
+                </a>
+                <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8">
+                    <div class="font-mono text-xs text-gray-600 mb-3">saas · billing · sunset</div>
+                    <h3 class="font-display font-bold text-2xl text-gray-100">Orderlink.in</h3>
+                    <p class="mt-2 text-gray-400 text-sm leading-relaxed">Subscription billing that served 2,000+ paying subscribers. Money math covered by tests. Retired — lessons reused in every build since.</p>
+                    <div class="mt-5 flex gap-6 font-mono text-sm"><div><span class="text-cyan-400 font-bold">2K+</span> <span class="text-gray-600 text-xs">paid subs</span></div></div>
+                </div>
+                <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8">
+                    <div class="font-mono text-xs text-gray-600 mb-3">b2b · healthcare</div>
+                    <h3 class="font-display font-bold text-2xl text-gray-100">Antre.in</h3>
+                    <p class="mt-2 text-gray-400 text-sm leading-relaxed">Patient queue for clinics. Multi-tenant with RBAC and a websocket display for the waiting room.</p>
+                    <div class="mt-5 flex gap-6 font-mono text-sm"><div><span class="text-cyan-400 font-bold">B2B</span> <span class="text-gray-600 text-xs">healthcare</span></div><div><span class="text-cyan-400 font-bold">realtime</span> <span class="text-gray-600 text-xs">queues</span></div></div>
+                </div>
+                <div class="bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8">
+                    <div class="font-mono text-xs text-gray-600 mb-3">saas · f&b</div>
+                    <h3 class="font-display font-bold text-2xl text-gray-100">EatJom</h3>
+                    <p class="mt-2 text-gray-400 text-sm leading-relaxed">Multi-tenant restaurant OS — QR ordering, multi-kitchen receipts, per-brand theming. Dinner rush is the load test.</p>
+                    <div class="mt-5 flex gap-6 font-mono text-sm"><div><span class="text-cyan-400 font-bold">SaaS</span> <span class="text-gray-600 text-xs">multi-tenant</span></div></div>
+                </div>
+                <a href="https://klikaja.app" class="group block bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/50 transition-colors">
+                    <div class="font-mono text-xs text-gray-600 mb-3">tool · live ↗</div>
+                    <h3 class="font-display font-bold text-2xl text-gray-100 group-hover:text-cyan-400 transition">KlikAja <i data-lucide="external-link" class="inline w-4 h-4 text-gray-600"></i></h3>
+                    <p class="mt-2 text-gray-400 text-sm leading-relaxed">Smart link shortener with analytics — QR codes, A/B testing, geo-routing.</p>
+                    <div class="mt-5 flex gap-6 font-mono text-sm"><div><span class="text-cyan-400 font-bold">live</span> <span class="text-gray-600 text-xs">klikaja.app</span></div></div>
+                </a>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="/#offer" class="inline-flex items-center gap-2 bg-cyan-400 text-[#0A0D12] font-bold px-7 py-3.5 rounded-xl hover:bg-cyan-300 transition">
+                    <i data-lucide="rocket" class="w-5 h-5"></i>
+                    Start your build
+                </a>
+            </div>
+        </main>
+        <BackToTop />
+    </LucideIcons>
+</Layout>

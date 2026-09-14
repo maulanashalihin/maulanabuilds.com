@@ -13,6 +13,7 @@ import BackToTop from "../components/BackToTop.astro";
         <style>
             /* ---------- signature motion system (page-scoped) ---------- */
             .font-display { letter-spacing: -0.045em; }
+            section[id] { scroll-margin-top: 4.5rem; }
             .text-glow { text-shadow: 0 0 42px rgba(34, 211, 238, 0.35); }
             .outline-text {
                 color: transparent;
@@ -115,7 +116,7 @@ import BackToTop from "../components/BackToTop.astro";
                     </div>
 
                     <!-- metrics -->
-                    <div class="rv rv-d4 mt-14 grid grid-cols-2 md:grid-cols-3 gap-px bg-[#2A2F3A] border border-[#2A2F3A] rounded-2xl overflow-hidden max-w-4xl">
+                    <div class="rv rv-d4 mt-14 grid grid-cols-2 gap-px bg-[#2A2F3A] border border-[#2A2F3A] rounded-2xl overflow-hidden max-w-2xl">
                         <div class="bg-[#0A0D12]/95 p-6">
                             <div class="text-3xl md:text-4xl font-bold text-cyan-400"><span data-count="11">0</span>+</div>
                             <div class="text-gray-600 text-sm mt-1">years shipping</div>
@@ -123,10 +124,6 @@ import BackToTop from "../components/BackToTop.astro";
                         <div class="bg-[#0A0D12]/95 p-6">
                             <div class="text-3xl md:text-4xl font-bold text-cyan-400"><span data-count="12">0</span>K+</div>
                             <div class="text-gray-600 text-sm mt-1">users on dripsender</div>
-                        </div>
-                        <div class="bg-[#0A0D12]/95 p-6">
-                            <div class="text-3xl md:text-4xl font-bold text-cyan-400"><span data-count="72">0</span>K+</div>
-                            <div class="text-gray-600 text-sm mt-1">visitors, one live event</div>
                         </div>
                     </div>
                 </div>
@@ -141,28 +138,26 @@ import BackToTop from "../components/BackToTop.astro";
             <!-- ============ STACK TICKER ============ -->
             <div id="stack" class="border-y border-[#2A2F3A] bg-[#0C0F15] overflow-hidden py-4 select-none" aria-hidden="true">
                 <div class="mq-track font-mono text-sm tracking-[.25em] text-gray-600 uppercase" id="mq">
-                    <span class="px-6">Go <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">Bun <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">SQLite <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">TypeScript <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">ClickHouse <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">Cloudflare <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">Svelte 5 <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">Pebble KV <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">Litestream <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">Tailwind <span class="text-cyan-500 px-6">✦</span></span>
-                    <span class="px-6">Postgres <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">Flutter <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">Kotlin <span class="text-cyan-500 px-6">✦</span></span>
+                    <span class="px-6">Go <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">SQLite <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">Postgres <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">Flutter <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">Kotlin <span class="text-cyan-500 px-6">✦</span></span><span class="px-6">Cloudflare <span class="text-cyan-500 px-6">✦</span></span>
                 </div>
             </div>
 
             <!-- ============ OFFER ============ -->
             <section id="offer" class="max-w-7xl mx-auto px-6 py-24 md:py-32">
                 <div class="rv font-mono text-cyan-400 text-sm tracking-[.3em] uppercase mb-3">01 · What I offer</div>
-                <h2 class="rv rv-d1 font-display font-bold text-gray-100 text-3xl md:text-5xl mb-4">Three ways we can<br />work <span class="bg-gradient-to-r from-cyan-300 to-emerald-400 bg-clip-text text-transparent">together.</span></h2>
-                <p class="rv rv-d2 text-gray-500 mb-14 max-w-2xl">Fixed scope. Async by default. You talk to me, not an account manager.</p>
+                <h2 class="rv rv-d1 font-display font-bold text-gray-100 text-3xl md:text-5xl mb-4">Your MVP, shipped<br />in <span class="bg-gradient-to-r from-cyan-300 to-emerald-400 bg-clip-text text-transparent">weeks, not quarters.</span></h2>
+                <p class="rv rv-d2 text-gray-500 mb-14 max-w-2xl">Fixed scope. $5k–12k. Async by default. You talk to me, not an account manager.</p>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
-                    <div class="rv spot bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 flex flex-col hover:border-cyan-500/40 transition-colors">
+                    <div class="rv bg-[#0C0F15] border border-[#232833] rounded-3xl p-8 flex flex-col">
                         <div class="font-mono text-xs text-gray-600 uppercase tracking-widest mb-3">2 weeks · fixed scope</div>
-                        <h3 class="font-display font-bold text-2xl text-gray-100">Performance audit</h3>
-                        <p class="mt-2 text-gray-400 text-sm leading-relaxed">I measure your stack on your servers, rank the bottlenecks, and fix the quick wins.</p>
-                        <ul class="mt-5 space-y-2.5 font-mono text-sm text-gray-300 flex-1">
-                            <li class="flex gap-3"><span class="text-cyan-400">▸</span>benchmark report you can rerun</li>
-                            <li class="flex gap-3"><span class="text-cyan-400">▸</span>top 5 fixes by $ impact</li>
-                            <li class="flex gap-3"><span class="text-cyan-400">▸</span>infra cost-cut plan</li>
+                        <h3 class="font-display font-bold text-xl text-gray-300">Performance audit</h3>
+                        <p class="mt-2 text-gray-500 text-sm leading-relaxed">I measure your stack on your servers, rank the bottlenecks, and fix the quick wins.</p>
+                        <ul class="mt-5 space-y-2.5 font-mono text-sm text-gray-400 flex-1">
+                            <li class="flex gap-3"><span class="text-gray-600">▸</span>benchmark report you can rerun</li>
+                            <li class="flex gap-3"><span class="text-gray-600">▸</span>top 5 fixes by $ impact</li>
+                            <li class="flex gap-3"><span class="text-gray-600">▸</span>infra cost-cut plan</li>
                         </ul>
-                        <div class="mt-5 font-mono text-xs text-gray-600">ex: 258K RPS on a $6 VPS, CDN bill cut in half</div>
-                        <a href="mailto:maulana@drip.id?subject=Performance%20audit" class="mt-6 inline-flex items-center justify-center gap-2 border border-[#2A2F3A] text-gray-200 px-6 py-3 rounded-xl hover:border-cyan-500/60 hover:text-cyan-300 transition font-bold text-sm">Request audit <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                        <a href="mailto:maulana@drip.id?subject=Performance%20audit" class="mt-6 inline-flex items-center gap-2 text-gray-400 hover:text-cyan-300 transition font-mono text-sm">Request audit <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                     </div>
                     <div class="rv rv-d1 spot rounded-3xl p-8 flex flex-col border border-cyan-500/50 bg-gradient-to-b from-cyan-500/[.09] to-[#0F131A] relative">
                         <div class="absolute -top-3.5 left-8 font-mono text-[11px] font-bold tracking-[.2em] bg-cyan-400 text-[#0A0D12] rounded-full px-4 py-1">MOST HIRED</div>
@@ -174,20 +169,20 @@ import BackToTop from "../components/BackToTop.astro";
                             <li class="flex gap-3"><span class="text-cyan-400">▸</span>Go / Bun backend, SQLite or tuned Postgres</li>
                             <li class="flex gap-3"><span class="text-cyan-400">▸</span>handoff docs your team can run</li>
                         </ul>
-                        <div class="mt-5 font-mono text-xs text-gray-500">ex: 12K users, 2K paid subs, 72K visitors one live event</div>
+                        <div class="mt-5 font-mono text-xs text-gray-500">ex: 12K users, slugpost + klikaja live</div>
                         <a href="mailto:maulana@drip.id?subject=Build%20with%20me" class="magnetic magnetic-btn mt-6 inline-flex items-center justify-center gap-2 bg-cyan-400 text-[#0A0D12] px-6 py-3 rounded-xl hover:bg-cyan-300 transition font-bold text-sm">Start your build <i data-lucide="rocket" class="w-4 h-4"></i></a>
                     </div>
-                    <div class="rv rv-d2 spot bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 flex flex-col hover:border-cyan-500/40 transition-colors">
-                        <div class="font-mono text-xs text-gray-600 uppercase tracking-widest mb-3">1–2 slots · advisory</div>
-                        <h3 class="font-display font-bold text-2xl text-gray-100">Fractional CTO</h3>
-                        <p class="mt-2 text-gray-400 text-sm leading-relaxed">Architecture reviews, hiring bar, and build-vs-buy calls with numbers attached.</p>
-                        <ul class="mt-5 space-y-2.5 font-mono text-sm text-gray-300 flex-1">
-                            <li class="flex gap-3"><span class="text-cyan-400">▸</span>weekly architecture review</li>
-                            <li class="flex gap-3"><span class="text-cyan-400">▸</span>team leverage, not headcount</li>
-                            <li class="flex gap-3"><span class="text-cyan-400">▸</span>build-vs-buy calls with numbers</li>
+                    <div class="rv rv-d2 bg-[#0C0F15] border border-[#232833] rounded-3xl p-8 flex flex-col">
+                        <div class="font-mono text-xs text-gray-600 uppercase tracking-widest mb-3">for running businesses</div>
+                        <h3 class="font-display font-bold text-xl text-gray-300">AI Workflow Automation</h3>
+                        <p class="mt-2 text-gray-500 text-sm leading-relaxed">I find the manual work eating your team's week and automate it with AI agents wired into your tools.</p>
+                        <ul class="mt-5 space-y-2.5 font-mono text-sm text-gray-400 flex-1">
+                            <li class="flex gap-3"><span class="text-gray-600">▸</span>workflow audit with hours-$ math</li>
+                            <li class="flex gap-3"><span class="text-gray-600">▸</span>AI agents + integrations, shipped</li>
+                            <li class="flex gap-3"><span class="text-gray-600">▸</span>team handoff, no new headcount</li>
                         </ul>
-                        <div class="mt-5 font-mono text-xs text-gray-600">selective · founders only</div>
-                        <a href="mailto:maulana@drip.id?subject=Fractional%20CTO" class="mt-6 inline-flex items-center justify-center gap-2 border border-[#2A2F3A] text-gray-200 px-6 py-3 rounded-xl hover:border-cyan-500/60 hover:text-cyan-300 transition font-bold text-sm">Apply <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                        <div class="mt-5 font-mono text-xs text-gray-600">typical targets: support triage · lead follow-up · reports</div>
+                        <a href="mailto:maulana@drip.id?subject=AI%20workflow%20automation" class="mt-6 inline-flex items-center gap-2 text-gray-400 hover:text-cyan-300 transition font-mono text-sm">Automate my ops <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                     </div>
                 </div>
             </section>
@@ -224,37 +219,17 @@ import BackToTop from "../components/BackToTop.astro";
                         <p class="mt-2 text-gray-400 text-sm leading-relaxed">WhatsApp marketing automation across 14 servers. Queue, workers, retries — 12,000+ users sending daily.</p>
                         <div class="mt-5 flex gap-6 font-mono text-sm"><div><span class="text-cyan-400 font-bold">12K+</span> <span class="text-gray-600 text-xs">users</span></div><div><span class="text-cyan-400 font-bold">14</span> <span class="text-gray-600 text-xs">servers</span></div></div>
                     </div>
-                    <div class="rv rv-d1 spot bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/40 transition-colors">
-                        <div class="font-mono text-xs text-gray-600 mb-3">b2b · healthcare</div>
-                        <h3 class="font-display font-bold text-2xl text-gray-100">Antre.in</h3>
-                        <p class="mt-2 text-gray-400 text-sm leading-relaxed">Patient queue for clinics. Multi-tenant with RBAC and a websocket display for the waiting room.</p>
-                        <div class="mt-5 flex gap-6 font-mono text-sm"><div><span class="text-cyan-400 font-bold">B2B</span> <span class="text-gray-600 text-xs">healthcare</span></div><div><span class="text-cyan-400 font-bold">realtime</span> <span class="text-gray-600 text-xs">queues</span></div></div>
-                    </div>
-                    <div class="rv spot bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/40 transition-colors">
-                        <div class="font-mono text-xs text-gray-600 mb-3">saas · billing</div>
-                        <h3 class="font-display font-bold text-2xl text-gray-100">Orderlink.in</h3>
-                        <p class="mt-2 text-gray-400 text-sm leading-relaxed">Subscription billing with 2,000+ paying subscribers. Money math is covered by tests.</p>
-                        <div class="mt-5 flex gap-6 font-mono text-sm"><div><span class="text-cyan-400 font-bold">2K+</span> <span class="text-gray-600 text-xs">paid subs</span></div></div>
-                    </div>
-                    <div class="rv rv-d1 spot bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/40 transition-colors">
-                        <div class="font-mono text-xs text-gray-600 mb-3">saas · f&b</div>
-                        <h3 class="font-display font-bold text-2xl text-gray-100">EatJom</h3>
-                        <p class="mt-2 text-gray-400 text-sm leading-relaxed">Multi-tenant restaurant OS — QR ordering, multi-kitchen receipts, per-brand theming. Dinner rush is the load test.</p>
-                        <div class="mt-5 flex gap-6 font-mono text-sm"><div><span class="text-cyan-400 font-bold">SaaS</span> <span class="text-gray-600 text-xs">multi-tenant</span></div></div>
-                    </div>
                     <a href="https://slugpost.com" class="rv spot group block bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/50 transition-colors">
                         <div class="font-mono text-xs text-gray-600 mb-3">tool · live ↗</div>
                         <h3 class="font-display font-bold text-2xl text-gray-100 group-hover:text-cyan-400 transition">slug-post <i data-lucide="external-link" class="inline w-4 h-4 text-gray-600"></i></h3>
-                        <p class="mt-2 text-gray-400 text-sm leading-relaxed">Markdown to shareable web page. No registration, no friction. Live at slugpost.com.</p>
+                        <p class="mt-2 text-gray-400 text-sm leading-relaxed">Markdown to shareable web page. No registration, no friction. Live at slugpost.com — powered by laju.</p>
                         <div class="mt-5 flex gap-6 font-mono text-sm"><div><span class="text-cyan-400 font-bold">live</span> <span class="text-gray-600 text-xs">slugpost.com</span></div></div>
                     </a>
-                    <a href="https://klikaja.app" class="rv rv-d1 spot group block bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/50 transition-colors">
-                        <div class="font-mono text-xs text-gray-600 mb-3">tool · live ↗</div>
-                        <h3 class="font-display font-bold text-2xl text-gray-100 group-hover:text-cyan-400 transition">KlikAja <i data-lucide="external-link" class="inline w-4 h-4 text-gray-600"></i></h3>
-                        <p class="mt-2 text-gray-400 text-sm leading-relaxed">Smart link shortener with analytics — QR codes, A/B testing, geo-routing.</p>
-                        <div class="mt-5 flex gap-6 font-mono text-sm"><div><span class="text-cyan-400 font-bold">live</span> <span class="text-gray-600 text-xs">klikaja.app</span></div></div>
-                    </a>
                 </div>
+                <a href="/work" class="rv mt-6 flex items-center justify-between border border-dashed border-[#2A2F3A] rounded-2xl px-6 py-4 text-gray-500 hover:text-cyan-300 hover:border-cyan-500/40 transition font-mono text-sm">
+                    <span>More: Antre.in · EatJom · Orderlink · KlikAja</span>
+                    <span>all work <i data-lucide="arrow-right" class="inline w-4 h-4"></i></span>
+                </a>
             </section>
 
             <!-- ============ BENCHMARKS ============ -->
@@ -287,76 +262,42 @@ import BackToTop from "../components/BackToTop.astro";
                 <p class="rv rv-d2 text-gray-500 mb-12 max-w-2xl">Most of them came out of client work — I needed the tool, so I built it.</p>
 
                 <div class="space-y-5 mb-10">
+                    <a href="https://github.com/maulanashalihin/dulak" class="rv spot group block rounded-3xl p-8 border border-cyan-500/50 bg-gradient-to-b from-cyan-500/[.09] to-[#0F131A] relative hover:border-cyan-400/70 transition-colors">
+                        <div class="absolute -top-3.5 left-8 font-mono text-[11px] font-bold tracking-[.2em] bg-cyan-400 text-[#0A0D12] rounded-full px-4 py-1">START HERE</div>
+                        <div class="flex flex-col md:flex-row md:items-center gap-5 justify-between">
+                            <div>
+                                <div class="font-mono text-xs text-cyan-400 mb-2">boilerplate · powers every client build · <span class="text-cyan-600">npm create-dulak</span></div>
+                                <h3 class="font-display font-bold text-2xl text-gray-100 group-hover:text-cyan-400 transition">dulak</h3>
+                                <p class="mt-2 text-gray-400 max-w-2xl">Full-stack Bun boilerplate. Auth, uploads, SSR, 6 templates — why my MVPs ship in weeks. Opinions documented in <span class="text-cyan-400">14 engineering notes ↗</span>.</p>
+                            </div>
+                            <div class="flex gap-7 font-mono text-sm shrink-0"><div><div class="text-cyan-400 font-bold text-xl">2–4</div><div class="text-gray-600 text-xs">weeks to MVP</div></div><div><div class="text-cyan-400 font-bold text-xl">6</div><div class="text-gray-600 text-xs">templates</div></div></div>
+                        </div>
+                    </a>
                     <a href="https://github.com/maulanashalihin/hook-sync" class="rv spot group block bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/50 transition-colors">
                         <div class="flex flex-col md:flex-row md:items-center gap-5 justify-between">
                             <div>
-                                <div class="font-mono text-xs text-cyan-500 mb-2">★ flagship · multi-runtime replication</div>
+                                <div class="font-mono text-xs text-gray-600 mb-2">multi-runtime replication · Go / Bun / Node</div>
                                 <h3 class="font-display font-bold text-2xl text-gray-100 group-hover:text-cyan-400 transition">hook-sync</h3>
-                                <p class="mt-2 text-gray-400 max-w-2xl">Multi-runtime SQLite replication. Go, Bun, Node — same wire protocol. Point-to-point, full mesh, dedicated hub with Pebble KV.</p>
+                                <p class="mt-2 text-gray-400 max-w-2xl">Multi-runtime SQLite replication. Same wire protocol, 3 topologies — point-to-point, full mesh, dedicated hub.</p>
                             </div>
-                            <div class="flex gap-7 font-mono text-sm shrink-0"><div><div class="text-cyan-400 font-bold text-xl">31K</div><div class="text-gray-600 text-xs">batch QPS</div></div><div><div class="text-cyan-400 font-bold text-xl">3</div><div class="text-gray-600 text-xs">topologies</div></div></div>
+                            <div class="flex gap-7 font-mono text-sm shrink-0"><div><div class="text-cyan-400 font-bold text-xl">31K</div><div class="text-gray-600 text-xs">batch QPS</div></div></div>
                         </div>
                     </a>
                     <a href="https://github.com/maulanashalihin/laju" class="rv spot group block bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/50 transition-colors">
                         <div class="flex flex-col md:flex-row md:items-center gap-5 justify-between">
                             <div>
-                                <div class="font-mono text-xs text-gray-600 mb-2">typescript web framework · 23★</div>
+                                <div class="font-mono text-xs text-gray-600 mb-2">typescript web framework</div>
                                 <h3 class="font-display font-bold text-2xl text-gray-100 group-hover:text-cyan-400 transition">laju</h3>
                                 <p class="mt-2 text-gray-400 max-w-2xl">High-performance TypeScript web framework. Powers slugpost.com and klikaja.app in production.</p>
                             </div>
                             <div class="flex gap-7 font-mono text-sm shrink-0"><div><div class="text-cyan-400 font-bold text-xl">258K</div><div class="text-gray-600 text-xs">RPS</div></div></div>
                         </div>
                     </a>
-                    <a href="https://github.com/maulanashalihin/dulak" class="rv spot group block bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/50 transition-colors">
-                        <div class="flex flex-col md:flex-row md:items-center gap-5 justify-between">
-                            <div>
-                                <div class="font-mono text-xs text-gray-600 mb-2">boilerplate · <span class="text-cyan-600">npm create-dulak</span></div>
-                                <h3 class="font-display font-bold text-2xl text-gray-100 group-hover:text-cyan-400 transition">dulak</h3>
-                                <p class="mt-2 text-gray-400 max-w-2xl">Full-stack Bun boilerplate. Auth, uploads, SSR, 6 templates — the setup I reuse on every project.</p>
-                            </div>
-                            <div class="flex gap-7 font-mono text-sm shrink-0"><div><div class="text-cyan-400 font-bold text-xl">Bun</div><div class="text-gray-600 text-xs">runtime</div></div></div>
-                        </div>
-                    </a>
-                    <a href="https://github.com/maulanashalihin/selasar" class="rv spot group block bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/50 transition-colors">
-                        <div class="flex flex-col md:flex-row md:items-center gap-5 justify-between">
-                            <div>
-                                <div class="font-mono text-xs text-gray-600 mb-2">analytics · <span class="text-cyan-600">live demo ↗</span></div>
-                                <h3 class="font-display font-bold text-2xl text-gray-100 group-hover:text-cyan-400 transition">selasar <i data-lucide="external-link" class="inline w-4 h-4 text-gray-600"></i></h3>
-                                <p class="mt-2 text-gray-400 max-w-2xl">Self-hosted web analytics with ClickHouse. Multi-domain, real-time, GDPR-friendly.</p>
-                            </div>
-                            <div class="flex gap-7 font-mono text-sm shrink-0"><div><div class="text-cyan-400 font-bold text-xl">live</div><div class="text-gray-600 text-xs">demo up</div></div><div><div class="text-cyan-400 font-bold text-xl">Bun</div><div class="text-gray-600 text-xs">+ Svelte 5</div></div></div>
-                        </div>
-                    </a>
-                    <a href="https://github.com/maulanashalihin/kilat" class="rv spot group block bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/50 transition-colors">
-                        <div class="flex flex-col md:flex-row md:items-center gap-5 justify-between">
-                            <div>
-                                <div class="font-mono text-xs text-gray-600 mb-2">edge · cloudflare workers</div>
-                                <h3 class="font-display font-bold text-2xl text-gray-100 group-hover:text-cyan-400 transition">kilat</h3>
-                                <p class="mt-2 text-gray-400 max-w-2xl">Edge starter deploying to 300+ locations. Zero ops, global by default.</p>
-                            </div>
-                            <div class="flex gap-7 font-mono text-sm shrink-0"><div><div class="text-cyan-400 font-bold text-xl">300+</div><div class="text-gray-600 text-xs">edge locs</div></div></div>
-                        </div>
-                    </a>
-                    <a href="https://github.com/maulanashalihin/learn-api" class="rv spot group block bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/50 transition-colors">
-                        <div class="flex flex-col md:flex-row md:items-center gap-5 justify-between">
-                            <div>
-                                <div class="font-mono text-xs text-gray-600 mb-2">course · 19 modules</div>
-                                <h3 class="font-display font-bold text-2xl text-gray-100 group-hover:text-cyan-400 transition">learn-api</h3>
-                                <p class="mt-2 text-gray-400 max-w-2xl">19-module API course. REST to CRDT replication, all with working code.</p>
-                            </div>
-                            <div class="flex gap-7 font-mono text-sm shrink-0"><div><div class="text-cyan-400 font-bold text-xl">19</div><div class="text-gray-600 text-xs">modules</div></div></div>
-                        </div>
-                    </a>
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <a href="https://github.com/maulanashalihin/laju-go" class="rv block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-5 hover:border-cyan-500/50 transition group"><h3 class="font-bold text-gray-100 group-hover:text-cyan-400 transition">laju-go</h3><p class="mt-1 text-gray-500 text-sm">Go Fiber SaaS boilerplate.</p></a>
-                    <a href="https://github.com/maulanashalihin/fiber-inertia" class="rv rv-d1 block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-5 hover:border-cyan-500/50 transition group"><h3 class="font-bold text-gray-100 group-hover:text-cyan-400 transition">fiber-inertia</h3><p class="mt-1 text-gray-500 text-sm">Inertia.js v3 adapter for Go Fiber.</p></a>
-                    <a href="https://github.com/maulanashalihin/tusdfiber" class="rv rv-d2 block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-5 hover:border-cyan-500/50 transition group"><h3 class="font-bold text-gray-100 group-hover:text-cyan-400 transition">tusdfiber</h3><p class="mt-1 text-gray-500 text-sm">TUS resumable uploads for Go Fiber.</p></a>
-                    <a href="https://github.com/maulanashalihin/svelte-wysiwyg-editor" class="rv block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-5 hover:border-cyan-500/50 transition group"><h3 class="font-bold text-gray-100 group-hover:text-cyan-400 transition">svelte-wysiwyg-editor</h3><p class="mt-1 text-gray-500 text-sm">WYSIWYG editor for Svelte 4 & 5.</p></a>
-                    <a href="https://github.com/maulanashalihin/cdn-s3-proxy" class="rv rv-d1 block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-5 hover:border-cyan-500/50 transition group"><h3 class="font-bold text-gray-100 group-hover:text-cyan-400 transition">cdn-s3-proxy</h3><p class="mt-1 text-gray-500 text-sm">S3 CDN reverse proxy with disk caching.</p></a>
-                    <a href="https://github.com/maulanashalihin/plausible-sqlite" class="rv rv-d2 block bg-[#0A0D12] border border-[#2A2F3A] rounded-2xl p-5 hover:border-cyan-500/50 transition group"><h3 class="font-bold text-gray-100 group-hover:text-cyan-400 transition">plausible-sqlite</h3><p class="mt-1 text-gray-500 text-sm">Plausible on SQLite. Fits a $6 VPS.</p></a>
-                </div>
+                <a href="https://github.com/maulanashalihin" class="rv flex items-center justify-between border border-dashed border-[#2A2F3A] rounded-2xl px-6 py-4 text-gray-500 hover:text-cyan-300 hover:border-cyan-500/40 transition font-mono text-sm">
+                    <span>75+ repos MIT licensed · selasar · kilat · learn-api · laju-go · tusdfiber…</span>
+                    <span>github <i data-lucide="arrow-right" class="inline w-4 h-4"></i></span>
+                </a>
             </section>
 
             <!-- ============ ENGINEERING NOTES ============ -->
@@ -371,17 +312,8 @@ import BackToTop from "../components/BackToTop.astro";
                         <a href="https://dulak.pages.dev/blog/why-no-orm/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">03</span><span class="note-title font-bold text-gray-200 transition">ORMs are dead in 2026. AI killed them.</span></a>
                         <a href="https://dulak.pages.dev/blog/why-sessions-not-jwt/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">04</span><span class="note-title font-bold text-gray-200 transition">JWT is the wrong default. Sessions are the right one.</span></a>
                         <a href="https://dulak.pages.dev/blog/why-argon2id-not-bcrypt/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">05</span><span class="note-title font-bold text-gray-200 transition">bcrypt is from 1999. Your passwords deserve better.</span></a>
-                        <a href="https://dulak.pages.dev/blog/why-leave-nextjs/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">06</span><span class="note-title font-bold text-gray-200 transition">Next.js is the default. It should not be.</span></a>
-                        <a href="https://dulak.pages.dev/blog/why-leave-laravel/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">07</span><span class="note-title font-bold text-gray-200 transition">Laravel is good. Your next project should not use it.</span></a>
-                        <a href="https://dulak.pages.dev/blog/why-bun-not-node/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">08</span><span class="note-title font-bold text-gray-200 transition">Node needs 5 tools. Bun ships one.</span></a>
-                        <a href="https://dulak.pages.dev/blog/ssr-vs-spa/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">09</span><span class="note-title font-bold text-gray-200 transition">SSR vs SPA: 50ms to content, or 2 seconds of blank screen.</span></a>
-                        <a href="https://dulak.pages.dev/blog/why-inertia-not-spa/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">10</span><span class="note-title font-bold text-gray-200 transition">Your SPA needs a router, an API, and state. Inertia needs none of it.</span></a>
-                        <a href="https://dulak.pages.dev/blog/why-no-cache-service/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">11</span><span class="note-title font-bold text-gray-200 transition">Your database is already the cache.</span></a>
-                        <a href="https://dulak.pages.dev/blog/why-vanilla-css-not-tailwind/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">12</span><span class="note-title font-bold text-gray-200 transition">Tailwind is a build step you don't need.</span></a>
-                        <a href="https://dulak.pages.dev/blog/how-to-upload-files-over-100mb/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">13</span><span class="note-title font-bold text-gray-200 transition">Your 2GB upload keeps failing. Here's the fix.</span></a>
-                        <a href="https://dulak.pages.dev/blog/why-not-pm2/" class="note-row flex items-baseline gap-5 py-4 border-b border-[#2A2F3A]"><span class="font-mono text-xs text-gray-700 w-7 shrink-0">14</span><span class="note-title font-bold text-gray-200 transition">PM2 is a band-aid. Bun doesn't need it.</span></a>
                     </div>
-                    <a href="https://dulak.pages.dev/blog/" class="rv mt-8 inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition font-mono text-sm">Read all notes <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                    <a href="https://dulak.pages.dev/blog/" class="rv mt-8 inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition font-mono text-sm">Read all 14 notes <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                 </div>
             </section>
 
@@ -404,7 +336,7 @@ import BackToTop from "../components/BackToTop.astro";
                                 <li class="flex gap-3"><span class="text-cyan-400">▸</span><span class="text-gray-300">Go · TS · SQLite / Postgres · Flutter / Kotlin</span></li>
                                 <li class="flex gap-3"><span class="text-cyan-400">▸</span><span class="text-gray-300">founder-friendly: async, no meetings</span></li>
                                 <li class="flex gap-3"><span class="text-cyan-400">▸</span><span class="text-gray-300">responds within 24 hours</span></li>
-                                <li class="flex gap-3"><span class="text-cyan-400">▸</span><span class="text-gray-300">open to contract & fractional CTO</span></li>
+                                <li class="flex gap-3"><span class="text-cyan-400">▸</span><span class="text-gray-300">open to contract & automation builds</span></li>
                             </ul>
                             <div class="mt-7 pt-6 border-t border-[#2A2F3A] flex items-center gap-5">
                                 <a href="https://github.com/maulanashalihin" class="text-gray-500 hover:text-cyan-400 transition" aria-label="GitHub"><i data-lucide="github" class="w-5 h-5"></i></a>
@@ -416,13 +348,33 @@ import BackToTop from "../components/BackToTop.astro";
                 </div>
             </section>
 
+            <!-- ============ PROCESS + FAQ ============ -->
+            <section id="process" class="border-t border-[#2A2F3A] bg-[#0C0F15]">
+                <div class="max-w-7xl mx-auto px-6 py-20 md:py-24">
+                    <div class="rv font-mono text-cyan-400 text-sm tracking-[.3em] uppercase mb-3">07 · How it works</div>
+                    <h2 class="rv rv-d1 font-display font-bold text-gray-100 text-3xl md:text-5xl mb-12">Brief to deploy<br /><span class="text-gray-600">in four weeks.</span></h2>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
+                        <div class="rv"><div class="font-mono text-cyan-400 text-sm mb-2">WEEK 1</div><h3 class="font-bold text-gray-100">Schema first</h3><p class="mt-1 text-gray-500 text-sm">Data model + scope lock. No UI until the foundation is right.</p></div>
+                        <div class="rv rv-d1"><div class="font-mono text-cyan-400 text-sm mb-2">WEEK 2–3</div><h3 class="font-bold text-gray-100">Build + demo</h3><p class="mt-1 text-gray-500 text-sm">Working demo every week. You click it, not read status reports.</p></div>
+                        <div class="rv rv-d2"><div class="font-mono text-cyan-400 text-sm mb-2">WEEK 4</div><h3 class="font-bold text-gray-100">Deploy + handoff</h3><p class="mt-1 text-gray-500 text-sm">Live in production. Docs your team can run without me.</p></div>
+                        <div class="rv rv-d3"><div class="font-mono text-cyan-400 text-sm mb-2">AFTER</div><h3 class="font-bold text-gray-100">Warranty</h3><p class="mt-1 text-gray-500 text-sm">14–60 days post-launch support depending on scope.</p></div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 max-w-5xl">
+                        <div class="rv"><h3 class="font-bold text-gray-200">Timezone Jakarta — how do we communicate?</h3><p class="mt-1 text-gray-500 text-sm">Async by default, no meetings. Daily written update, demo every week, reply within 24 hours.</p></div>
+                        <div class="rv"><h3 class="font-bold text-gray-200">Who owns the code?</h3><p class="mt-1 text-gray-500 text-sm">You. 100% IP handover with docs. 50% upfront, 50% on delivery.</p></div>
+                        <div class="rv"><h3 class="font-bold text-gray-200">What stack will my MVP run on?</h3><p class="mt-1 text-gray-500 text-sm">Boring and proven: Go or Bun backend, SQLite default or tuned Postgres, hosted on a $6 VPS or Cloudflare. Benchmarked before picked.</p></div>
+                        <div class="rv"><h3 class="font-bold text-gray-200">What if I already have a team?</h3><p class="mt-1 text-gray-500 text-sm">Handoff docs + architecture review included. Or bring me back to automate ops with AI workflows.</p></div>
+                    </div>
+                </div>
+            </section>
+
             <!-- ============ CONTACT ============ -->
             <section id="contact" class="relative border-t border-[#2A2F3A] overflow-hidden">
                 <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
                     <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[760px] h-[340px] bg-cyan-500/10 rounded-full blur-[130px]"></div>
                 </div>
                 <div class="relative max-w-5xl mx-auto px-6 py-28 md:py-36 text-center">
-                    <div class="rv font-mono text-cyan-400 text-sm tracking-[.3em] uppercase mb-6">07 · Contact — currently available</div>
+                    <div class="rv font-mono text-cyan-400 text-sm tracking-[.3em] uppercase mb-6">08 · Contact — currently available</div>
                     <h2 class="rv rv-d1 font-display font-bold leading-none text-[clamp(3rem,11vw,8.5rem)]"><span class="outline-text">LET'S</span> <span class="bg-gradient-to-r from-cyan-300 to-emerald-400 bg-clip-text text-transparent text-glow">BUILD.</span></h2>
                     <p class="rv rv-d2 text-gray-400 text-lg mt-7 max-w-xl mx-auto">Tell me what you're building and what's stuck. Email is fastest — I reply within 24 hours.</p>
                     <div class="rv rv-d3 mt-10 flex flex-wrap justify-center gap-4">
