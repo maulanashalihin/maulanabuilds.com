@@ -240,14 +240,10 @@ import BackToTop from "../components/BackToTop.astro";
                     <p class="rv rv-d2 text-gray-500 mb-12 max-w-2xl">Measured on my own servers. Repro steps are in the repos.</p>
                     <div class="space-y-7 max-w-3xl" id="bench">
                         <div class="rv">
-                            <div class="flex justify-between font-mono text-sm mb-2"><span class="text-gray-300">hook-sync <span class="text-gray-600">· batch writes via HTTP, 3.8x postgres</span></span><span class="text-cyan-400 font-bold">31K QPS</span></div>
-                            <div class="h-3 rounded-full bg-[#1a1f29] overflow-hidden"><div class="bar h-full w-full rounded-full bg-gradient-to-r from-cyan-500 to-emerald-400"></div></div>
-                        </div>
-                        <div class="rv rv-d1">
                             <div class="flex justify-between font-mono text-sm mb-2"><span class="text-gray-300">laju <span class="text-gray-600">· ts web framework</span></span><span class="text-cyan-400 font-bold">258K RPS</span></div>
                             <div class="h-3 rounded-full bg-[#1a1f29] overflow-hidden"><div class="bar h-full w-[66%] rounded-full bg-gradient-to-r from-cyan-600 to-cyan-400"></div></div>
                         </div>
-                        <div class="rv rv-d2">
+                        <div class="rv rv-d1">
                             <div class="flex justify-between font-mono text-sm mb-2"><span class="text-gray-300">live streaming <span class="text-gray-600">· one event, edge-cached HLS</span></span><span class="text-cyan-400 font-bold">126M reqs</span></div>
                             <div class="h-3 rounded-full bg-[#1a1f29] overflow-hidden"><div class="bar h-full w-[34%] rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400"></div></div>
                         </div>
@@ -268,19 +264,19 @@ import BackToTop from "../components/BackToTop.astro";
                             <div>
                                 <div class="font-mono text-xs text-cyan-400 mb-2">boilerplate · powers every client build · <span class="text-cyan-600">npm create-dulak</span></div>
                                 <h3 class="font-display font-bold text-2xl text-gray-100 group-hover:text-cyan-400 transition">dulak</h3>
-                                <p class="mt-2 text-gray-400 max-w-2xl">Full-stack Bun boilerplate. Auth, uploads, SSR, 6 templates — why my MVPs ship in weeks. Opinions documented in <span class="text-cyan-400">14 engineering notes ↗</span>.</p>
+                                <p class="mt-2 text-gray-400 max-w-2xl">Full-stack Bun boilerplate. Auth, uploads, SSR, 6 templates — why my MVPs ship in weeks. Scales vertically on SQLite: single writer, read replicas.</p>
                             </div>
                             <div class="flex gap-7 font-mono text-sm shrink-0"><div><div class="text-cyan-400 font-bold text-xl">2–4</div><div class="text-gray-600 text-xs">weeks to MVP</div></div><div><div class="text-cyan-400 font-bold text-xl">6</div><div class="text-gray-600 text-xs">templates</div></div></div>
                         </div>
                     </a>
-                    <a href="https://github.com/maulanashalihin/hook-sync" class="rv spot group block bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/50 transition-colors">
+                    <a href="https://kilatjs.pages.dev" class="rv spot group block bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/50 transition-colors">
                         <div class="flex flex-col md:flex-row md:items-center gap-5 justify-between">
                             <div>
-                                <div class="font-mono text-xs text-gray-600 mb-2">multi-runtime replication · Go / Bun / Node</div>
-                                <h3 class="font-display font-bold text-2xl text-gray-100 group-hover:text-cyan-400 transition">hook-sync</h3>
-                                <p class="mt-2 text-gray-400 max-w-2xl">Multi-runtime SQLite replication. Same wire protocol, 3 topologies — point-to-point, full mesh, dedicated hub.</p>
+                                <div class="font-mono text-xs text-gray-600 mb-2">edge starter · cloudflare workers · <span class="text-cyan-600">live docs ↗</span></div>
+                                <h3 class="font-display font-bold text-2xl text-gray-100 group-hover:text-cyan-400 transition">kilat</h3>
+                                <p class="mt-2 text-gray-400 max-w-2xl">Edge-native full-stack starter: Hono + D1 + Inertia v3. Free-tier start, migrates to dulak when you outgrow it.</p>
                             </div>
-                            <div class="flex gap-7 font-mono text-sm shrink-0"><div><div class="text-cyan-400 font-bold text-xl">31K</div><div class="text-gray-600 text-xs">batch QPS</div></div></div>
+                            <div class="flex gap-7 font-mono text-sm shrink-0"><div><div class="text-cyan-400 font-bold text-xl">300+</div><div class="text-gray-600 text-xs">edge locs</div></div><div><div class="text-cyan-400 font-bold text-xl">0</div><div class="text-gray-600 text-xs">servers</div></div></div>
                         </div>
                     </a>
                     <a href="https://github.com/maulanashalihin/laju" class="rv spot group block bg-[#0F131A] border border-[#2A2F3A] rounded-3xl p-8 hover:border-cyan-500/50 transition-colors">
@@ -295,7 +291,7 @@ import BackToTop from "../components/BackToTop.astro";
                     </a>
                 </div>
                 <a href="https://github.com/maulanashalihin" class="rv flex items-center justify-between border border-dashed border-[#2A2F3A] rounded-2xl px-6 py-4 text-gray-500 hover:text-cyan-300 hover:border-cyan-500/40 transition font-mono text-sm">
-                    <span>75+ repos MIT licensed · selasar · kilat · learn-api · laju-go · tusdfiber…</span>
+                    <span>75+ repos MIT licensed · selasar · hook-sync · learn-api · laju-go · tusdfiber…</span>
                     <span>github <i data-lucide="arrow-right" class="inline w-4 h-4"></i></span>
                 </a>
             </section>
